@@ -1,0 +1,2 @@
+# ideal
+Ideal wordpress Theme
