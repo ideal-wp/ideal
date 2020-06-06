@@ -1,2 +1,2 @@
-# ideal
-Ideal wordpress Theme
+### ideal
+#Ideal wordpress Theme
