@@ -1,0 +1,11 @@
+/**
+*
+*
+*@package Ideal Admin Aarea
+*
+*/
+#toplevel_page_Ideal .wp-menu-image img, body #adminmenu .wp-menu-image img {
+  width: 20px;
+  opacity:0.64 !important;
+  padding-top: 6px;
+}

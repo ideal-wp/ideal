@@ -1,0 +1,17 @@
+.uk-navbar-container>.uk-container .uk-navbar-left {
+  margin-right: -15px;
+}
+.uk-navbar-container>.uk-container .uk-navbar-right {
+  margin-right: auto;
+  margin-left: unset;
+}
+.uk-navbar-right {
+  margin-right: auto;
+  margin-left: unset;
+}
+[class*=uk-navbar-dropdown-bottom] {
+  margin-top: unset;
+}
+.uk-navbar-item{
+  min-height: unset;
+}

@@ -1,0 +1,488 @@
+/*================= MASTER STYLESHEET =================================
+
+Theme Name:  Idela
+Description: Main styles 
+Version     :	1.0
+
+=======================================================================*/
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+
+  -. 	CSS Reset
+  -	Site Header
+    - Menu
+    - userMenu
+  - Site content
+  - Sidebar
+  - site page header
+  - blog
+  - forms
+  - comments
+  - hover underline 
+    
+
+----------------------------------------------------------------------------- */
+/*
+#   Css Reset
+==============================
+*/
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video,p{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+input[type="submit"]{-webkit-appearance:none}
+
+html{overflow-x:hidden;overflow-y:scroll;max-width:100%}
+
+body{max-width:100%;overflow-x:hidden;background:#fff;font-family:"Open Sans",sans-serif;color:#676767;position:relative}
+
+ol,ul{list-style:none}
+
+input[type="text"]::-ms-clear{display:none}
+
+sup{font-size:10px;vertical-align:super}
+
+sub{font-size:10px;vertical-align:sub}
+
+p:empty{display:none}
+
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+
+*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
+.uk-link, a:hover{text-decoration: none;}
+/*--------------------------------------------------------
+#                       	Site Header
+============================================================
+- Menu
+- userMenu 
+--------------------------------------------------------*/
+.ideal-nav {
+  z-index: 10;
+}
+.user-nav {
+  background: #333;
+}
+.user-nav p{
+  margin: 0;
+}
+.user-nav .uk-navbar-item {
+  color: #fff;
+}
+.user-nav .uk-navbar-item,
+.uk-navbar-nav > li > a,
+.uk-navbar-toggle {
+  min-height: 40px;
+}
+
+/*--------------------------------------------------------
+#	                 Site content
+--------------------------------------------------------*/
+
+#post-normal-c.uk-card-body {
+  padding: 15px 15px;
+  padding-top: 30px;
+}
+.single-post-fe-img {
+  margin: -40px -40px auto -40px;
+}
+#content-id-s {
+  margin-top: 15px;
+}
+@media (max-width: 990px) {
+  .single-post-fe-img {
+    margin: -30px -30px auto -30px;
+  }
+  .uk-card-body #content-id-s {
+    margin-right: -20px;
+    margin-left: -20px;
+  }
+}
+/*--------------------------------------------------------
+#                      Sidebar
+--------------------------------------------------------*/
+.side-bar {
+  z-index: 1;
+}
+#blog-sidebar.uk-container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/**
+======================= site page header =========================
+*/
+#blog-page-header-overlay {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+#archives-header-overlay{
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.id-bh-inner-wrap {
+  max-width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+.cat-post-header {
+  margin: 10px;
+  padding: 2px 10px 2px 10px;
+  border: 1px solid;
+  border-radius: 15px;
+}
+
+.id-breadcrumb {
+  font-size: 13px;
+}
+.id-archives-inner-wrap{
+  max-width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+.id-archives-inner-wrap {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+.id-bh-inner-wrap {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+/*
+
+==================  blog===========================
+
+*/
+
+.uk-article-title {
+  font-size: 25px;
+}
+
+.article-post-content .uk-card-body {
+  padding: 10px 15px;
+}
+.article-post-content .uk-card-default p,
+.uk-card p {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.article-post-content .uk-card-footer {
+  padding: 10px 10px;
+}
+.id-post-meta{
+ font-size: 13px;
+}
+/*---------single post-------------*/
+
+
+
+/*=======================forms====================*/
+
+body[data-form-submit="regular"],
+input[type="submit"],
+button[type="submit"],
+input[type="button"] {
+  border-radius: 4px !important;
+  border: none;
+  cursor: pointer;
+  width: auto;
+  color: #fff;
+  padding: 15px 20px;
+  font-weight: 600;
+  font-size: 14px;
+  -webkit-appearance: none;
+}
+/*=======================comments====================*/
+.uk-comment-list > :nth-child(n + 2) {
+  margin-top: 30px;
+}
+#id-comments .comment-respond {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 5px;
+}
+.id-comment-text {
+  margin-bottom: 10px;
+}
+.id-cookies {
+  margin: 10px;
+}
+.id-cookies input {
+  margin-right: 5px;
+}
+
+/* Images */
+
+.img-responsive {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0px auto;
+}
+.img-circle {
+  border-radius: 50%;
+}
+.img-circle {
+  border: unset;
+}
+
+.bypostauthor .img-circle {
+  border: 3px solid;
+}
+.children .img-circle {
+  border: unset;
+}
+ul > li .bypostauthor .img-circle {
+  border: 3px solid;
+}
+ul > li .bypostauthor ul > li .img-circle {
+  border: unset;
+}
+
+.children li .bypostauthor .img-circle {
+  border: 3px solid;
+}
+.uk-comment-body p {
+  float: left;
+}
+/* Comments */
+
+textarea,
+input {
+  border: 1px solid #e4e4e4;
+}
+textarea {
+  width: 100%;
+}
+.comment-list,
+.children {
+  list-style: none;
+}
+ul.children {
+  list-style: none;
+  padding-left: 0px;
+  margin-left: 0px;
+}
+.comment-wrap {
+  padding-bottom: 20px;
+  padding-top: 10px;
+  margin-bottom: 20px;
+  position: relative;
+}
+.comment .comment-wrap {
+  border-bottom: 1px solid #fff;
+  background: #f8f8f8;
+  padding-left: 5px;
+}
+.comment-wrap .comments-title {
+  padding-top: 60px;
+}
+.comment-wrap .comment-img {
+  float: left;
+  margin-right: 20px;
+  padding-bottom: 25px;
+}
+
+.comment-reply {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  padding: 5px 5px;
+  background: #f5f5f5;
+}
+
+.depth-2 .comment-wrap {
+  padding-left: 10px;
+  margin-left: 30px;
+  background: #f8f8f8;
+}
+.depth-3 .comment-wrap {
+  padding-left: 10px;
+  margin-left: 60px;
+}
+.depth-4 .comment-wrap {
+  padding-left: 10px;
+
+  margin-left: 65px;
+}
+.depth-5 .comment-wrap {
+  padding-left: 10px;
+  margin-left: 70px;
+}
+.depth-6 .comment-wrap {
+  padding-left: 10px;
+  margin-left: 75px;
+}
+.depth-7 .comment-wrap {
+  padding-left: 10px;
+  margin-left: 80px;
+}
+.depth-8 .comment-wrap {
+  padding-left: 10px;
+  margin-left: 85px;
+}
+.depth-9 .comment-wrap {
+  padding-left: 10px;
+  margin-left: 90px;
+}
+.depth-10 .comment-wrap {
+  padding-left: 10px;
+  margin-left: 95px;
+}
+#commentform #comment,
+#commentform #author,
+#commentform #email,
+#commentform #url {
+  display: block;
+  width: 100%;
+}
+
+/* Responsive */
+
+@media (max-width: 767px) {
+  .comment-list,
+  .children {
+    padding-left: 5px;
+  }
+  .comment-wrap .comment-img {
+    float: none;
+    margin: 0px;
+    width: 100%;
+    padding-bottom: 0px;
+  }
+  .comment-img > img {
+    display: block;
+    margin: 0px auto;
+  }
+  .comment-author,
+  .comment-author a,
+  .comment-date {
+    text-align: center;
+  }
+  .depth-2 .comment-wrap,
+  .depth-3 .comment-wrap,
+  .depth-4 .comment-wrap,
+  .depth-5 .comment-wrap,
+  .depth-6 .comment-wrap,
+  .depth-7 .comment-wrap,
+  .depth-8 .comment-wrap,
+  .depth-9 .comment-wrap,
+  .depth-10 .comment-wrap {
+    padding-left: 5px;
+    margin-left: 10px;
+  }
+  .comment-reply {
+    position: relative;
+    text-align: center;
+    display: block;
+    margin-top: 25px;
+  }
+}
+
+/*
+#    				- 404 not found
+==============================================
+*/
+
+.bg-404-img svg{
+  width: 100%;
+  height: 250px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  transform: translate(-63.054, -157.885);
+    fill: #000;
+}
+
+.pg-not-found {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.pg-not-found h2{
+  font-size: 60px;
+  margin: 30px;
+  font-family: sans-serif;
+  font-weight: 900;
+  line-height: 80px;
+}
+
+
+
+
+/*========================================================
+#    				- hover underline 
+--------------------------------------------------------*/
+#read-more a {
+  position: relative;
+  color: #000;
+  text-decoration: none;
+}
+#read-more a:before {
+  content: " ";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  bottom: -4px;
+  left: 0;
+  background-color: #000;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out 0s;
+}
+#read-more a:hover:before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+/*-------------------------*/
+
+/*========================================================
+#    				- Buttons 
+--------------------------------------------------------*/
+
+.id-button-primary{
+    color: #FFF;
+    position: relative;
+    top: 0;
+    margin-bottom: 10px;
+    opacity: 1;
+    display: inline-block;
+    box-shadow: 0 -3px rgba(0,0,0,0.1) inset;
+    -webkit-box-shadow: 0 -3px rgba(0,0,0,0.1) inset;
+    border-radius: 4px;
+}
+
+.uk-button .id-button-primary{
+  
+  -webkit-transition: opacity .45s cubic-bezier(0.25, 1, 0.33, 1), transform .45s cubic-bezier(0.25, 1, 0.33, 1), border-color .45s cubic-bezier(0.25, 1, 0.33, 1), color .45s cubic-bezier(0.25, 1, 0.33, 1), background-color .45s cubic-bezier(0.25, 1, 0.33, 1), box-shadow .45s cubic-bezier(0.25, 1, 0.33, 1);
+    
+  transition: opacity .45s cubic-bezier(0.25, 1, 0.33, 1), transform .45s cubic-bezier(0.25, 1, 0.33, 1), border-color .45s cubic-bezier(0.25, 1, 0.33, 1), color .45s cubic-bezier(0.25, 1, 0.33, 1), background-color .45s cubic-bezier(0.25, 1, 0.33, 1), box-shadow .45s cubic-bezier(0.25, 1, 0.33, 1);
+}
+
+.id-button-primary:hover{
+  opacity: .89;
+  box-shadow: 0px 15px 20px rgba(197, 199, 198, 0.69);;
+  color: #fff;
+  transform: translateY(-7px);
+  -webkit-transform:translateY(-7px);
+  
+}
+.id-button-primary i{
+  float: right;
+  transform: translateY(80%) translateX(30px);
+  -webkit-transform: translateY(80%) translateX(30px);
+}

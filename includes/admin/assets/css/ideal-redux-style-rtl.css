@@ -1,0 +1,112 @@
+/*
+*
+*ver=1.0.1
+*/
+
+
+#redux-header {
+    background-color: #3555ff!important;
+}
+.redux-container #redux-header{
+  padding: 0px !important;
+  border: 1px solid #163bff;
+  text-align: right;
+  color: #fff;
+}
+.redux-container #redux-header .display_header {
+  background: #163bff;
+  text-align: right;
+  box-sizing: border-box;
+  margin: 0!important;
+  display: block;
+  width: 270px;
+  padding: 20px 25px;
+  float: right;
+}
+.redux-container{
+  background:#23282d;
+}
+.redux-sidebar{
+  background:#23282d;
+}
+.redux-sidebar .redux-group-menu li a {
+  padding: 16px 4px 16px 25px;
+  background-color: #23282d;
+}
+body .redux-container  .redux-sidebar .redux-group-menu li a {
+  background-color: #23282d;
+  border-color: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.75);
+  text-shadow: none!Important;
+  opacity: 1;
+}
+
+html .redux-container .redux-sidebar .redux-group-menu * {
+  font-weight: 400!important;
+}
+html .redux-container .redux-sidebar .redux-group-menu > li > a .group_title {
+  font-weight: 600!important
+}
+
+html .redux-container  .redux-sidebar .redux-group-menu li.activeChild.hasSubSections ul.subsection li a, 
+.wp-customizer .redux-sidebar .redux-group-menu li.activeChild.hasSubSections ul.subsection li a {
+  background-color: #f6f6f6;
+  color: rgba(0,0,0,1);
+}
+html body .redux-container  .redux-sidebar .redux-group-menu li.activeChild.hasSubSections ul.subsection li a:hover {
+  background-color: #e9e9e9!important;
+  color: rgba(0,0,0,1)!important;
+}
+html .redux-container  .redux-sidebar .redux-group-menu li.activeChild.hasSubSections ul.subsection li.active a, 
+.wp-customizer .redux-sidebar .redux-group-menu li.activeChild.hasSubSections ul.subsection li.active a {
+  background-color: #f6f6f6!important;
+  color: rgba(0,0,0,1);
+  font-weight: 600!important;
+}
+html .redux-sidebar .redux-group-menu li.activeChild.hasSubSections ul.subsection li.active a span, 
+.wp-customizer .redux-sidebar .redux-group-menu li.activeChild.hasSubSections ul.subsection li.active a span {
+font-weight: 600!important;
+}
+
+html .redux-container .redux-sidebar .redux-group-tab-link-a i {
+  color: #9ea3a8;
+  text-shadow: none!important;
+}
+
+html .redux-container .redux-sidebar .redux-group-tab-link-li.activeChild i, 
+html .redux-container  .redux-sidebar .redux-group-tab-link-li.active i {
+  color: #3555ff!important;
+}
+
+
+body .redux-sidebar .redux-group-menu li > a:hover {
+  background-color: #32373c;
+  color: #fff;
+}
+html .redux-sidebar .redux-group-menu li.redux-group-tab-link-li.active > a, 
+html .redux-container .redux-sidebar .redux-group-menu li.activeChild.hasSubSections a  {
+  background-color: #fff;
+  color: #000;
+}
+html .redux-sidebar .redux-group-menu li.active.hasSubSections .active a:after, 
+html .redux-container  .redux-sidebar .redux-group-menu li.activeChild.hasSubSections .active a:after, 
+.wp-customizer .redux-sidebar .redux-group-menu li.active.hasSubSections .active a:after, 
+.wp-customizer .redux-sidebar .redux-group-menu li.activeChild.hasSubSections .active a:after {
+  display: none!important;
+}
+.redux-container .redux-main .form-table tr td .wbc_importer .theme .theme-actions {
+  -webkit-transition: opacity .1s ease-in-out;
+  transition: opacity .1s ease-in-out;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  top: auto;
+  height: 38px;
+  transform: none;
+  padding: 9px 10px 0;
+  background: rgba(244,244,244,.7);
+  border-left: 1px solid rgba(0,0,0,.05);
+}
+.redux-container .redux-action_bar .spinner {
+  float: right;
+}
