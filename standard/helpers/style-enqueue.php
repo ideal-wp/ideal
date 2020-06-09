@@ -3,6 +3,16 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+if ( ! class_exists( 'Redux' ) ) {
+  if ( ! function_exists( 'ideal_theme_version' ) ) {
+    function ideal_theme_version() {
+      $ver = wp_get_theme('Ideal')->get( 'Version' );
+      return $ver;
+    }
+  }
+} 
+
+
 add_action( 'wp_enqueue_scripts','ideal_load_style' );
 add_action( 'wp_enqueue_scripts','ideal_elements_style' );
 add_action( 'wp_enqueue_scripts','ideal_fonts_style' );

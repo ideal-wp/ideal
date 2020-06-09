@@ -3,38 +3,55 @@
  * The template for displaying single posts.
  *
  * @package ideal WordPress Theme
- * @version 1.0
+ * @version 1.0.0
  */
 // Exit if accessed directly
 if (!defined('ABSPATH')) {
     exit;
 }
+get_header();
+
 $ideal_options = get_ideal_theme_options();
-$is_sidebar = $ideal_options['is-post-sidebar'];
-$is_sticky = $ideal_options['i-sticky-sidebar'];
-$sidebar_position = $ideal_options['sidebar-position'];
-$is_cards = $ideal_options['post-cards'];
-$flex = null;
-$sid_sticky = null;
+$is_sidebar        = null;
+$is_sticky         = null;
+$sidebar_position  = null;
+$is_cards          = null;
+$flex              = null;
+$sid_sticky        = null;
 
+if ( class_exists( 'ReduxFramework' ) ){
 
-if ($is_sidebar == 1) {
+  $is_sidebar       = $ideal_options['is-post-sidebar'];
+  $is_sticky        = $ideal_options['i-sticky-sidebar'];
+  $sidebar_position = $ideal_options['sidebar-position'];
+  $is_cards         = $ideal_options['post-cards'];
+
+}else{
+
+  $is_sidebar        = 1 ;
+  
+}
+
+if ( !empty( $is_sidebar ) && $is_sidebar == 1 ) {
     $id_container = 'uk-container-expand';
 } else {
     $id_container = 'uk-container-small';
 }
 
-if ($sidebar_position == 'left') {
-    $flex = 'uk-flex-first@m';
+if ( ! empty( $sidebar_position ) && $sidebar_position == 'left' ) {
+
+   $flex = 'uk-flex-first@m';
+
 }else{
-  $flex = null;
+
+   $flex = null;
 }
 
-if ($is_sticky == 1) {
+if (! empty( $is_sticky ) && $is_sticky == 1) {
   
-  $sid_sticky = 'uk-sticky="offset: 100; bottom: #id-comments"';
+   $sid_sticky = 'uk-sticky="offset: 100; bottom: #id-comments"';
 }
-get_header();
+
 // Start the loop.
 while ( have_posts() ) : the_post();
 
@@ -47,7 +64,7 @@ if ( is_single() && 'post' == get_post_type() ) {
 ?>
 <div id="ideal-site-content" class="ideal-site-content uk-section">
   <div class="uk-container <?php echo $id_container; ?>">
-    <?php if ($is_sidebar == 1) {echo '
+    <?php if (! empty( $is_sidebar ) && $is_sidebar == 1 ) {echo '
       <div class=" uk-grid-column-small" uk-grid>
         <div class="id-con-warp uk-width-expand@m">
           <div class="uk-container">
@@ -68,24 +85,28 @@ if ( is_single() && 'post' == get_post_type() ) {
              */
             get_template_part( '/includes/template-parts/single-post/content', get_post_format() );
           
-            if ($is_cards == 1) {
+            if ( !empty($is_cards) && $is_cards == 1) {
                 echo '</div>';}
             // If comments are open or we have at least one comment, load up the comment template.
             if ( comments_open() || get_comments_number() ) : ?>
+
         <div id="id-comments" class="uk-section">
+
           <?php comments_template(); ?>
+
         </div>
         <?php
             endif;
-            // Previous/next post navigation.
-            
+          
+            ideal_comment_close();
+
         // End the loop.
-        endwhile;
-        ?>
+ endwhile; ?>
+
       </div>
     </article>
     <!--/single post-->
-    <?php if ($is_sidebar == 1) {echo '
+    <?php if (!empty($is_sidebar) && $is_sidebar == 1) {echo '
           </div>
         </div><!--/id-con-warp-->
         <div class="uk-width-1-4@m uk-width-1-4@l '.$flex.'">

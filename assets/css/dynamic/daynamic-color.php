@@ -12,9 +12,7 @@
 if (!defined('ABSPATH')) {
   exit;
 }
-if ( ! class_exists( 'Redux' ) ) {
-  return;
-}  
+
 $ideal_options = get_ideal_theme_options();
 $featured_options = $ideal_options['post-img-background' ] ;
 
@@ -100,6 +98,17 @@ a:hover{
 }
 .bg-404-img svg .st7, .bg-404-img svg .st1 {
   fill: '.  $ideal_options['id-secondary-color'] .';
+}
+';
+/*------------------------------------------------------------------------
+#                       body Elements                         #
+-------------------------------------------------------------------------*/
+echo'
+address::before,blockquote:before{
+  color: '.  $ideal_options['id-secondary-color'] .';
+}
+blockquote,address{
+  border-color: '.  $ideal_options['id-primary-color'] .';
 }
 ';
 /*------------------------------------------------------------------------

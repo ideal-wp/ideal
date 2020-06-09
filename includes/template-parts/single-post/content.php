@@ -8,11 +8,22 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-$ideal_options = get_ideal_theme_options();
-$is_featured_image = $ideal_options['post-imge-in'];
-$is_cards = $ideal_options['post-cards'];
-$card_imge= null;
+$ideal_options     = get_ideal_theme_options();
+$is_featured_image = null;
+$is_cards          = null;
+$card_imge         = null;
 $featured_image    = null;
+
+if ( class_exists( 'ReduxFramework' ) ){
+    
+    $is_featured_image = $ideal_options['post-imge-in'];
+    $is_cards          = $ideal_options['post-cards'];
+  
+}else{
+
+    $is_featured_image = 1;
+    $is_cards          = 1;
+}
 
 if( $is_featured_image == 1 ){
     if ( has_post_thumbnail() ) {
@@ -40,5 +51,24 @@ if ($is_featured_image == 1 &&  $is_cards == 1 ){
 endif;
 ?> 
 <div id="content-id-s">
-<?php the_content(); ?>
+<?php 
+
+the_content();
+
+$defaults = array(
+    'before'           => '<ul class="uk-pagination">' . __( 'Pages:', 'ideal' ),
+    'after'            => '</ul>',
+    'link_before'      => '<li>',
+    'link_after'       => '</li>',
+    'next_or_number'   => 'number',
+    'separator'        => ' ',
+    'nextpagelink'     => esc_html__( 'Next page', 'ideal'),
+    'previouspagelink' => esc_html__( 'Previous page', 'ideal' ), 
+    'pagelink'         => '%',
+    'echo'             => 1
+);
+
+    wp_link_pages( $defaults );
+
+?>
 </div>

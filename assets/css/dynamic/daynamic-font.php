@@ -16,9 +16,7 @@
 if (!defined('ABSPATH')) {
     exit;
 }
-if ( ! class_exists( 'Redux' ) ) {
-  return;
-}  
+
 $ideal_options = get_ideal_theme_options();
 /*-------------------------------------------------------------------------
 #                              Body Font                                 #

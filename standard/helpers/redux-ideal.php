@@ -13,8 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 // Load redux and options.
 
 if ( ! class_exists( 'ReduxFramework' ) && file_exists( IDEAL_THEME_DIRECTORY . '/includes/admin/redux-framework/ReduxCore/framework.php' ) ) {
-	require_once IDEAL_THEME_DIRECTORY . '/includes/admin/redux-framework/ReduxCore/framework.php';
-
+	require_once IDEAL_THEME_DIRECTORY . '/includes/admin/framework/ReduxCore/framework.php';
 }
 // Allow child theme to disable AJAX saving.
 if( !function_exists('ideal_set_theme_options_ajax') ) {
@@ -26,7 +25,7 @@ $ideal_redux_ajax_saving = ideal_set_theme_options_ajax();
 $ideal_redux_ajax_saving_bool = ( false === $ideal_redux_ajax_saving ) ? false : true;
 
 if ( ! isset( $redux_demo ) && file_exists( IDEAL_THEME_DIRECTORY . '/includes/admin/options/options-config.php' ) ) {
-	require_once IDEAL_THEME_DIRECTORY . '/includes/admin/options/options-config.php';
+	require_once IDEAL_THEME_DIRECTORY . '/includes/admin/framework/config/options-config.php';
 }
 
 /**

@@ -15,21 +15,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 function get_breadcrumb() {
-	echo '<a href="'. home_url() .'" rel="nofollow">'. esc_html__('Home','ideal') .'</a>';
+	echo '<a href="'. esc_url( home_url() )  .'" rel="nofollow">'. esc_html__('Home','ideal') .'</a>';
 	if (is_category() || is_single()){
-		echo   ' » '  ;
+		echo  esc_html( ' &#8811; ' )  ;
 		the_category ( ', ' );
 			if (is_single()) {
-				echo   ' » ' ;
+				echo   esc_html( ' &#8811; ' ) ;
 				the_title();
 			}
 } elseif (is_page()) {
-		echo  ' » '  ;
+		echo  esc_html( ' &#8811; ' )  ;
 		echo the_title();
 	} elseif (is_search()) {
-		echo   ' » '  ;
-		echo '""<em>';
+		echo  esc_html( ' &#8811; ' )   ;
+		echo sc_html('""<em>');
 		echo the_search_query();
-		echo '</em>"';
+		echo sc_html('</em>"');
 	}
 }

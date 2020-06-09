@@ -7,11 +7,15 @@ if (!defined('ABSPATH')) {
   exit;
 }
 $ideal_options = get_ideal_theme_options();
-$is_cards = $ideal_options['add-cards-blog'];
 $category = get_the_category();
-$card = null;
+$is_cards = null;
+$card     = null;
 
-if ($is_cards == 1) {
+if ( class_exists( 'ReduxFramework' ) ){
+  $is_cards = $ideal_options['add-cards-blog'];
+
+}
+if ( !empty($is_cards) && $is_cards == 1) {
 
   $card = 'uk-card-default' ;
 }

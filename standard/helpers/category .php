@@ -42,16 +42,20 @@ function get_primary_category($category)
 
 function ideal_get_cattegory(){
     
-    
     $categories = get_the_category();
+
+    $output = null;
+
     if ( ! empty( $categories ) ) {
-        $output = null;
+
         foreach ( $categories as $category ) {
-        $output .= '<a  class="cat-post-header uk-link-reset uk-button' . esc_attr( $category->slug ) . '" href="' . esc_url( get_category_link( $category->term_id ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'ideal' ), $category->name ) ) . '" uk-tooltip="' . esc_attr( sprintf( __( 'View all posts in %s', 'ideal' ), $category->name ) ) .'" >' . esc_html( $category->name ) . '</a>';
+
+            $output .= '<div id="cat-post-header"> <a  class="cat-post-header uk-link-reset uk-button' . esc_attr( $category->slug ) . '" href="' . esc_url( get_category_link( $category->term_id ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'ideal' ), $category->name ) ) . '" uk-tooltip="' . esc_attr( sprintf( __( 'View all posts in %s', 'ideal' ), $category->name ) ) .'" >' . esc_html( $category->name ) . '</a> </div>';
         }
-        
+            
     }
     
     echo trim( $output );
+
     return;
 }

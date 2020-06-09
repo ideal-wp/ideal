@@ -13,9 +13,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-if ( ! class_exists( 'Redux' ) ) {
-    return;
-} 
+
 $ideal_options    = get_ideal_theme_options();
 $light_logo       = esc_url($ideal_options['header-t-logo-light-kmod']['url']);
 $dark_logo        = esc_url($ideal_options['header-t-logo-dark-kmod']['url']);
@@ -65,11 +63,15 @@ if($ideal_options['header-shadow-b'] == 'smal'){
     }
 
 /*-=========================[ Page Header ]=====================-*/
-
-echo'
-.blog-wrap-header,.archives-wrap-header{
-    padding-top: '.  $ideal_options['nav-ideal-height']['height'] .';
+if(! empty($ideal_options['transparent-header']) && $ideal_options['transparent-header'] == 1 ){
+    echo'
+    .blog-wrap-header,.archives-wrap-header{
+        padding-top: '.  $ideal_options['nav-ideal-height']['height'] .';
+    }
+    
+    ';
 }
+echo'
 
 .id-bh-inner-wrap{
     padding-top:'.  $ideal_options['post-header-hight']['padding-top'].';
@@ -96,5 +98,4 @@ echo'
     padding-top:'.  $ideal_options['page-padding-top-bottom']['padding-top'].';
     padding-bottom:'.  $ideal_options['page-padding-top-bottom']['padding-bottom'] .';
 }
-
 ';

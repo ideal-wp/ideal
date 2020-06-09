@@ -12,10 +12,13 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-if ( ! class_exists( 'Redux' ) ) {
-  return;
-}  
+
 $ideal_options  = get_ideal_theme_options();
+
+//content width  defined
+if ( ! isset( $content_width ) ){
+  $content_width = 900;
+} 
 
 function ideal_wp_theme_setup() {
 
@@ -43,14 +46,20 @@ function ideal_wp_theme_setup() {
 add_action( 'after_setup_theme', 'ideal_wp_theme_setup' );
 
 /**
- * Navigation menus
+ * Register Navigation menus
  */
 require_once IDEAL_THEME_DIRECTORY . '/standard/helpers/nav-menu.php';
 
 /**
- * sidebar
+ * Register sidebars
  */
 require_once IDEAL_THEME_DIRECTORY . '/standard/helpers/sidebar.php';
+
+/**
+ * 
+ *   Register sidebars Footer Widget Areas 
+ */ 
+require_once IDEAL_THEME_DIRECTORY . '/standard/helpers/footer-w.php';
 /**
  * comments walker
  */
@@ -70,11 +79,15 @@ require_once IDEAL_THEME_DIRECTORY . '/standard/helpers/category .php';
 require_once IDEAL_THEME_DIRECTORY . '/standard/helpers/breadcrumb.php';
 
 //disable the toolbar for the entire site no matter the user role or settings.
-if (  $ideal_options['switch-admin-bar'] == 0 ){
+
+if ( class_exists('Redux') && $ideal_options['switch-admin-bar'] == 0 ){
   add_filter('show_admin_bar', '__return_false');
-}else if( $ideal_options['switch-admin-bar'] == 1 ){
+
+}elseif( class_exists('Redux') && $ideal_options['switch-admin-bar'] == 1 ){
+
   add_filter('show_admin_bar', '__return_true');
 }
+
 
 //Filters the maximum number of words in a post excerpt.
 function ideal_custom_excerpt_length( $length ) {
@@ -83,7 +96,7 @@ function ideal_custom_excerpt_length( $length ) {
 add_filter( 'excerpt_length', 'ideal_custom_excerpt_length', 999 );
 
 // allow SVG files to be uploaded 
-if ($ideal_options['svag-allow-s'] == 1){
+if ( !empty($ideal_options['svag-allow-s']) && $ideal_options['svag-allow-s'] == 1){
 
   function ideal_svg_support( $mime_types = array() ){
     $mime_types['svg'] = 'image/svg+xml'; // Adding svg extension
@@ -138,7 +151,29 @@ if ( ! function_exists( 'ideal_disable_emoji_feature' ) ) {
     return $plugins;
     }
 }
-if ($ideal_options['switch-emojis-wp'] == 1){
+
+if (!empty( $ideal_options['switch-emojis-wp'] ) && $ideal_options['switch-emojis-wp'] == 1){
   add_action('init', 'ideal_disable_emoji_feature');
 }
 
+//Adding Page Number Pagination
+
+if( ! function_exists('ideal_pagination_bar') ){
+
+  function ideal_pagination_bar() {
+    global $wp_query;
+
+    $total_pages = $wp_query->max_num_pages;
+
+    if ($total_pages > 1){
+        $current_page = max(1, get_query_var('paged'));
+
+        echo paginate_links(array(
+            'base' => get_pagenum_link(1) . '%_%',
+            'format' => '/page/%#%',
+            'current' => $current_page,
+            'total'   => $total_pages,
+        ));
+    }
+  }
+}

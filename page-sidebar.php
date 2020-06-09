@@ -3,37 +3,45 @@
  * Ttemplate name: with Sidebar
  *
  * @package ideal WordPress Theme
- * @version 1.0
+ * @version 1.0.0
  */
 // Exit if accessed directly
+
 if (!defined('ABSPATH')) {
     exit;
 }
-$ideal_options = get_ideal_theme_options();
-$is_sidebar = $ideal_options['is-page-sidebar'];
-$is_sticky = $ideal_options['i-sticky-sidebar'];
-$sidebar_position = $ideal_options['sidebar-position'];
-$is_cards = $ideal_options['add-cards-page'];
-$flex = null;
-$sid_sticky = null;
 
-if ($is_sidebar == 1) {
-  $id_container = 'uk-container-expand';
-} else {
-  $id_container = 'uk-container-small';
+get_header();
+
+$ideal_options      = get_ideal_theme_options();
+$is_sidebar         = 1;
+$id_container       = 'uk-container-expand';
+$is_sticky          = null;
+$sidebar_position   = null;
+$is_cards           = null;
+$flex               = null;
+$sid_sticky         = null;
+
+if ( class_exists( 'ReduxFramework' ) ){
+
+    $is_sticky          = $ideal_options['i-sticky-sidebar'];
+    $sidebar_position   = $ideal_options['sidebar-position'];
+    $is_cards           = $ideal_options['add-cards-page'];
+  
 }
+if ( ! empty( $sidebar_position ) && $sidebar_position == 'left' ) {
 
-if ($sidebar_position == 'left') {
-  $flex = 'uk-flex-first@m';
+   $flex = 'uk-flex-first@m';
 }else{
-$flex = null;
+
+ $flex = null;
 }
 
-if ($is_sticky == 1) {
+if (! empty( $is_sticky ) && $is_sticky == 1 ) {
 
 $sid_sticky = 'uk-sticky="offset: 100; bottom: #id-comments"';
 }
-get_header();
+
 ?>
   <div id="ideal-site-content" class="ideal-site-content uk-section">
     <div class="uk-container <?php echo $id_container; ?>">
@@ -42,7 +50,7 @@ get_header();
           <div class="id-con-warp uk-width-expand@m">
             <div class="uk-container">
       ';}?>
-      <?php if ($is_cards == 1) {
+      <?php if ( ! empty( $is_cards ) && $is_cards == 1 ) {
       echo '<div class="uk-card uk-card-default uk-card-body">';}?>
 
 <?php

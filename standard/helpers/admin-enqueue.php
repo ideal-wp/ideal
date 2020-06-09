@@ -4,7 +4,7 @@
  *
  * @package Ideal WordPress Theme
  * @subpackage helpers
- * @version 1.0
+ * @version 1.0.0
  */
 // Exit if accessed this directly
 if ( ! defined( 'ABSPATH' ) ) {
@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 /**
  * Registers a stylesheets.
- * @since 1.0
+ * @since 1.0.0
  */
 function ideal_load_admin_style(){
 

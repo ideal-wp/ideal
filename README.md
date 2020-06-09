@@ -1,2 +1,4 @@
 ### ideal
-## Ideal wordpress Theme
+## An Ultra Responsive Multi-Purpose Wordpress Theme.
+
+

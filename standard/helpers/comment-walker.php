@@ -13,26 +13,30 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-
 // Enqueue js comment-reply
+if( ! function_exists( 'ideal_theme_comment_replay_scripts' ) ) {
 
-function ideal_theme_comment_replay_scripts() {
+	function ideal_theme_comment_replay_scripts() {
 
-  if ( ! is_admin() ) {
+		if ( ! is_admin() ) {
 
-		if (is_singular() && get_option('thread_comments')) { 
-			wp_enqueue_script('comment-reply'); 
+			if (is_singular() && get_option('thread_comments')) { 
+
+				wp_enqueue_script('comment-reply'); 
+				
+			}
 		}
 	}
 }
-
 add_action('wp_enqueue_scripts', 'ideal_theme_comment_replay_scripts');
 
 
 // Custom Callback
             
 function ideal_theme_comments($comment, $args, $depth) {
-	$GLOBALS['comment'] = $comment; ?>
+	
+	$GLOBALS['comment'] = $comment; 
+	?>
 	<li <?php comment_class(); ?> id="comment-<?php comment_ID() ?>">
 		<div class="comment-wrap uk-visible-toggle">
 			<div class="comment-img uk-comment-avatar">
@@ -49,3 +53,27 @@ function ideal_theme_comments($comment, $args, $depth) {
 			</div>
 		</div>
 <?php }
+ 
+ //Comments are closed
+
+if( ! function_exists( 'ideal_comment_close' )){
+
+	function ideal_comment_close(){
+
+		if (  
+			!   comments_open() 
+			&& !is_page() 
+			&& post_type_supports(get_post_type(), 'comments')
+			) : ?>
+
+					<div class="id-comment-post-close">
+					 <div class ="uk-placeholder">
+					 <?php esc_html_e('Comments are closed.', 'ideal'); ?>
+					 </div> 
+					</div>
+     <?php 
+		endif;
+
+	}
+
+}

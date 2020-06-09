@@ -11,13 +11,25 @@
 if (!('ABSPATH')) {
     exit;
 }
-$ideal_options    = get_ideal_theme_options();
+$ideal_options     = get_ideal_theme_options();
 $himg              = get_the_post_thumbnail_url();
-$enable_header    = $ideal_options['switch-blog-header'];
-$featured_options = $ideal_options['post-img-background'];
-$featured_img_h   = $ideal_options['post-img-background'];
+$enable_header     = null;
+$featured_options  = null;
+$featured_img_h    = null;
+
+if ( class_exists( 'ReduxFramework' ) ){
+
+  $enable_header    = $ideal_options['switch-blog-header'];
+  $featured_options = $ideal_options['post-img-background'];
+  $featured_img_h   = $ideal_options['post-img-background'];
+  
 
 
+}else{
+  
+  $enable_header = 1 ;
+  $featured_options = 0;
+}
 
 // if Enable Blog Header
 if ($enable_header == 1 && $featured_options == 1) {?>
@@ -66,8 +78,9 @@ if ($enable_header == 1 && $featured_options == 1) {?>
     <div class="uk-container uk-container-expand blog-wrap-header ">
       <!--start Blog Header-->
       <div class="id-bh-inner-wrap">
-        <?php if ( ( $post->post_type === 'post' && is_single() )) {ideal_get_cattegory();}?>
-        <a class=""></a>
+        <div class="id-cat-post-header">
+          <?php if ( ( $post->post_type === 'post' && is_single() )) {ideal_get_cattegory();}?>
+        </div>
         <h1 class="entry-title"> <?php echo esc_html( get_the_title() ); ?></h1>
         <div class="id-breadcrumb ">
           <?php get_breadcrumb();  ?>
@@ -75,14 +88,20 @@ if ($enable_header == 1 && $featured_options == 1) {?>
         <div class="id-post-info">
           <span class="fn uk-link-reset"><?php the_author_posts_link(); ?></span>
           <?php
+
           $id_u_time          = get_the_time( 'U' );
           $id_u_modified_time = get_the_modified_time( 'U' );
+
           if( $id_u_modified_time >= $id_u_time + 86400 ) {
+
             ?>
           <span class="meta-date date published"> | <i><?php echo get_the_date(); ?></i></span>
-          <span
-            class="meta-date date updated rich-snippet-hidden"><?php echo get_the_modified_time( __( 'F jS, Y' , 'ideal' ) ); ?></span>
-          <?php } else { ?>
+          <span class="meta-date date updated rich-snippet-hidden"><?php
+           echo get_the_modified_time( __( 'F jS, Y' , 'ideal' ) ); ?>
+          </span>
+          <?php 
+        } else { 
+          ?>
           <span class="meta-date date updated"> | <i><?php echo get_the_date(); ?></i></span>
           <?php } ?>
           <span> <i> | </i>

@@ -3,17 +3,22 @@
  * The template for displaying pages.
  *
  * @package ideal WordPress Theme
- * @version 1.0
+ * @version 1.0.0
  */
 // Exit if accessed directly
 if (!defined('ABSPATH')) {
     exit;
 }
-$ideal_options = get_ideal_theme_options();
-$is_cards = $ideal_options['add-cards-page'];
-
-
 get_header();
+
+$ideal_options = get_ideal_theme_options();
+$is_cards      = null;
+
+if( !empty($ideal_options['add-cards-page']) ){
+
+  $is_cards      = $ideal_options['add-cards-page'];
+
+}
 ?>
   <div id="ideal-pagecontent" class="ideal-page-content uk-section">
     <div class=" uk-container-expand">
@@ -36,10 +41,11 @@ if ( have_posts() ) :
             <?php comments_template(); ?>
           </div>
           <?php
+          
         endif;	
+
       endwhile;
 endif;
-
 
       ?>
     </div>

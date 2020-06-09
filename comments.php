@@ -22,9 +22,9 @@ $consent       = empty( $commenter['comment_author_email'] ) ? '' : ' checked="c
 <?php if ( have_comments() ) : ?>
 	<h3 id="comments"><?php echo '<span><i>'. esc_html__("Join the discussion", 'ideal').'</i></span>' ?> <?php comments_number(esc_html__('No Comments','ideal'), esc_html__('One Comment', 'ideal'), esc_html__('% Comments', 'ideal') );?></h3>
 
-	<div class="navigation">
-		<div class="alignleft"><?php previous_comments_link() ?></div>
-		<div class="alignright"><?php next_comments_link() ?></div>
+	<div class="ideal-comment-pagination uk-pagination">
+		<div class="uk-margin-auto-right" ><?php esc_url( previous_comments_link() );  ?></div>
+		<div class="uk-margin-auto-left"><?php esc_url( next_comments_link() );  ?></div>
 	</div>
 
 	<ul class="uk-comment-list">
@@ -38,6 +38,10 @@ $consent       = empty( $commenter['comment_author_email'] ) ? '' : ' checked="c
     ?>
 		</ul>
 
+		<div class="ideal-comment-pagination uk-pagination">
+		<div class="uk-margin-auto-right uk-margin-small-left" ><?php esc_url( previous_comments_link() );  ?></div>
+		<div class="uk-margin-auto-left uk-margin-small-right"><?php esc_url( next_comments_link() );  ?></div>
+	</div>
  <?php else : // this is displayed if there are no comments so far ?>
 
 	<?php if ( comments_open() ) : ?>

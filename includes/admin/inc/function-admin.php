@@ -9,10 +9,19 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+/*
+if ( ! class_exists( 'Redux' ) ) {
+  function ideal_no_redux_maintenance_mode() {
+    get_template_part('includes/admin/inc/welcome/site-maintenance');
+    }
+add_action('get_header', 'ideal_no_redux_maintenance_mode');
 
+} 
+*/
 
+require_once IDEAL_THEME_DIRECTORY . '/includes/admin/inc/welcome/first-setup.php';
 require_once  IDEAL_THEME_DIRECTORY . '/includes/admin/inc/js-dynamic.php';
-
+require_once IDEAL_THEME_DIRECTORY . '/includes/admin/notices/notices.php';
 
  
   
@@ -40,24 +49,13 @@ $ideal_core_options = get_ideal_theme_daynamic_options();
 
 //=========================================================
 
- //Create Admin Page
-function ideal_add_admin_page(){
+ //Create Admin theme Page
+function ideal_theme_page() {
 
-  add_menu_page( 'Ideal Option', 'IDEAL', 'manage_options', 'ideal_theme_options', 'ideal_theme_create_page', 'dashicons-smiley
-  ', 105 );
+  add_theme_page( 'Ideal WP Theme Settings', 'Ideal Settings', 'edit_theme_options', 'ideal-theme-options', 'ideal_option_page',10);
 }
+add_action( 'admin_menu', 'ideal_theme_page' );
 
-add_action( 'admin_menu','ideal_add_admin_page' );
-
-function ideal_theme_create_page(){
-  // Generation Ideal Admin Options Page
-      
-$taman = get_option('ideal'); 
- var_dump($taman['foo']);
- 
-
-
-
-
+function ideal_option_page() {
+    echo 'This is a test theme options page!';
 }
-

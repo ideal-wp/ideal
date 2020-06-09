@@ -16,8 +16,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $ideal_options            = get_ideal_theme_options();
 global $transparent_header;
-$transparent_header       = $ideal_options['transparent-header'];
+$transparent_header       = null;
 $is_transparent_header    = get_post_meta( get_the_ID(), 'is_header_trans', true );
+
+
+if(!empty($ideal_options['transparent-header'])){
+
+  $transparent_header       = $ideal_options['transparent-header'];
+
+}
 
 if ( $is_transparent_header == 'off' ){
   $transparent_header = 0 ;
@@ -26,7 +33,8 @@ if ( $is_transparent_header == 'off' ){
 }
 
 //Reveal a Sticky Header
-if( $ideal_options['reveal-header'] == 1 ){
+if( !empty($ideal_options['reveal-header'] ) && $ideal_options['reveal-header'] == 1 ){
+
   add_action( 'ideal_hook_before_header' , 'ideal_reveal_header_top' );
   add_action( 'ideal_hook_after_header' , 'ideal_reveal_header_after' );
 
@@ -51,7 +59,7 @@ if( $ideal_options['reveal-header'] == 1 ){
 }
 
 //Sticky Navbar fixed
-if(  $ideal_options['sticky-header'] == 1  &&   ! $ideal_options['reveal-header'] == 1 ) {
+if( !empty($ideal_options['sticky-header'] ) && $ideal_options['sticky-header'] == 1  &&   ! $ideal_options['reveal-header'] == 1 ) {
     add_action( 'ideal_hook_before_header' , 'ideal_reveal_header_top' , 1, 10 );
     add_action( 'ideal_hook_after_header' , 'ideal_reveal_header_after', 1 , 10 );
 
@@ -60,11 +68,12 @@ if(  $ideal_options['sticky-header'] == 1  &&   ! $ideal_options['reveal-header'
       global $transparent_header;
       global $ideal_options;
 
-      if(  $ideal_options['sticky-header'] == 1  &&  $transparent_header == 1 ) {
+      if( !empty($ideal_options['sticky-header']) && $ideal_options['sticky-header'] == 1  &&  $transparent_header == 1 ) {
 
         echo '<div uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent ' . $ideal_options['select-header-mod'] .' ; top: 200" class= "kimo">
         ';
-      }elseif(  $ideal_options['sticky-header'] == 1  && ! $transparent_header == 1 ) {
+      }elseif( !empty( $ideal_options['sticky-header'] ) && $ideal_options['sticky-header'] == 1  && ! $transparent_header == 1 ) {
+
         echo '<div uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky;  top: 200">';
 
       }
@@ -75,7 +84,7 @@ if(  $ideal_options['sticky-header'] == 1  &&   ! $ideal_options['reveal-header'
     function ideal_reveal_header_after(){
       echo '</div>';
     }
-}elseif(   $ideal_options['sticky-header'] == 1  &&  $ideal_options['reveal-header'] == 1 ){
+}elseif(  !empty($ideal_options['sticky-header']) && $ideal_options['sticky-header'] == 1  &&  $ideal_options['reveal-header'] == 1 ){
   /* do nothing */
 } 
 

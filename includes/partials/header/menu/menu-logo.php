@@ -10,19 +10,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 $ideal_options  = get_ideal_theme_options();
 $is_trans       = get_post_meta( get_the_ID(), 'is_header_trans', true );
-$site_url       = esc_url(get_bloginfo( 'url' ));
+$site_url       = esc_url(home_url());
 $logo_site_name = get_bloginfo( 'name' );
-$menu_logo_img  = $ideal_options['logo-img-menu'];
-$logo_height    = $ideal_options['logo-ss-height']['height'];
-$logo           = '';
 
-if( $menu_logo_img == 0){
+$logo           = null;
+
+if( !class_exists( 'ReduxFramework' )){
+
+  $menu_logo_img  = 0;
+  $logo_height    = null;
+
+}else{
+  $menu_logo_img  = $ideal_options['logo-img-menu'];
+  $logo_height    = $ideal_options['logo-ss-height']['height'];
+}
+
+if( $menu_logo_img == 0 ){
   $logo = $logo_site_name;
   $case='0';
 }
 
-
-if( $menu_logo_img == 1){
+if( !empty($menu_logo_img) && $menu_logo_img == 1){
   
   
     ?><a id="logo" class="uk-navbar-item uk-logo site-logo" href="<?php echo $site_url ?>">

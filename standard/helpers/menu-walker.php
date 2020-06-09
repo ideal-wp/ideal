@@ -178,7 +178,7 @@
 				$fb_output .= ' class="' . $menu_class . '"';
 				
 				$fb_output .= '>';
-				$fb_output .= '<li><a href="' . admin_url( 'nav-menus.php' ) . '">'. __('Add a menu', 'your themename') .'</a></li>';
+				$fb_output .= '<li><a href="' . admin_url( 'nav-menus.php' ) . '">'. __('Add a menu', 'ideal') .'</a></li>';
 				$fb_output .= '</ul>';
 				
 				if ( $container )
@@ -538,7 +538,7 @@
 				$fb_output .= ' class="' . $menu_class . '"';
 				
 				$fb_output .= '>';
-				$fb_output .= '<li><a href="' . admin_url( 'nav-menus.php' ) . '">'. __('Add a menu', 'Lajuma 2019') .'</a></li>';
+				$fb_output .= '<li><a href="' . admin_url( 'nav-menus.php' ) . '">'. __('Add a menu', 'ideal') .'</a></li>';
 				$fb_output .= '</ul>';
 				
 				if ( $container )
@@ -589,7 +589,7 @@
 				<div class="uk-container uk-width-7-10 uk-text-center">
 					<div class="uk-section-large">
 						<?php if ( has_nav_menu( 'modal-menu' ) ) : ?>
-						<h3><?php _e('Menu', 'modal-menu'); ?></h3>
+						<h3><?php _e('Menu', 'ideal'); ?></h3>
 						<?php 
 							wp_nav_menu( array(
 							'menu'              => 'modal-menu',

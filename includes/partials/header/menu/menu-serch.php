@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 $ideal_options = get_ideal_theme_options();
 // if Enable Search icon in Navbar
-if( $ideal_options['search-icon-nav'] == '1'){
+if( !empty( $ideal_options['search-icon-nav'] ) && $ideal_options['search-icon-nav'] == '1'){
   add_action('ideal_search_innav' ,'ideal_nav_serch',1 );
 }
 /**
@@ -28,17 +28,17 @@ function ideal_nav_serch(){
   global $search_f;
   global $ideal_options;
   
-  if( $ideal_options['shearch-nav-mod'] == 'overlay'){ //1- overlay icon
+  if( !empty($ideal_options['shearch-nav-mod']) && $ideal_options['shearch-nav-mod'] == 'overlay'){ //1- overlay icon
     echo '
       <a class="uk-navbar-toggle"  uk-toggle="target: .nav-overlay; animation: uk-animation-fade" href="#" uk-icon="icon:search; ratio: 1.1"></a>
     ';
 
-  }elseif( $ideal_options['shearch-nav-mod'] == 'modal'){  // if 2- modal icon
+  }elseif( !empty($ideal_options['shearch-nav-mod']) && $ideal_options['shearch-nav-mod'] == 'modal'){  // if 2- modal icon
     echo'
     <a class="uk-navbar-toggle" href="#modal-full" uk-search-icon uk-toggle></a>
     ';
     
-  }elseif( $ideal_options['shearch-nav-mod'] == 'dropdown'){
+  }elseif( !empty($ideal_options['shearch-nav-mod']) && $ideal_options['shearch-nav-mod'] == 'dropdown'){
     // if 3- dropdown add icon + form
     echo'
     <a class="uk-navbar-toggle" href="#" uk-search-icon></a>
@@ -61,7 +61,7 @@ function ideal_nav_serch(){
 
 } 
 
-if( $ideal_options['shearch-nav-mod'] == 'overlay'){//if 1- overlay add form
+if( !empty($ideal_options['shearch-nav-mod']) && $ideal_options['shearch-nav-mod'] == 'overlay'){//if 1- overlay add form
 ?>
 <div class="nav-overlay uk-navbar-left uk-flex-1" hidden>
   <div class="uk-navbar-item uk-width-expand">
@@ -73,7 +73,7 @@ if( $ideal_options['shearch-nav-mod'] == 'overlay'){//if 1- overlay add form
   </div>
   <a class="uk-navbar-toggle" uk-close uk-toggle="target: .nav-overlay; animation: uk-animation-fade" href="#"></a>
 </div>
-<?php }elseif( $ideal_options['shearch-nav-mod'] == 'modal'){
+<?php }elseif( !empty($ideal_options['shearch-nav-mod']) && $ideal_options['shearch-nav-mod'] == 'modal'){
    // if 2- modal add form 
   ?>
 <div id="modal-full" class="uk-modal-full uk-modal" uk-modal>

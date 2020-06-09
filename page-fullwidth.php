@@ -11,21 +11,26 @@ if (!defined('ABSPATH')) {
 }
 
 get_header();
+
 ?>
 <div id="ideal-pagecontent" class="ideal-page-content uk-section uk-padding-remove">
-  <div class=" uk-container-expand">
+  <div class="uk-container-expand">
     <?php  
 
 if ( have_posts() ) :
-      while ( have_posts() ) :
-        
+
+    while ( have_posts() ) :
+      
         the_post();
+
         the_content();
-      endwhile;
+
+    endwhile;
 endif;
 
 ?>
   </div>
 </div>
 <?php
+
 get_footer();

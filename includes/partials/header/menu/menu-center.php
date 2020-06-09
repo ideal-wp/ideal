@@ -10,7 +10,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
   $ideal_options  = get_ideal_theme_options();
+  $menu = null;
+
+if( ! empty($ideal_options['header-layout'])){
+  
   $menu = $ideal_options['header-layout'];
+
+}
 
 get_template_part( '/includes/partials/header/menu/menu', 'serch' );
 ?><div class="uk-navbar-left nav-overlay">

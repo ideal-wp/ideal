@@ -3,32 +3,31 @@
 * The template for displaying 404 not found.
 *
 * @package ideal WordPress Theme
-* @version 1.0
+* @version 1.0.0
 */
 // Exit if accessed directly
 if (!defined('ABSPATH')) {
    exit;
 }
+get_header();
+if ( ! class_exists( 'Redux' ) ) {return; } 
+
 $ideal_options = get_ideal_theme_options();
-$page_404_bg_image = IDEAL_THEME_DIRECTORY.'/assets/images/page-not-found.svg';
+$page_404_bg_image = IDEAL_THEME_DIR_URI.'/assets/images/page-not-found.svg';
 $page_404_bg_image_overlay = null;
 
-get_header();
+
 ?>
 <div id="ideal-site-content" class="ideal-site-content uk-section">
   <div class="uk-container uk-container-expand ">
 
     <?php
+     if ( ! empty( $page_404_bg_image ) ) {
 
-
-
-      if ( ! empty( $page_404_bg_image ) ) {
-
-        echo '<div class="bg-404-img">
+        echo '<div class="bg-404-img" style="background-image: url('.$page_404_bg_image .'); background-repeat: no-repeat;">';
         
-        '. file_get_contents("$page_404_bg_image") .'
-        
-        </div>';
+
+        echo  '</div>';
 
         if ( ! empty( $page_404_bg_image_overlay ) ) {
 

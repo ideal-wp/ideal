@@ -7,8 +7,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 $ideal_options = get_ideal_theme_options();
 
 
-$menu = $ideal_options['header-layout'];
-
+$menu = 0;
+ 
+if( ! empty( $ideal_options['header-layout'] )){
+  $menu = $ideal_options['header-layout'];
+}
 
 switch ($menu){
     case '1':
@@ -31,6 +34,12 @@ switch ($menu){
       get_template_part( '/includes/partials/header/menu/menu', 'canvs' );
 
     break;
+
+    default:
+    get_template_part( '/includes/partials/header/menu/menu', 'left' );
+    
+    break;
+
 }
 ?>
   
