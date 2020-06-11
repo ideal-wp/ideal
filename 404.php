@@ -10,7 +10,7 @@ if (!defined('ABSPATH')) {
    exit;
 }
 get_header();
-if ( ! class_exists( 'Redux' ) ) {return; } 
+
 
 $ideal_options = get_ideal_theme_options();
 $page_404_bg_image = IDEAL_THEME_DIR_URI.'/assets/images/page-not-found.svg';

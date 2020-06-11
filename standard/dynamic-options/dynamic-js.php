@@ -24,10 +24,10 @@ $ideal_options = get_ideal_theme_options();
   }else{
     $cc_v = $ideal_theme->get( 'Version' );
   }
-  define( 'IDEAL_THEME_VERSION', $cc_v );
+  define( 'IDEAL_ATHEME_VERSION', $cc_v );
 
   function ideal_dynamic_js_enqueue() {
-      wp_enqueue_script( 'ideal-dynamic-js', admin_url( 'admin-ajax.php' ).'?action=dynamic_js&_wpnonce=' . wp_create_nonce( 'dynamic-js-nonce' ), array('jquery'),  IDEAL_THEME_VERSION,true );
+      wp_enqueue_script( 'ideal-dynamic-js', admin_url( 'admin-ajax.php' ).'?action=dynamic_js&_wpnonce=' . wp_create_nonce( 'dynamic-js-nonce' ), array('jquery'),  IDEAL_ATHEME_VERSION,true );
   }
   function ideal_dynamic_js() { 
 

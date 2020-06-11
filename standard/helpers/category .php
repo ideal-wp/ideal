@@ -32,7 +32,7 @@ function get_primary_category($category)
         // Display category
         if (!empty($category_display)) {
             if ($useCatLink == true && !empty($category_link)) {
-                return '<a href="'. esc_url($category_link) .'">' . esc_html($category_display) . '</a>';
+                return '<a href="' . esc_url($category_link) . '">' . esc_html($category_display) . '</a>';
             } else {
                 return '' . esc_html($category_display) . '';
             }
@@ -40,22 +40,23 @@ function get_primary_category($category)
     }
 }
 
-function ideal_get_cattegory(){
-    
+function ideal_get_cattegory()
+{
+
     $categories = get_the_category();
 
     $output = null;
 
-    if ( ! empty( $categories ) ) {
+    if (!empty($categories)) {
 
-        foreach ( $categories as $category ) {
+        foreach ($categories as $category) {
 
-            $output .= '<div id="cat-post-header"> <a  class="cat-post-header uk-link-reset uk-button' . esc_attr( $category->slug ) . '" href="' . esc_url( get_category_link( $category->term_id ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'ideal' ), $category->name ) ) . '" uk-tooltip="' . esc_attr( sprintf( __( 'View all posts in %s', 'ideal' ), $category->name ) ) .'" >' . esc_html( $category->name ) . '</a> </div>';
+            $output .= '<div id="cat-post-header"> <a  class="cat-post-header uk-link-reset uk-button' . esc_attr($category->slug) . '" href="' . esc_url(get_category_link($category->term_id)) . '" alt="' . esc_attr(sprintf(__('View all posts in %s', 'ideal'), $category->name)) . '" uk-tooltip="' . esc_attr(sprintf(__('View all posts in %s', 'ideal'), $category->name)) . '" >' . esc_html($category->name) . '</a> </div>';
         }
-            
+
     }
-    
-    echo trim( $output );
+
+    echo trim($output);
 
     return;
 }

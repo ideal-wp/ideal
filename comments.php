@@ -19,16 +19,18 @@ $consent       = empty( $commenter['comment_author_email'] ) ? '' : ' checked="c
 
 <div class="comment-wrap " data-comments-open="<?php echo esc_attr($comments_open_attr); ?>">
 
-<?php if ( have_comments() ) : ?>
-	<h3 id="comments"><?php echo '<span><i>'. esc_html__("Join the discussion", 'ideal').'</i></span>' ?> <?php comments_number(esc_html__('No Comments','ideal'), esc_html__('One Comment', 'ideal'), esc_html__('% Comments', 'ideal') );?></h3>
+  <?php if ( have_comments() ) : ?>
+  <h3 id="comments"><?php echo '<span><i>'. esc_html__("Join the discussion", 'ideal').'</i></span>' ?>
+    <?php comments_number(esc_html__('No Comments','ideal'), esc_html__('One Comment', 'ideal'), esc_html__('% Comments', 'ideal') );?>
+  </h3>
 
-	<div class="ideal-comment-pagination uk-pagination">
-		<div class="uk-margin-auto-right" ><?php esc_url( previous_comments_link() );  ?></div>
-		<div class="uk-margin-auto-left"><?php esc_url( next_comments_link() );  ?></div>
-	</div>
+  <div class="ideal-comment-pagination uk-pagination">
+    <div class="uk-margin-auto-right"><?php esc_url( previous_comments_link() );  ?></div>
+    <div class="uk-margin-auto-left"><?php esc_url( next_comments_link() );  ?></div>
+  </div>
 
-	<ul class="uk-comment-list">
-			<?php wp_list_comments( array( 
+  <ul class="uk-comment-list">
+    <?php wp_list_comments( array( 
         'avatar_size' => 70,
         'style'       => 'ul',
         'callback'    => 'ideal_theme_comments',
@@ -36,26 +38,19 @@ $consent       = empty( $commenter['comment_author_email'] ) ? '' : ' checked="c
       ) 
     ); 
     ?>
-		</ul>
+  </ul>
 
-		<div class="ideal-comment-pagination uk-pagination">
-		<div class="uk-margin-auto-right uk-margin-small-left" ><?php esc_url( previous_comments_link() );  ?></div>
-		<div class="uk-margin-auto-left uk-margin-small-right"><?php esc_url( next_comments_link() );  ?></div>
-	</div>
- <?php else : // this is displayed if there are no comments so far ?>
+  <div class="ideal-comment-pagination uk-pagination">
+    <div class="uk-margin-auto-right uk-margin-small-left"><?php esc_url( previous_comments_link() );  ?></div>
+    <div class="uk-margin-auto-left uk-margin-small-right"><?php esc_url( next_comments_link() );  ?></div>
+  </div>
 
-	<?php if ( comments_open() ) : ?>
-		<!-- If comments are open, but there are no comments. -->
+  <?php else : // this is displayed if there are no comments so far ?>
 
-	 <?php else : // comments are closed ?>
-		<!-- If comments are closed. -->
-		<!--<p class="nocomments">Comments are closed.</p>-->
-
-	<?php endif; ?>
-<?php endif; ?>
+  <?php endif; ?>
 
 
-<?php if ( comments_open() ) : 
+  <?php if ( comments_open() ) : 
 
 $required_text = null;
 $comment_label = '<label for="comment">' . esc_html__('My comment is..', 'ideal') . '</label>';
@@ -66,12 +61,12 @@ $consent       = empty( $commenter['comment_author_email'] ) ? '' : ' checked="c
 $args = array(
   'id_form'           => 'commentform',
   'id_submit'         => 'submit',
-  'title_reply'       => __( 'Leave a Reply', 'ideal' ),
-  'title_reply_to'    => __( 'Leave a Reply to %s', 'ideal' ),
-  'cancel_reply_link' => __( 'Cancel Reply', 'ideal' ),
-  'label_submit'      => __( 'Submit Comment', 'ideal' ),
+  'title_reply'       => esc_html__( 'Leave a Reply', 'ideal' ),
+  'title_reply_to'    => esc_html__( 'Leave a Reply to %s', 'ideal' ),
+  'cancel_reply_link' => esc_html__( 'Cancel Reply', 'ideal' ),
+  'label_submit'      => esc_html__( 'Submit Comment', 'ideal' ),
     
-  'comment_field' =>  '<div class=""><div class="id-comment-text">'.$comment_label.'<textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" class="uk-textarea"></textarea></div>',
+  'comment_field' =>  '<div class="id-comment-text">'.$comment_label.'<textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" class="uk-textarea"></textarea></div>',
 
   'must_log_in' => '<p class="must-log-in">' .
     sprintf(
@@ -94,7 +89,7 @@ $args = array(
   'fields' => apply_filters( 'comment_form_default_fields', array(
 
     'author' =>
-      '<div class="">
+      '
       <div class="uk-grid-small" uk-grid> 
       <div    class="uk-width-1-3@s">' .
       '<label for="author">' . __( 'Name', 'ideal' ) .
@@ -115,7 +110,7 @@ $args = array(
       '" size="30" /></div></div>',
 			
 			'cookies' => '<div class="id-cookies"><p class="comment-form-cookies-consent"><input class="uk-checkbox" id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes"' . $consent . ' />' .
-      '<label for="wp-comment-cookies-consent">' . __( 'Save my name, email, and website in this browser for the next time I comment.', 'ideal' ) . '</label></p></div></div>'
+      '<label for="wp-comment-cookies-consent">' . __( 'Save my name, email, and website in this browser for the next time I comment.', 'ideal' ) . '</label></p></div>'
   
     )
   ),

@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
   <div class="push"></div>
 
   <div id="footer-outer" class="footer-outer">
-    <div class=" uk-container-expand uk-background-secondary">
+    <div id="footer-widget" class="footer-widgets uk-container-expand uk-background-secondary">
       <div class="uk-container uk-container-expand">
         <?php
         /* The footer widget area is triggered if any of the areas
@@ -36,7 +36,7 @@ if ( ! defined( 'ABSPATH' ) ) {
             && is_active_sidebar( 'fourth-footer-widget-area' )
         ) : ?>
         <div class="id-widget-area">
-          <div class="uk-grid-collapse uk-child-width-expand@s uk-background-secondary" uk-grid>
+          <div class="uk-grid-collapse uk-child-width-expand@s" uk-grid>
             <div class="first quarter left widget-area">
               <?php dynamic_sidebar( 'first-footer-widget-area' ); ?>
             </div><!-- .first .widget-area -->
@@ -58,7 +58,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         && ! is_active_sidebar( 'fourth-footer-widget-area' )
     ) : ?>
         <div class="id-widget-area">
-          <div class="uk-grid-collapse uk-child-width-expand@s uk-background-secondary" uk-grid>
+          <div class="uk-grid-collapse uk-child-width-expand@s " uk-grid>
             <div class="first one-third left widget-area">
               <?php dynamic_sidebar( 'first-footer-widget-area' ); ?>
             </div><!-- .first .widget-area -->
@@ -79,7 +79,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         && ! is_active_sidebar( 'fourth-footer-widget-area' )
     ) : ?>
         <div class="id-widget-area">
-          <div class="uk-grid-collapse uk-child-width-expand@s uk-background-secondary" uk-grid>
+          <div class="uk-grid-collapse uk-child-width-expand@s " uk-grid>
             <div class="first half left widget-area">
               <?php dynamic_sidebar( 'first-footer-widget-area' ); ?>
             </div><!-- .first .widget-area -->
@@ -96,7 +96,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     ) :
     ?>
         <div class="id-widget-area">
-          <div class="uk-grid-collapse uk-child-width-expand@s uk-background-secondary" uk-grid>
+          <div class="uk-grid-collapse uk-child-width-expand@s" uk-grid>
             <div class="first full-width widget-area">
               <?php dynamic_sidebar( 'first-footer-widget-area' ); ?>
             </div><!-- .first .widget-area -->

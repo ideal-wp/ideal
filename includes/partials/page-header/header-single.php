@@ -20,7 +20,7 @@ $featured_img_h    = null;
 if ( class_exists( 'ReduxFramework' ) ){
 
   $enable_header    = $ideal_options['switch-blog-header'];
-  $featured_options = $ideal_options['post-img-background'];
+  $featured_options = $ideal_options['post-img-background']; 
   $featured_img_h   = $ideal_options['post-img-background'];
   
 

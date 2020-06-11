@@ -37,7 +37,8 @@ function ideal_dynamic_sidebar() {
 			'before_title'  => '<h4 class="widgettitle">',
       'after_title'   => '</h4>',
     )
-  );
+	);
+	
   if ( class_exists( 'WooCommerce' ) ) {
 		register_sidebar(
 			array(

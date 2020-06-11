@@ -60,7 +60,7 @@ Redux::setSection( $opt_name, array(
             'desc'     => '',
             'on'       => esc_html__( 'Enable' , 'ideal' ),
             'off'      => esc_html__( 'Disable' , 'ideal' ),
-            'default'   => 1,
+            'default'   => '',
         ),//-----switch-blog-header
         array(
           'id'       => 'switch-to-background',
@@ -70,7 +70,7 @@ Redux::setSection( $opt_name, array(
           'desc'     =>'',
           'on'       => esc_html__( 'Enable' , 'ideal' ),
           'off'      => esc_html__( 'Disable' , 'ideal' ),
-          'default'   => 0,
+          'default'   => '',
         ),//-------switch-to-background
       array(
         'id'           => 's-post-header-bg',

@@ -37,15 +37,11 @@ if ($is_featured_image == 1 &&  $is_cards == 1 ){
 }
 
 ?>
-<?php if($is_featured_image == 1 ): ?>
+<?php if( has_post_thumbnail() && $is_featured_image == 1 ): ?>
 
         <div
-        class="uk-background-cover uk-background-center-center uk-height-medium uk-panel uk-flex uk-flex-center uk-flex-middle uk-background-norepeat uk-background-fixed <?php echo $card_imge ;?> "
+        class="uk-background-cover uk-background-center-center uk-height-medium uk-panel uk-flex uk-flex-center uk-flex-middle uk-background-norepeat <?php echo $card_imge ;?> "
         style="background-image:url(<?php echo $featured_image ;?>);">
-
-        <div class="uk-overlay uk-overlay-primary uk-position-bottom">
-            <?php the_title( '<h3>', '</h3>' ); ?>
-        </div>
         </div>
 <?php
 endif;

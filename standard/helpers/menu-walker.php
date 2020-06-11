@@ -14,7 +14,7 @@
 		*/
 		public function start_lvl( &$output, $depth = 0, $args = array() ) {
 			$indent = str_repeat( "\t", $depth );
-			$output .= "\n$indent<div class=\"uk-navbar-dropdown\">\n<ul role=\"menu\" class=\"uk-nav uk-navbar-dropdown-nav\">\n";
+			$output .= "\n$indent<div class=\"uk-navbar-dropdown\"uk-dropdown=\"animation: uk-animation-slide-top-small; duration: 500\">\n<ul role=\"menu\" class=\"uk-nav uk-navbar-dropdown-nav\" >\n";
 		}
 		
 		/**
@@ -55,7 +55,7 @@
 			$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
 			
 			if ( $args->has_children )
-			$class_names .= ' uk-parent';
+			$class_names .= ' uk-parent ';
 			
 			$dropdown = ''; /*
 				if ( $args->has_children && $depth == 0)
@@ -77,14 +77,14 @@
 			$atts['rel']    = ! empty( $item->xfn )		? $item->xfn	: '';
 			
 			// If item has_children add atts to a.
-			//if ( $args->has_children && $depth === 0 ) {
-				//$atts['href']          = '#';
-				// $atts['data-toggle']   = 'dropdown';
-				// $atts['class']         = 'dropdown-toggle';
-				// $atts['aria-haspopup'] = 'true';
-				//} else {
+			if ( $args->has_children && $depth === 0 ) {
+				$atts['href']          = ! empty( $item->url ) ? $item->url : '';
+				 $atts['data-toggle']   = 'dropdown';
+				 $atts['class']         = 'dropdown-toggle';
+				 $atts['aria-haspopup'] = 'true';
+				} else {
 				$atts['href'] = ! empty( $item->url ) ? $item->url : '';
-			//}
+			}
 			
 			$atts = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args );
 			
@@ -245,7 +245,7 @@
 			$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
 			
 			if ( $args->has_children )
-			$class_names .= ' uk-parent';
+			$class_names .= ' uk-parent has-children';
 			
 			$dropdown = ''; /*
 				if ( $args->has_children && $depth == 0)
@@ -562,7 +562,7 @@
 				wp_nav_menu( array(
 				'menu'              => 'mobile-menu',
 				'theme_location'    => 'mobile-menu',
-				'depth'             => 2,
+				'depth'             => 3,
 				'container'         => 'ul',
 				'items_wrap'        => '<ul id="%1$s" class="%2$s" uk-nav>%3$s</ul>',
 				'menu_class'        => 'uk-nav uk-nav-default uk-nav-parent-icon',
@@ -594,7 +594,7 @@
 							wp_nav_menu( array(
 							'menu'              => 'modal-menu',
 							'theme_location'    => 'modal-menu',
-							'depth'             => 2,
+							'depth'             => 3,
 							'container'         => 'ul',
 							'items_wrap'        => '<ul id="%1$s" class="%2$s" uk-nav>%3$s</ul>',
 							'menu_class'        => 'uk-text-large uk-text-bold uk-nav uk-navbar-dropdown-nav',
@@ -624,7 +624,7 @@
 			<?php wp_nav_menu( array(
 				'menu'              => 'top-menu',
 				'theme_location'    => 'top-menu',
-				'depth'             => 2,
+				'depth'             => 5,
 				'container'         => '',
 				'menu_class'        => 'uk-navbar-nav uk-visible@s',
 				'fallback_cb'       => 'uikit_top_w_menu::fallback',

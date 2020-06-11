@@ -2,6 +2,15 @@
 
 header("Content-type: text/javascript; charset: UTF-8");
 
+
+
+$screen = get_current_screen();
+  if( in_array( $screen->id, array( 'wp.customize' ) ) )
+  {
+      return;
+      
+  }
+
 $ideal_options           = get_ideal_theme_options();
 
 $id_primary      =  $ideal_options['id-primary-color'];
@@ -65,3 +74,4 @@ jQuery(document).ready(function(){
     };
 
 });
+

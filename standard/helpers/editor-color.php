@@ -6,18 +6,24 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( ! class_exists( 'Redux' ) ) {
   return;
 }  
+
 $ideal_options = get_ideal_theme_options();
 
-$id_gradient_prim_from = $ideal_options['id-color-gradient']['from'];
-$id_gradient_prim_to   = $ideal_options['id-color-gradient']['to'];
+if( empty( $ideal_options['id-color-gradient']['from'] ) ){
+  return;
+}
 
-$id_sub_gradient_from  = $ideal_options['id-sub-color-gradient']['from'];
-$id_sub_gradient_to    = $ideal_options['id-sub-color-gradient']['to'];
+  $id_gradient_prim_from = $ideal_options['id-color-gradient']['from'];
+  $id_gradient_prim_to   = $ideal_options['id-color-gradient']['to'];
 
-$id_primary             =  $ideal_options['id-primary-color'];
-$id_secondary           =  $ideal_options['id-secondary-color'];
-$id_sub_color           =  $ideal_options['id-sub-additional-color'];
-$id_sub_color_plus      =  $ideal_options['id-sub-plus-color'];
+  $id_sub_gradient_from  = $ideal_options['id-sub-color-gradient']['from'];
+  $id_sub_gradient_to    = $ideal_options['id-sub-color-gradient']['to'];
+
+  $id_primary             =  $ideal_options['id-primary-color'];
+  $id_secondary           =  $ideal_options['id-secondary-color'];
+  $id_sub_color           =  $ideal_options['id-sub-additional-color'];
+  $id_sub_color_plus      =  $ideal_options['id-sub-plus-color'];
+
 
 /* 
 

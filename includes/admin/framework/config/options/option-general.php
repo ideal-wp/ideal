@@ -28,20 +28,22 @@ Redux::setSection($opt_name, array(
         array(
             'id' => 'body-b-color',
             'type' => 'color',
+            'customizer' => true,
             'title' => esc_html__('General background color', 'ideal'),
             'subtitle' => esc_html__('Pick a background color for the theme (default: #fff).', 'ideal'),
             'transparent' => false,
-            'default' => '#FFFFFF',
+            'default' => '',
             'validate' => 'color',
         ),
         array(
             'id' => 'body-f-color',
             'type' => 'color',
+            'customizer' => true,
             'transparent' => false,
             'title' => esc_html__('General Font Color', 'ideal'),
             'subtitle' => esc_html__('Choose the general font color for the site (default: #333).', 'ideal'),
             'desc' => esc_html__('Overall Font Color', 'ideal'),
-            'default' => '#333',
+            'default' => '',
             'validate' => 'color',
 
         ),
@@ -62,6 +64,7 @@ Redux::setSection($opt_name, array(
             'id' => 'id-primary-color',
             'type' => 'color',
             'transparent' => false,
+            'customizer' => true,
             'title' => esc_html__('Primary Color', 'ideal'),
             'subtitle' => esc_html__('Choose the Primary Color for the site (default: #1e87f0).', 'ideal'),
             'desc' => esc_html__('Controls the main highlight color throughout the theme.', 'ideal'),
@@ -72,6 +75,7 @@ Redux::setSection($opt_name, array(
             'id' => 'id-secondary-color',
             'type' => 'color',
             'transparent' => false,
+            'customizer' => true,
             'title' => esc_html__('Secondary Color', 'ideal'),
             'subtitle' => esc_html__('Choose the Secondary Color for the site (default: #222222).', 'ideal'),
             'desc' => esc_html__('Controls the main highlight color throughout the theme.', 'ideal'),
@@ -82,6 +86,7 @@ Redux::setSection($opt_name, array(
             'id' => 'id-sub-additional-color',
             'type' => 'color',
             'transparent' => false,
+            'customizer' => true,
             'title' => esc_html__('Sub Additional Color', 'ideal'),
             'subtitle' => esc_html__('Applicable theme items will have an option to choose this as color.', 'ideal'),
             'desc' => '',
@@ -91,6 +96,7 @@ Redux::setSection($opt_name, array(
         array(
             'id' => 'id-sub-plus-color',
             'type' => 'color',
+            'customizer' => true,
             'transparent' => false,
             'title' => esc_html__('Sub Additional Color #2', 'ideal'),
             'subtitle' => esc_html__('Applicable theme items will have an option to choose this as color.', 'ideal'),
@@ -102,6 +108,7 @@ Redux::setSection($opt_name, array(
             'id' => 'id-color-gradient',
             'type' => 'color_gradient',
             'transparent' => false,
+            'customizer' => true,
             'title' => esc_html__('Color Gradient', 'ideal'),
             'subtitle' => esc_html__('Applicable theme elements will have the option to choose this as a color (i.e. buttons, icons etc..)', 'ideal'),
             'desc' => '',
@@ -126,7 +133,7 @@ Redux::setSection($opt_name, array(
     ),
 )
 );
-//==============================[ subsection More Extra Setting ]======================
+//===================[ subsection More Extra Setting ]======================
 
 Redux::setSection($opt_name, array(
     'title' => esc_html__('Extra Setting', 'ideal'),

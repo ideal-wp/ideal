@@ -22,7 +22,8 @@ $ideal_options = get_ideal_theme_options();
 
 
   function ideal_ad_dynamic_js_enqueue() {
-      wp_enqueue_script( 'ideal-ad-dynamic-js', admin_url( 'admin-ajax.php' ).'?action=ad_dynamic_js&_wpnonce=' . wp_create_nonce( 'dynamic-ad-js-nonce' ), array(), time() , true );
+
+      wp_enqueue_script( 'ideal-ad-dynamic-js', admin_url( 'admin-ajax.php' ).'?action=ad_dynamic_js&_wpnonce=' . wp_create_nonce( 'dynamic-ad-js-nonce' ), array('wp-tinymce'), time() , true );
   }
   function ideal_ad_dynamic_js() { 
 
@@ -38,5 +39,4 @@ $ideal_options = get_ideal_theme_options();
   }
   add_action( 'wp_ajax_ad_dynamic_js', 'ideal_ad_dynamic_js' );
   add_action( 'wp_ajax_nopriv_ad_dynamic_js', 'ideal_ad_dynamic_js' );
-  add_action( 'admin_enqueue_scripts', 'ideal_ad_dynamic_js_enqueue' ); 
-
+  add_action( 'admin_enqueue_scripts', 'ideal_ad_dynamic_js_enqueue' );

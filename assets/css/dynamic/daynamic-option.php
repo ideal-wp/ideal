@@ -52,7 +52,7 @@ if($ideal_options['header-shadow-b'] == 'smal'){
     #ideal-nav{
         -webkit-box-shadow: 0 0 3px 0 rgba(0,0,0,0.22);
         box-shadow: 0 0 3px 0 rgba(0,0,0,0.22);
-        } }';
+        } } ';
     }elseif($ideal_options['header-shadow-b'] == 'larg'){
         echo '
         @media screen and (min-width: 900px) {
@@ -60,7 +60,16 @@ if($ideal_options['header-shadow-b'] == 'smal'){
         webkit-box-shadow: 0 3px 45px rgba(0,0,0,0.15);
         box-shadow: 0 3px 45px rgba(0,0,0,0.15);
             } }';
+    }elseif( $ideal_options['header-shadow-b'] == 'non'){
+
+        echo '
+        @media screen and (min-width: 900px) {
+        #ideal-nav{
+        webkit-box-shadow: unset;
+        box-shadow: unset;
+            } }';
     }
+
 
 /*-=========================[ Page Header ]=====================-*/
 if(! empty($ideal_options['transparent-header']) && $ideal_options['transparent-header'] == 1 ){

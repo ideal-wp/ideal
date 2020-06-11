@@ -26,14 +26,15 @@ if ( !empty($is_cards) && $is_cards == 1) {
     <div class="article-post-content">
       <div>
         <div class="uk-card <?php echo $card ;?>">
+        <?php if ( has_post_thumbnail()) { ?>
           <div class="uk-card-media-top">
             <img src="<?php
                 $featured_img_url = get_the_post_thumbnail_url();
                 echo esc_url($featured_img_url) ; ?>" alt="">
           </div>
+        <?php } ?>
           <div class="uk-card-body">
-            <h3 class="uk-article-title"><a class="uk-link-reset" href="<?php the_permalink(); ?>"
-                title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
+            <h3 class="uk-article-title"><a class="uk-link-reset" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
             <div class="uk-grid-collapse uk-child-width-expand@s" uk-grid>
               <div>
                 <p class="uk-article-meta id-post-meta">
@@ -56,7 +57,10 @@ if ( !empty($is_cards) && $is_cards == 1) {
               </div>
             </div>
             <div class="id-excerpt uk-margin-smal-top">
-              <?php  the_excerpt(); ?>
+              <?php  the_excerpt( sprintf(
+              __( '&#26;', 'ideal' ),
+              the_title( '<span class="screen-reader-text">', '</span>', false )
+            ) ); ?>
             </div>
             <div class="id-rea-more">
               <a class="uk-button uk-button-text" href="<?php echo esc_url(get_permalink()); ?> ">

@@ -3,14 +3,15 @@
  * 
  *Ideal theme options configuration 
  * for redux framework
- * @since 1.0
+ * 
+ * @since 1.0.0
  */
 // Exit if accessed this directly
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if (!class_exists('Redux'))
+if ( ! class_exists('Redux'))
 {
 return;
 }
@@ -21,98 +22,62 @@ $theme    = wp_get_theme();
 
 
 $ideal_menu_icon = null;
+
     if( floatval(get_bloginfo('version')) >= "3.8" ) {
+
         $current_color = get_user_option( 'admin_color' );
+
         if( $current_color == 'light' ) {
+
             $ideal_menu_icon = get_template_directory_uri() . '/includes/admin/assets/img/icon/ideal-black.svg';
+
         } else {
+
             $ideal_menu_icon = get_template_directory_uri() . '/includes/admin/assets/img/icon/ideal-white.svg';
         }
     } 
 
  $args = array(
   'opt_name'             => $opt_name,
-  'disable_tracking' => true,
-  // This is where your data is stored in the database and also becomes your global variable name.
   'display_name'         => $theme->get( 'Name' ),
-  // Name that appears at the top of your panel
   'display_version'      => $theme->get( 'Version' ),
-  // Version that appears at the top of your panel
-  'templates_path' =>  get_template_directory() . '/includes/admin/framework/ReduxCore/templates/panel/',
-  'dev_mode'         => false,
-  'show_options_object' => false,
+  'templates_path'       =>  get_template_directory() . '/includes/admin/framework/ReduxCore/templates/panel/',
   'menu_type'            => 'menu',
-  //Specify if the admin menu should appear or not. Options: menu or submenu (Under appearance only)
-  'allow_sub_menu'       => true,
-  // Show the sections below the admin menu item or not
+  'dev_mode'             => false,
+  'show_options_object'  => false,
+  'allow_sub_menu'       => false,
   'menu_title'           => esc_html__( 'Ideal Control', 'ideal' ),
   'page_title'           => esc_html__( 'Ideal Options', 'ideal' ),
-  // You will need to generate a Google API key to use this feature.
-  // Please visit: https://developers.google.com/fonts/docs/developer_api#Auth
   'google_api_key'       => '',
-  // Set it you want google fonts to update weekly. A google_api_key value is required.
   'google_update_weekly' => false,
-  'ajax_save'            => $ideal_redux_ajax_saving_bool,
-  // Must be defined to add google fonts to the typography module
+  'ajax_save'            => true,
   'async_typography'     => false,
-  // Use a asynchronous font on the front end or font string
-  //'disable_google_fonts_link' => true,                    // Disable this in case you want to create your own google fonts loader
   'admin_bar'            => false,
-  // Show the panel pages on the admin bar
   'admin_bar_icon'       => 'dashicons-portfolio',
-  // Choose an icon for the admin bar menu
-  'admin_bar_priority'   => 110,
-  // Choose an priority for the admin bar menu
+  'admin_bar_priority'   => 55,
   'global_variable'      => '',
-  // Set a different name for your global variable other than the opt_name
   'dev_mode'             => false,
-  // Show the time the page took to load, etc
   'update_notice'        => false,
-  // If dev_mode is enabled, will notify developer of updated versions available in the GitHub Repo
-  'customizer'           => false,
-  // Enable basic customizer support
-  //'open_expanded'     => true,                    // Allow you to start the panel in an expanded way initially.
-  //'disable_save_warn' => true,                    // Disable the save warning when a user changes a field
-
-  // OPTIONAL -> Give you extra features
-  'page_priority'        => 110,
-  // Order where the menu appears in the admin area. If there is any conflict, something will not show. Warning.
-  'page_parent'          => 'themes.php',
-  // For a full list of options, visit: http://codex.wordpress.org/Function_Reference/add_submenu_page#Parameters
-  'page_permissions'     => 'manage_options',
-  // Permissions needed to access the options panel.
-  'menu_icon'            => $ideal_menu_icon,
-  // Specify a custom URL to an icon
+  'customizer'           => true,
+  //'customizer_only'      => true,
+  'disable_tracking'     => true,
+  'database'             => '',
   'last_tab'             => '',
-  // Force your panel to always open to a specific tab (by id)
+  'page_priority'        => 110,
+  'page_parent'          => 'themes.php',
+  'page_permissions'     => 'manage_options',
+  'page_slug'            => 'ideal-options',
+  'menu_icon'            => $ideal_menu_icon,
   'page_icon'            => '',
-  // Icon displayed in the admin panel next to your menu_title
-  'page_slug'            => '',
-  // Page slug used to denote the panel, will be based off page title then menu title then opt_name if not provided
-  'save_defaults'        => true,
-  // On load save the defaults to DB before user clicks save or not
+  'save_defaults'        => false,
   'default_show'         => false,
-  // If true, shows the default value next to each field that is not the default value.
   'default_mark'         => '',
-  // What to print by the field's title if the value shown is default. Suggested: *
   'show_import_export'   => true,
-  // Shows the Import/Export panel when not used as a field.
-
-  // CAREFUL -> These options are for advanced use only
   'transient_time'       => 60 * MINUTE_IN_SECONDS,
   'output'               => true,
-  // Global shut-off for dynamic CSS output by the framework. Will also disable google fonts output
   'output_tag'           => true,
-  // Allows dynamic CSS to be generated for customizer and google fonts, but stops the dynamic CSS from going to the head
-  'footer_credit'     => ' ',                   // Disable the footer credit of Redux. Please leave if you can help it.
-
-  // FUTURE -> Not in use yet, but reserved or partially implemented. Use at your own risk.
-  'database'             => '',
-  // possible: options, theme_mods, theme_mods_expanded, transient. Not fully functional, warning!
-  'use_cdn'              => false,
-  // If you prefer not to use the CDN for Select2, Ace Editor, and others, you may download the Redux Vendor Support plugin yourself and run locally or embed it in your code.
-  
-
+  'footer_credit'        => ' ',                
+  'use_cdn'              => false,  
   // HINTS
   'hints'                => array(
       'icon'             => 'el el-question-sign',
@@ -147,8 +112,11 @@ $ideal_menu_icon = null;
 
 // Panel Intro text -> before the form
 if ( ! isset( $args['global_variable'] ) || $args['global_variable'] !== false ) {
+    
   if ( ! empty( $args['global_variable'] ) ) {
+
       $v = $args['global_variable'];
+      
   } else {
       $v = str_replace( '-', '_', $args['opt_name'] );
   }
@@ -166,39 +134,8 @@ Redux::setArgs( $opt_name, $args );
 * ---> END ARGUMENTS
 */
 
-
-/* Extension Loader */
-if(!function_exists('redux_register_custom_extension_loader')) :
-      
-  function redux_register_custom_extension_loader($ReduxFramework) {
-      
-      $path = get_parent_theme_file_path('/includes/admin/framework/extensions/');
-      $folders = scandir( $path, 1 );
-          
-      foreach($folders as $folder) {
-          if ($folder === '.' or $folder === '..' or !is_dir($path . $folder) ) {
-              continue;   
-          } 
-          $extension_class = 'ReduxFramework_Extension_' . $folder;
-          if( !class_exists( $extension_class ) && 'wbc_importer' !== $folder ) {
-              // In case you wanted override your override, hah.
-              $class_file = $path . $folder . '/extension_' . $folder . '.php';
-              $class_file = apply_filters( 'redux/extension/'.$ReduxFramework->args['opt_name'].'/'.$folder, $class_file );
-              if( $class_file ) {
-                  require_once( $class_file );
-                  $extension = new $extension_class( $ReduxFramework );
-              }
-          }
-      }
-  }
-
-  // Modify {$redux_opt_name} to match your opt_name
-  add_action("redux/extensions/".$opt_name ."/before", 'redux_register_custom_extension_loader', 0);
-endif;
-
-
 // Write dynamic css.
-add_action ('redux/options/ideal_redux/saved', 'ideal_generate_options_css');
+add_action ('redux/options/ideal_redux/saved', 'dynamic_css_styles_method');
 
 
 // Allow child theme to disable sections from loading outside theme options 
@@ -241,18 +178,6 @@ get_template_part( 'includes/admin/framework/config/options/option', 'page');
      * <--- END SECTIONS
      */
 
-
-    /*
-     *
-     * YOU MUST PREFIX THE FUNCTIONS BELOW AND ACTION FUNCTION CALLS OR ANY OTHER CONFIG MAY OVERRIDE YOUR CODE.
-     *
-     */
-
-    /*
-    *
-    * --> Action hook examples
-    *
-    */
 
     // If Redux is running as a plugin, this will remove the demo notice and links
     //add_action( 'redux/loaded', 'remove_demo' );
@@ -336,7 +261,9 @@ get_template_part( 'includes/admin/framework/config/options/option', 'page');
      * so you must use get_template_directory_uri() if you want to use any of the built in icons
      * */
     if ( ! function_exists( 'dynamic_section' ) ) {
+
         function dynamic_section( $sections ) {
+
             //$sections = array();
             $sections[] = array(
                 'title'  => esc_html__( 'Section via hook', 'ideal' ),
@@ -354,6 +281,7 @@ get_template_part( 'includes/admin/framework/config/options/option', 'page');
      * Filter hook for filtering the args. Good for child themes to override or add to the args array. Can also be used in other functions.
      * */
     if ( ! function_exists( 'change_arguments' ) ) {
+
         function change_arguments( $args ) {
             //$args['dev_mode'] = true;
 

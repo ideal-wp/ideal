@@ -15,7 +15,10 @@ if ( ! function_exists( 'ideal_theme_version' ) ) {
 		return $ver;
 	}
 }
-
+if ( ! class_exists('Redux'))
+{
+return;
+}
 /**
  * Get Ideal theme options.
  * 

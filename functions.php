@@ -32,11 +32,6 @@ if ( ! function_exists( 'ideal_lang_setup' ) ) {
 
 require_once IDEAL_THEME_DIRECTORY . '/ideal/options-control.php';
 
-/**
- * Ideal Admin Theme Function and Options.
- */
-
-require_once IDEAL_THEME_DIRECTORY . '/includes/admin/inc/function-admin.php';
 
 /**
  * 
@@ -61,6 +56,13 @@ require_once IDEAL_THEME_DIRECTORY . '/standard/dynamic-options/daynamic-style.p
 require_once IDEAL_THEME_DIRECTORY . '/standard/dynamic-options/dynamic-js.php';
 
 /**
+ * Ideal Admin Theme Function and Options.
+ */
+
+require_once IDEAL_THEME_DIRECTORY . '/includes/admin/inc/function-admin.php';
+
+
+/**
  * 
  *Sets up theme defaults and registers support for various WordPress features.
  */
@@ -78,3 +80,5 @@ function ideal_hooks_init() {
 } 
 
 add_action( 'after_setup_theme', 'ideal_hooks_init', 10 );
+
+//------------------------

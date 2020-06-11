@@ -38,8 +38,21 @@ https://github.com/uikit/uikit.git
 Licensed under MIT ( https://github.com/uikit/uikit/blob/develop/LICENSE.md )
 
 = REDUX = 
-
 REDUX framework thanks dovy , kprovance and REDUX Developer team.
 Licensed under  GNU GENERAL PUBLIC LICENSE
 Version 3,( https://github.com/reduxframework/redux-framework/blob/master/license.txt)
+
+= select2 = 
+Licensed under MIT( https://github.com/select2/select2/blob/develop/LICENSE.md )
+
+= select2-bootstrap-theme =
+Licensed under MIT( https://github.com/select2/select2-bootstrap-theme/blob/master/LICENSE )
+
+= fontawesome-free-5 =
+ is free, open source, and GPL friendly
+License ( https://fontawesome.com/license/free)
+
+= Raleway Font =
+Licensed under SIL Open Font License (OFL) (https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL) , (https://fonts.google.com/specimen/Raleway#license)
+
 
