@@ -12,7 +12,7 @@ if ( post_password_required() ) {
 	return;
 }
 
-$ideal_options    = get_ideal_theme_options();
+$ideal_options    = ideal_get_theme_options();
 $comments_open_attr = (comments_open() || have_comments()) ? 'true' : 'false';
 $consent       = empty( $commenter['comment_author_email'] ) ? '' : ' checked="checked"';
 ?>
@@ -86,7 +86,7 @@ $args = array(
 
   'comment_notes_after' => '',
 
-  'fields' => apply_filters( 'comment_form_default_fields', array(
+  'fields' => apply_filters( 'ideal_comment_form_default_fields', array(
 
     'author' =>
       '

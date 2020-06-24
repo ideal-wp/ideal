@@ -9,7 +9,9 @@ if (!defined('ABSPATH')) {
     exit;
 }
 global $ideal_is_featured_image, $ideal_card_imge, $ideal_featured_image, $ideal_is_single_cards;
-if ($ideal_is_featured_image == true) {
+global $post;
+$posttype = get_post_type( $post );
+if ($ideal_is_featured_image == false) {
     if (has_post_thumbnail()) {
         $ideal_featured_image = get_the_post_thumbnail_url();
     }
@@ -19,7 +21,7 @@ if ($ideal_is_featured_image == true) {
 <?php if (!empty($ideal_is_single_cards) && $ideal_is_single_cards == true) {
     echo '<div class="uk-card uk-card-default ">';}
 
-if (has_post_thumbnail() && $ideal_is_featured_image == true): ?>
+if ( ( is_single() ) && ( $posttype === 'post' ) && has_post_thumbnail() && $ideal_is_featured_image == false): ?>
 <div
   class="uk-background-cover uk-background-center-center uk-height-medium uk-panel uk-flex uk-flex-center uk-flex-middle uk-background-norepeat uk-card-media-top <?php echo $ideal_card_imge; ?> "
   style="background-image:url(<?php echo $ideal_featured_image; ?>);">

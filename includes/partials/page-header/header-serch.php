@@ -22,7 +22,7 @@ if (!('ABSPATH')) {
           <div class="ar-entry-title">
             <h1 class=""> <?PHP esc_html_e( 'Search Results: ', 'ideal' ) .the_search_query()?></h1>
           </div>
-          <?php get_breadcrumb();  ?>
+          <?php ideal_get_breadcrumb();  ?>
         </div>
       </div>
     </div>

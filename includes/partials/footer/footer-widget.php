@@ -9,9 +9,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-
-
+$ideal_options  = ideal_get_theme_options();
+if(empty($ideal_options['to_top_remove_setting']) || $ideal_options['to_top_remove_setting'] == false){
 ?>
+ <div id="id-to-top" class="id-to-top uk-text-right@s uk-margin uk-text-center">
+      <a href="#" uk-totop uk-scroll uk-icon="uk-to-top">
+      </a>
+    </div>
+<?php } ?>
   <div class="push"></div>
 
   <div id="footer-outer" class="footer-outer">

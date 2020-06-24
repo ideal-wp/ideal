@@ -12,7 +12,7 @@ if (!defined('ABSPATH')) {
 get_header();
 
 
-$ideal_options = get_ideal_theme_options();
+$ideal_options = ideal_get_theme_options();
 $page_404_bg_image = IDEAL_THEME_DIR_URI.'/assets/images/page-not-found.svg';
 $page_404_bg_image_overlay = null;
 

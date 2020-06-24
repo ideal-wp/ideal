@@ -20,7 +20,7 @@ while (have_posts()): the_post();
     ?>
   <div id="ideal-site-content" class="ideal-site-content uk-section">
     <div class="uk-container <?php echo $ideal_id_container; ?>">
-      <?php if (!empty($ideal_is_sidebar) && $ideal_is_sidebar == true ) {?>
+      <?php if (empty($ideal_is_sidebar) || $ideal_is_sidebar == false ) {?>
       <div class=" uk-grid-column-small" uk-grid>
         <div class="id-con-warp uk-width-expand@m">
           <div class="uk-container">
@@ -29,18 +29,20 @@ while (have_posts()): the_post();
             <article id="post-<?php the_ID();?>" <?php post_class('uk-article');?>>
               <div class="article-inner-wrap">
                 <?php
-                  get_template_part('/includes/template-parts/single-post/content', get_post_format());?>
+                  get_template_part('/includes/template-parts/single-post/content', get_post_format());
+                  ideal_single_post_pagination(); 
+                  ?>
                 <div class="ideal-single-tags">
                   <?php if (has_tag()) {echo get_the_tag_list('<p>', ', ', '</p>');}?>
                 </div>
-                <?php 
+                <?php  ideal_box_athour_single_post();
                   ideal_comment_open();
                   ideal_comment_close();
 endwhile; // End the loop. ?>
               </div>
             </article>
             <!--/single post-->
-            <?php if (!empty($ideal_is_sidebar) && $ideal_is_sidebar == true ) {?>
+            <?php if (empty($ideal_is_sidebar) || $ideal_is_sidebar == false ) {?>
           </div>
         </div>
         <!--/id-con-warp-->

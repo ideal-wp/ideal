@@ -11,7 +11,7 @@
 if (!('ABSPATH')) {
     exit;
 }
-$ideal_options    = get_ideal_theme_options();
+$ideal_options    = ideal_get_theme_options();
 $id_taitel= null;
 
 if ( ! function_exists( 'ideal_archives_taitle' ) ) {
@@ -59,7 +59,7 @@ if ( ! function_exists( 'ideal_archives_taitle' ) ) {
           <div class="ar-entry-title">
             <h1 class=""> <?php ideal_archives_taitle(); ?></h1>
           </div>
-          <?php get_breadcrumb();  ?>
+          <?php ideal_get_breadcrumb();  ?>
         </div>
       </div>
     </div>

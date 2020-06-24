@@ -12,7 +12,7 @@
 if (!defined('ABSPATH')) {
     exit;
 }
-require_once get_stylesheet_directory() . '/standard/helpers/menu-walker.php';
+require_once IDEAL_THEME_DIRECTORY . '/standard/helpers/menu-walker.php';
 /**
  * Registers navigation menu locations for a theme.
  */

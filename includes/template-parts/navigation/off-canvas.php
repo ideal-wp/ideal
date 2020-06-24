@@ -7,7 +7,7 @@
  * @since 1.0.0
  * @version 1.0.0
  */
-$ideal_options = get_ideal_theme_options();
+$ideal_options = ideal_get_theme_options();
 $flip = null;
 
 if (!empty($ideal_options['mobile-o-c-modes'])) {
@@ -48,7 +48,7 @@ if (!empty($ideal_options['header-layout']) && $ideal_options['header-layout'] =
     <div class="ideal-mobile-menu" id="ideal-mobile-nav">
       <?php do_action('uikit_offcanvas_menu');?>
       <div>
-        <p>some text here lock</p>
+      <?php dynamic_sidebar( 'Off Canvas' ); ?>
       </div>
     </div>
   </div>
@@ -63,7 +63,7 @@ if (!empty($ideal_options['header-layout']) && $ideal_options['header-layout'] =
     <div class="ideal-mobile-menu" id="ideal-mobile-nav">
       <?php do_action('uikit_offcanvas_menu');?>
       <div>
-        <p>some text here lock</p>
+      <?php dynamic_sidebar( 'Off Canvas' ); ?>
       </div>
     </div>
   </div>

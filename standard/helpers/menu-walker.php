@@ -3,7 +3,7 @@
 		* Class Name: Ideal_top_menu
 		* Description: A custom WordPress nav walker class to implement UIkit menu markup
 	*/
-	class uikit_top_w_menu extends Walker_Nav_Menu {
+	class Ideal_Walker_Nav_Menu extends Walker_Nav_Menu {
 		
 		/**
 			* @see Walker::start_lvl()
@@ -20,7 +20,7 @@
 		/**
 			* Ends the list of after the elements are added.
 			*
-			* @see Walker_Nav_Menu::end_lvl()
+			* @see ::end_lvl()
 			*
 			* @since 3.0.0
 			*
@@ -190,10 +190,10 @@
 	}
 	
 	/**
-		* Class Name: uikit_primary_menu
+		* Class Name: Ideal_Uikit_Primary_Menu
 		* Description: A custom WordPress nav walker class to implement UIkit menu markup
 	*/
-	class uikit_primary_menu extends Walker_Nav_Menu {
+	class Ideal_Uikit_Primary_Menu extends Walker_Nav_Menu {
 		
 		/**
 			* @see Walker::start_lvl()
@@ -210,7 +210,7 @@
 		/**
 			* Ends the list of after the elements are added.
 			*
-			* @see Walker_Nav_Menu::end_lvl()
+			* @see ::end_lvl()
 			*
 			* @since 3.0.0
 			*
@@ -383,7 +383,7 @@
 		* Class Name: uikit_offcanvas_output
 		* Description: A custom WordPress nav walker class to implement UIkit menu markup
 	*/
-	class uikit_offcanvas_w_menu extends Walker_Nav_Menu {
+	class Ideal_Uikit_Offcanvas_W_Menu extends Walker_Nav_Menu {
 		
 		/**
 			* @see Walker::start_lvl()
@@ -562,8 +562,8 @@
 				'container'         => 'ul',
 				'items_wrap'        => '<ul id="%1$s" class="%2$s" uk-nav>%3$s</ul>',
 				'menu_class'        => 'uk-nav uk-nav-default uk-nav-parent-icon',
-				'fallback_cb'       => 'uikit_offcanvas_w_menu::fallback',
-				'walker'            => new uikit_offcanvas_w_menu()
+				'fallback_cb'       => 'Ideal_Uikit_Offcanvas_W_Menu::fallback',
+				'walker'            => new Ideal_Uikit_Offcanvas_W_Menu()
 			)); ?>
             
 			
@@ -594,8 +594,8 @@
 							'container'         => 'ul',
 							'items_wrap'        => '<ul id="%1$s" class="%2$s" uk-nav>%3$s</ul>',
 							'menu_class'        => 'uk-text-large uk-text-bold uk-nav uk-navbar-dropdown-nav',
-							'fallback_cb'       => 'uikit_offcanvas_w_menu::fallback',
-							'walker'            => new uikit_offcanvas_w_menu()
+							'fallback_cb'       => 'Ideal_Uikit_Offcanvas_W_Menu::fallback',
+							'walker'            => new Ideal_Uikit_Offcanvas_W_Menu()
 						)); ?>
 						<?php endif; ?>  
 						
@@ -612,16 +612,16 @@
 	/**
 		* Top menu
 	*/
-	function uikit_top_menu() { ?>	 
+	function ideal_uikit_top_menu() { ?>	 
 			<?php wp_nav_menu( array(
 				'menu'              => 'top-menu',
 				'theme_location'    => 'top-menu',
 				'depth'             => 5,
 				'container'         => '',
 				'menu_class'        => 'uk-navbar-nav uk-visible@s',
-				'fallback_cb'       => 'uikit_top_w_menu::fallback',
-				'walker'            => new uikit_top_w_menu())
+				'fallback_cb'       => 'Ideal_Walker_Nav_Menu::fallback',
+				'walker'            => new Ideal_Walker_Nav_Menu())
 			); ?>  
 		
 	<?php } 
-	add_action( 'uikit_top_menu', 'uikit_top_menu');
+	add_action( 'ideal_uikit_top_menu', 'ideal_uikit_top_menu');

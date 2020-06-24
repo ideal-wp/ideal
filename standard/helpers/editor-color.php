@@ -5,27 +5,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-$ideal_options = get_ideal_theme_options();
-$id_gradient_prim_from   = null;
-  $id_gradient_prim_to   = null;
-  $id_sub_gradient_from  = null;
-  $id_sub_gradient_to    = null;
-  $id_primary            = null;
-  $id_secondary          = null;
-  $id_sub_color          = null;
-  $id_sub_color_plus     = null;
+$ideal_options              = ideal_get_theme_options();
+$ideal_gradient_prim_from   = null;
+$ideal_gradient_prim_to     = null;
+$ideal_sub_gradient_from    = null;
+$ideal_sub_gradient_to      = null;
+$id_primary                 = null;
+$id_secondary               = null;
+$id_sub_color               = null;
+$id_sub_color_plus          = null;
 
 if( !empty
 ( $ideal_options['id-color-gradient']['from'] )&& !empty( $ideal_options['id-color-gradient']['to']) ){
 
-  $id_gradient_prim_from = $ideal_options['id-color-gradient']['from'];
-  $id_gradient_prim_to   = $ideal_options['id-color-gradient']['to'];
+  $ideal_gradient_prim_from = $ideal_options['id-color-gradient']['from'];
+  $ideal_gradient_prim_to   = $ideal_options['id-color-gradient']['to'];
 }
 
   if( !empty( $ideal_options['id-sub-color-gradient']['from']) && !empty( $ideal_options['id-sub-color-gradient']['to']) ){
 
-  $id_sub_gradient_from  = $ideal_options['id-sub-color-gradient']['from'];
-  $id_sub_gradient_to    = $ideal_options['id-sub-color-gradient']['to'];
+  $ideal_sub_gradient_from  = $ideal_options['id-sub-color-gradient']['from'];
+  $ideal_sub_gradient_to    = $ideal_options['id-sub-color-gradient']['to'];
 }
 if( !empty( $ideal_options['id_primary_color'])){
 
@@ -140,16 +140,16 @@ function toRGB($Hex){
   
   }
 
-//$RGB = toRGB($id_gradient_prim_from);
+//$RGB = toRGB($ideal_gradient_prim_from);
 
-$prim    = toRGB($id_gradient_prim_from);
-$prim_to = toRGB($id_gradient_prim_to);
+$prim    = toRGB($ideal_gradient_prim_from);
+$prim_to = toRGB($ideal_gradient_prim_to);
 
 $prim_out    = 'rgba( '. $prim['R']  .','. $prim['G'] .','. $prim['B'].',1)';
 $prim_to_out = 'rgba( '. $prim_to['R']  .','. $prim_to['G'] .','. $prim_to['B'].',1)';
 
-$sub     = toRGB($id_sub_gradient_from);
-$sub_to  = toRGB($id_sub_gradient_to);
+$sub     = toRGB($ideal_sub_gradient_from);
+$sub_to  = toRGB($ideal_sub_gradient_to);
 
 $sub_out    = 'rgba( '. $sub['R']  .','. $sub['G'] .','. $sub['B'].',1)';
 $sub_to_out = 'rgba( '. $sub_to['R']  .','. $sub_to['G'] .','. $sub_to['B'].',1)';

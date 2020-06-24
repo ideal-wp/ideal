@@ -23,9 +23,12 @@ function ideal_load_admin_style()
 
     wp_register_style('ideal_admin_style', get_template_directory_uri() . '/includes/admin/assets/css/style.css', array(), time(), 'all');
 
+    wp_register_style('ideal_ad_fontawesome', get_template_directory_uri() . '/assets/fonts/fontawesome/css/all.min.css', array(), ideal_theme_version(), 'all');
+
+
     wp_enqueue_style('ideal_uikit');
     wp_style_add_data('ideal_uikit', 'rtl', 'replace');
-
+    wp_enqueue_style('ideal_ad_fontawesome');
     wp_enqueue_style('ideal_admin_style');
 
 }
@@ -41,13 +44,20 @@ add_action('admin_enqueue_scripts', 'ideal_load_admin_style');
 function ideal_load_admin_scripts()
 {
 
-    wp_register_script('ideal_uikit_js', get_template_directory_uri() . '/assets/js/uikit.min.js', array(), '3.4.3', true);
+    wp_register_script('ideal_uikit_js', get_template_directory_uri() . '/assets/js/uikit/uikit.min.js', array(), '3.4.3', true);
 
-    wp_register_script('ideal_uikit_icon_js', get_template_directory_uri() . '/assets/js/uikit-icons.min.js', array(), '3.4.3', true);
+    wp_register_script('ideal_uikit_icon_js', get_template_directory_uri() . '/assets/js/uikit/uikit-icons.min.js', array(), '3.4.3', true);
 
+    wp_register_script('ideal_script_js', get_template_directory_uri() . '/includes/admin/assets/js/ideal-script.js', array(), time(), true);
+
+    wp_register_script('ideal_ad_fontawesome_js', get_template_directory_uri() . '/assets/fonts/fontawesome/js/all.min.js', array(), ideal_theme_version(), true);
+
+
+    wp_enqueue_script('ideal_ad_fontawesome_js');
     wp_enqueue_script('ideal_uikit_js');
     wp_enqueue_script('ideal_uikit_icon_js');
-
+    wp_enqueue_script('ideal_script_js'); 
+    
 }
 
 add_action('admin_enqueue_scripts', 'ideal_load_admin_scripts');

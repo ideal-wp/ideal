@@ -8,7 +8,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-$ideal_options = get_ideal_theme_options();
+$ideal_options = ideal_get_theme_options();
 // if Enable Search icon in Navbar
 if( !empty( $ideal_options['search-icon-nav'] ) && $ideal_options['search-icon-nav'] == '1'){
   add_action('ideal_search_innav' ,'ideal_nav_serch',1 );

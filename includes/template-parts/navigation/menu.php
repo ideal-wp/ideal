@@ -9,15 +9,15 @@
  */
 
 
-$ideal_options           = get_ideal_theme_options();
-$is_transparent_header   = get_post_meta( get_the_ID(), 'is_header_trans', true );
-$transparent_header      = null;
+$ideal_options           = ideal_get_theme_options();
+$ideal_is_transparent_header   = get_post_meta( get_the_ID(), 'is_header_trans', true );
+$ideal_transparent_header      = null;
 $mode                    = null;
 
 
 if( !empty( $ideal_options['transparent-header'] ) ){
 
-  $transparent_header  = $ideal_options['transparent-header'];
+  $ideal_transparent_header  = $ideal_options['transparent-header'];
 
 }
 
@@ -27,13 +27,13 @@ if( !empty( $ideal_options['select-header-mod'] ) ){
 
 }
 
-if ( ! empty( $is_transparent_header ) && $is_transparent_header == 'off' ){
+if ( ! empty( $ideal_is_transparent_header ) && $ideal_is_transparent_header == 'off' ){
 
-  $transparent_header= false ;
+  $ideal_transparent_header= false ;
 
-}elseif( ! empty( $is_transparent_header ) && $is_transparent_header == 'on' ) {
+}elseif( ! empty( $ideal_is_transparent_header ) && $ideal_is_transparent_header == 'on' ) {
 
-  $transparent_header= true;
+  $ideal_transparent_header= true;
 }
 
 // mobile & offcanvas options
@@ -56,7 +56,7 @@ if ( !empty($ideal_options['user-nav'])&& $ideal_options['user-nav'] == true){re
     
     ?>
       <div id="ideal-nav"
-        class="ideal-nav uk-navbar-container <?php if( $transparent_header== true ) {echo 'uk-navbar-transparent ' . $mode ;}?>">
+        class="ideal-nav uk-navbar-container <?php if( $ideal_transparent_header== true ) {echo 'uk-navbar-transparent ' . $mode ;}?>">
         <div class="uk-container uk-container-expand">
           <nav class="uk-navbar" id="ideal-nav-c" uk-navbar>
           <?php

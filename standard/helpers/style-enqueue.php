@@ -4,21 +4,22 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-if ( ! class_exists( 'Redux' ) ) {
 
-    if ( ! function_exists( 'ideal_theme_version' ) ) {
 
-        function ideal_theme_version()
-        {
-            $ver = wp_get_theme('Ideal')->get('Version');
-            return $ver;
-        }
+if ( ! function_exists( 'ideal_theme_version' ) ) {
+
+    function ideal_theme_version()
+    {
+        $ver = wp_get_theme('Ideal')->get('Version');
+        return $ver;
     }
 }
+
 
 add_action('wp_enqueue_scripts', 'ideal_wp_register_enqueue_style');
 add_action('wp_enqueue_scripts', 'ideal_elements_register_enqueue_style');
 add_action('wp_enqueue_scripts', 'ideal_fonts_register_enqueue_style');
+add_action('wp_enqueue_scripts', 'ideal_enqueue_woocommerce_style');
 
 /**
  * Registers a stylesheets.
@@ -68,4 +69,16 @@ function ideal_fonts_register_enqueue_style()
 
     wp_enqueue_style('ideal_fontawesome');
     wp_enqueue_style('ideal-google-raleway');
+}
+
+
+
+function ideal_enqueue_woocommerce_style()
+{
+    wp_register_style('ideal_woocommerce', get_template_directory_uri() . '/assets/css/WooCommerce.css', array(), time(), 'all');
+
+   
+    wp_enqueue_style('ideal_woocommerce');
+    
+
 }

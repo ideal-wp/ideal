@@ -6,11 +6,36 @@ jQuery(document).on("keyup", function (e) {
 });
 
 jQuery(document).ready(function($){
+
   $(".postform").select2();
   $.fn.select2.defaults.set( "theme", "bootstrap" );
   $( "select" ).select2({
     theme: "bootstrap"
   });
+
+	
+	$( ".dropdown-toggle" ).focus(function() {
+		$( this ).addClass("uk-open");
+		$( this ).next("div").addClass("uk-open");
+
+	});
+
+
+	$( ".uk-navbar-dropdown-nav li:last-child a" ).keydown(function() {
+		$(this).parentsUntil(".dropdown-toggle").removeClass("uk-open");
+		
+	});
+	
+
+	$( ".uk-parent a" ).focus(function() {
+		$( this ).next(".uk-dropdown").addClass("uk-open");
+	});
+
+	$( ".more-link" ).focus(function() {
+		$(this).children("span").focus() 
+ 
+	});
+
 
 });
 

@@ -1,10 +1,10 @@
 <?php
 /**
  *
- *  Ideal hooks Actions.
+ *  Ideal Breadcrumb.
  *
  * @package Ideal Theme
- * @subpackage Ideal Partials breadcrumb
+ * @subpackage Ideal helpers breadcrumb
  * @since V1.0.0
  * @version 1.0.0
  */
@@ -14,7 +14,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-function get_breadcrumb()
+function ideal_get_breadcrumb()
 {
     echo '<a href="' . esc_url(home_url()) . '" rel="nofollow">' . esc_html__('Home', 'ideal') . '</a>';
     if (is_category() || is_single()) {

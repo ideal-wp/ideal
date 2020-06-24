@@ -4,3 +4,49 @@
 *@package Ideal Admin Aarea
 *
 */
+.ideal-welcome-header-wrap{
+  text-align: center;
+  margin: .67em 0;
+}
+.ideal-welcome-header-wrap h1{
+  line-height: 1.4em;
+  margin-bottom: 0;
+    font-size: 3em;
+    color: #23282d;
+    
+}
+.ideal-welcome-header-wrap h1 span{
+  font-size: 14px;
+
+}
+
+.ideal-welcome-header-wrap .sub-text {
+  font-size: 1.8em;
+  line-height: 1.4em;
+}
+.ideal-welcome-tab {
+  text-align: left;
+  margin: 30px 0;
+}
+.ideal-welcome-tab .ideal-tab li a{
+  font-size: 1.8em;
+  text-decoration: none;
+  font-weight: 400px;
+
+}
+
+.uk-tab > * > a {
+  padding: 10px 10px;
+  border-bottom: 2px solid transparent;
+  
+}
+
+.uk-tab::before {
+  bottom: 5px;
+  border-bottom: 1px solid #e6e4e4;
+}
+.ideal-welcome-tab .ideal-tab li a:focus{
+  box-shadow: unset;
+  outline: none;
+
+}

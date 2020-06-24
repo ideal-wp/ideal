@@ -24,27 +24,7 @@ if (!function_exists('ideal_theme_version')) {
     }
 }
 
-/**
- * Install Ideal theme options.
- *@since v 1.0.0
- */
 
-if(! class_exists('Kirki')){
-    
-    function ideal_setup_theme_options_befour_Kirki(){
-        // creat ideal theme options 
-        $ideal_creat_theme_options = array(
-        
-        'is_post_sidebar' => true,
-        'is-page-sidebar' => true,
-        'post-imge-in'    => true,
-
-        );
-        //Update entire array
-        update_option('ideal', $ideal_creat_theme_options);
-    }
-    add_action( 'after_setup_theme', 'ideal_setup_theme_options_befour_Kirki' );
-}
 
 /**
  * Get Ideal theme options.
@@ -52,7 +32,7 @@ if(! class_exists('Kirki')){
  */
 
 
-function get_ideal_theme_options()
+function ideal_get_theme_options()
 {
 
     $ideal_daynamic_options = get_option('ideal');
@@ -72,5 +52,5 @@ function get_ideal_theme_options()
 
 }
 
-$ideal_options      = get_ideal_theme_options();
+$ideal_options      = ideal_get_theme_options();
 $ideal_get_template_directory_uri = get_template_directory_uri();

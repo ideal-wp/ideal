@@ -9,7 +9,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-$ideal_options = get_ideal_theme_options();
+$ideal_options = ideal_get_theme_options();
 /**
  * 
  * loading Dynamic js via WP ajax

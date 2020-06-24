@@ -37,7 +37,7 @@ global $ideal_is_page_cards,$ideal_flex,$id_sticky;?>
       </div> <!--/id-con-warp-->
       <div id="sidebar" class="uk-width-1-4@m uk-width-1-4@l <?php echo $flex; ?>">
         <div class=" uk-container uk-container-expand " id="blog-sidebar">
-          <div class="side-bar uk-flex uk-flex-column" <?php echo $sid_sticky; ?>>
+          <div class="side-bar uk-flex uk-flex-column" <?php echo $ideal_is_sticky; ?>>
             <?php get_sidebar();?>
           </div>
         </div>

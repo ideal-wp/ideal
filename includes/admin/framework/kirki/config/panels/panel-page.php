@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$config_id = 'ideal_theme';
+$ideal_config_id = 'ideal_theme';
 
 
 Kirki::add_panel( 'page_settings_panel', array(
@@ -23,7 +23,7 @@ Kirki::add_section( 'page_settings_options', array(
   'priority'       => 1,
 ) );
 
-Kirki::add_field( $config_id, [
+Kirki::add_field( $ideal_config_id, [
 	'type'        => 'slider',
 	'settings'    => 'page-container-width',
 	'label'       => esc_html__('Design your container will scale to a maximum width', 'ideal' ),
@@ -37,7 +37,7 @@ Kirki::add_field( $config_id, [
 	],
 ] );
 
-Kirki::add_field( $config_id, [
+Kirki::add_field( $ideal_config_id, [
 	'type'        => 'dimensions',
 	'settings'    => 'page-padding-top-bottom',
 	'label'       => esc_html__( 'Page Contant Padding' , 'ideal' ),
@@ -51,7 +51,7 @@ Kirki::add_field( $config_id, [
   'priority'       => 3,
 ] );
 
-Kirki::add_field( $config_id , [
+Kirki::add_field( $ideal_config_id , [
 	'type'        => 'toggle',
 	'settings'    => 'add-cards-page',
   'label'       => esc_html__( 'Cards Style' , 'ideal' ),

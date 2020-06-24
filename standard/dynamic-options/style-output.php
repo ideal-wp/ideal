@@ -5,9 +5,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 header("Content-type: text/css; charset: UTF-8");
 
-$ideal_options = get_ideal_theme_options();
+$ideal_options = ideal_get_theme_options();
 
-if ($ideal_options['minify-dynamic-allow'] == true ){
+if ($ideal_options['minify-dynamic-allow'] == false ){
 
     function dynamic_ideal_minify_css( $css ) {
 
@@ -40,7 +40,7 @@ ob_start();
 ideal_dynamic_style_output();
 $ideal_dynamic_ajax_css = ob_get_contents();
 ob_end_clean();
-if ($ideal_options['minify-dynamic-allow'] == true ){
+if ($ideal_options['minify-dynamic-allow'] == false ){
     $ideal_dynamic_ajax_css = dynamic_ideal_minify_css($ideal_dynamic_ajax_css);     
 }
 echo esc_attr($ideal_dynamic_ajax_css);

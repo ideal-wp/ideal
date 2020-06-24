@@ -13,24 +13,37 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+if (!class_exists('Kirki')) {
+    return;
+}
+if(empty($ideal_options['nav-ideal-height'])){
+    $ideal_header_height = '80px';
+}else{
+    $ideal_header_height = $ideal_options['nav-ideal-height'];
 
-$ideal_options    = get_ideal_theme_options();
-$light_logo       = esc_url($ideal_options['header-t-logo-light-kmod']['url']);
-$dark_logo        = esc_url($ideal_options['header-t-logo-dark-kmod']['url']);
+}
+$ideal_options    = ideal_get_theme_options();
+$ideal_light_logo =null;
+$ideal_dark_logo =null;
+if(!empty($ideal_options['header-t-logo-light-kmod'])){
+$ideal_light_logo       = $ideal_options['header-t-logo-light-kmod'];}
+if(!empty($ideal_options['header-t-logo-dark-kmod'])){
+
+$ideal_dark_logo        = $ideal_options['header-t-logo-dark-kmod'];} 
 
 /*-=========================[ menu ]=====================- */
 echo '
-'.(!empty($ideal_options['header-s-logo']['url'])? '
+'.(!empty($ideal_options['header-s-logo'])? '
 .ideal-Logoo{
-    content:url("'.$ideal_options['header-s-logo']['url'].'");
+    content:url("'.$ideal_options['header-s-logo'].'");
 }':"") .'
-'.(!empty($light_logo)? '
+'.(!empty($ideal_light_logo)? '
 .uk-light .ideal-Logoo{
-    content:url("'. $light_logo .'");
+    content:url("'. $ideal_light_logo .'");
 }':"") .'
-'.(!empty($dark_logo)? '
+'.(!empty($ideal_dark_logo)? '
 .uk-dark .ideal-Logoo{
-    content:url("'. $dark_logo .'");
+    content:url("'. $ideal_dark_logo .'");
 }':"") .'
 '.(!empty($ideal_options['navbar-light-color-moode'])? '
 #ideal-nav.uk-light .ideal-Logo h2{
@@ -48,9 +61,9 @@ echo '
 #ideal-nav.uk-navbar-container:not(.uk-navbar-transparent){
     background: '.  $ideal_options['header-m-b-color'] .';
 }':"") .'
-'.(!empty( $ideal_options['nav-ideal-height'])? '
+'.(!empty( $ideal_options['transparent-header'] && $ideal_options['transparent-header'] == true)? '
 .header-hero{
-	margin-top:-'.  $ideal_options['nav-ideal-height'].';
+	margin-top:-'.  $ideal_header_height .';
 }':"") .'
 ';
 /*---------menu shadow------------ */
@@ -82,24 +95,26 @@ if(!empty($ideal_options['header-shadow-b']) && $ideal_options['header-shadow-b'
 /*-=========================[ Page Header ]=====================-*/
 if(! empty($ideal_options['transparent-header']) && $ideal_options['transparent-header'] == true ){
     echo'
-    .blog-wrap-header,.archives-wrap-header{
-        padding-top: '.  $ideal_options['nav-ideal-height'] .';
-    }
+    .blog-wrap-header,.archives-wrap-header,#hero-section,ideal-pages-header{
+        padding-top: '.(!empty( $ideal_options['nav-ideal-height']) ? '
+         '.  $ideal_options['nav-ideal-height'] .';
+    }' : '80px }') . '
     
     ';
 }
 echo'
-
+'.(!empty($ideal_options['post-header-hight']['padding-top']) ? '
 .id-bh-inner-wrap{
     padding-top:'.  $ideal_options['post-header-hight']['padding-top'].';
     padding-bottom:'.  $ideal_options['post-header-hight']['padding-bottom'] .';
-}
+}':"") .'
 
+'.(!empty($ideal_options['archives-header-hight']['padding-top']) ? '
 
 .id-archives-inner-wrap{
     padding-top:'.  $ideal_options['archives-header-hight']['padding-top'].';
     padding-bottom:'.  $ideal_options['archives-header-hight']['padding-bottom'] .';
-}
+}':"") .'
 ';
 
 /*-=========================[ ---Page---- ]=====================-*/
@@ -110,9 +125,29 @@ if(! empty($ideal_options['page-container-width'])){
     }
     ';
 }
+if(! empty($ideal_options['page-padding-top-bottom']['padding-top'])){
 echo'
 #ideal-pagecontent.uk-section{
     padding-top:'.  $ideal_options['page-padding-top-bottom']['padding-top'].';
     padding-bottom:'.  $ideal_options['page-padding-top-bottom']['padding-bottom'] .';
 }
 ';
+}
+/*-=========================[ ---hero---- ]=====================-*/
+
+if(!empty($ideal_options['hero_overlay_color'])){
+    $hero_overlay_background = $ideal_options['hero_overlay_color']; 
+   echo' #hero-section{box-shadow: inset 0 0 0 100vw '.esc_html($hero_overlay_background ).';}';
+}
+echo'
+#hero-section{
+    ' . (!empty($ideal_options['hero_section_background_setting']['background-color']) ? '
+    background:' . $ideal_options['hero_section_background_setting']['background-color'] . ';' : "") . '
+    ' . (!empty($ideal_options['hero_section_background_setting']['background-image']) ? '
+    background-image:url("' . $ideal_options['hero_section_background_setting']['background-image'] . '");
+    background-repeat:' . $ideal_options['hero_section_background_setting']['background-repeat'] . ';
+    background-position:' . $ideal_options['hero_section_background_setting']['background-position'] . ';
+    background-size:' . $ideal_options['hero_section_background_setting']['background-size'] . ';
+    background-attachment:' . $ideal_options['hero_section_background_setting']['background-attachment'] . ';
+    }' : "}") . '
+    ';

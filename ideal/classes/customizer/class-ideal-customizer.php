@@ -53,13 +53,13 @@ if (!class_exists('Ideal_Customizer')) {
         private function initializeHooks()
         {
 
-            add_action('mt_init', function () {
+            add_action('ideal_customizer_mt_init', function () {
                 $this->load_files([
 
                 ]);
             });
 
-            do_action('mt_init');
+            do_action('ideal_customizer_mt_init');
         }
 
         public function ideal_register_customize_sections($wp_customize)

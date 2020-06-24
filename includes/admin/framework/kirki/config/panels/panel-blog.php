@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$config_id = 'ideal_theme';
+$ideal_config_id = 'ideal_theme';
 
 
 Kirki::add_panel( 'blog_settings_panel', array(
@@ -23,7 +23,7 @@ Kirki::add_section( 'blog_settings_options', array(
   'priority'       => 1,
 ) );
 
-Kirki::add_field( $config_id , [
+Kirki::add_field( $ideal_config_id , [
 	'type'        => 'toggle',
 	'settings'    => 'add-cards-blog',
   'label'       => esc_html__( 'Cards Style' , 'ideal' ),
@@ -33,7 +33,7 @@ Kirki::add_field( $config_id , [
 	'priority'    => 2,
 ] );
 
-Kirki::add_field( $config_id , [
+Kirki::add_field( $ideal_config_id , [
 	'type'        => 'toggle',
 	'settings'    => 'add-scrollspy',
   'label'       => esc_html__( 'Scrollspy Animations' , 'ideal' ),
@@ -43,10 +43,10 @@ Kirki::add_field( $config_id , [
 	'priority'    => 3,
 ] );
 
-Kirki::add_field( $config_id, [
+Kirki::add_field( $ideal_config_id, [
 	'type'        => 'select',
 	'settings'    => 'id-scroll-animations',
-	'label'       => esc_html__('Sidebar position', 'ideal'), 
+	'label'       => esc_html__('Select Animation To Use Within Lood Posts', 'ideal'), 
 	'section'     => 'blog_settings_options',
 	'default'     => '',
 	'placeholder' => esc_html__( 'Select an option...', 'ideal' ),
@@ -72,7 +72,7 @@ Kirki::add_field( $config_id, [
 	],
 ] );
 
-Kirki::add_field( $config_id , [
+Kirki::add_field( $ideal_config_id , [
 	'type'        => 'toggle',
 	'settings'    => 'repeat-scrollspy',
   'label'       => esc_html__( 'Repeat Animati on Scroll up and down' , 'ideal' ),
@@ -89,18 +89,18 @@ Kirki::add_section( 'single_post_settings_options', array(
   'priority'       => 2,
 ) );
 
-Kirki::add_field( $config_id , [
+Kirki::add_field( $ideal_config_id , [
 	'type'        => 'toggle',
 	'settings'    => 'post-imge-in',
-  'label'       => esc_html__( 'Featured Image InsidePost
+  'label'       => esc_html__( 'Remove Featured Image From Inside The Post
   ' , 'ideal' ),
-  'description' => esc_html__( 'Add The Featured Image Inside the Single Post' , 'ideal' ),
+  'description' => esc_html__( 'Remove The Featured Image Inside the Single Post' , 'ideal' ),
 	'section'     => 'single_post_settings_options',
-	'default'     => true,
+	'default'     => false,
 	'priority'    => 1,
 ] );
 
-Kirki::add_field( $config_id , [
+Kirki::add_field( $ideal_config_id , [
 	'type'        => 'toggle',
 	'settings'    => 'post-cards',
   'label'       => esc_html__( 'Add Cards style to single post

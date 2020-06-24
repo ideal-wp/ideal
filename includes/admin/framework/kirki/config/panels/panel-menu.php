@@ -8,7 +8,7 @@
 if (!defined('ABSPATH')) {
     exit;
 }
-$config_id = 'ideal_theme';
+$ideal_config_id = 'ideal_theme';
 
 
 Kirki::add_panel( 'menu_settings_panel', array(
@@ -24,7 +24,7 @@ Kirki::add_section( 'menu_settings_options', array(
   'priority'       => 1,
 ) );
 
-Kirki::add_field( $config_id, [
+Kirki::add_field( $ideal_config_id, [
 	'type'        => 'radio-image',
 	'settings'    => 'header-layout',
   'label'       => esc_html__('Layout Controls', 'ideal'),
@@ -42,6 +42,25 @@ Kirki::add_field( $config_id, [
 	],
 ] );
 
+Kirki::add_field( $ideal_config_id, [
+	'type'     => 'text',
+	'settings' => 'menu_button_text_setting',
+	'label'    => esc_html__( 'Menu Button Text', 'ideal' ),
+	'section'  => 'menu_settings_options',
+	'default'  => '',
+	'priority' => 2,
+] );
+
+Kirki::add_field( $ideal_config_id, [
+	'type'     => 'link',
+	'settings' => 'menu_button_link_setting',
+	'label'    => esc_html__( 'Menu Button Link', 'ideal' ),
+	'section'  => 'menu_settings_options',
+	'default'  => '',
+	'priority' => 3,
+] );
+
+
 //==============================[ section Logo ]====================
 
 Kirki::add_section( 'logo_menu_settings_options', array(
@@ -50,7 +69,7 @@ Kirki::add_section( 'logo_menu_settings_options', array(
   'priority'       => 2,
 ) );
 
-Kirki::add_field( $config_id, [
+Kirki::add_field( $ideal_config_id, [
 	'type'        => 'switch',
 	'settings'    => 'logo-img-menu',
   'label'       => esc_html__('Use Image for Logo', 'ideal'),
@@ -64,7 +83,7 @@ Kirki::add_field( $config_id, [
 	],
 ] );
 
-Kirki::add_field( $config_id, [
+Kirki::add_field( $ideal_config_id, [
 	'type'        => 'typography',
 	'settings'    => 'logo-font-no-img',
   'label'       => esc_html__( 'Logo Text Font' , 'ideal' ),
@@ -94,7 +113,7 @@ Kirki::add_field( $config_id, [
 
 ] );
 
-Kirki::add_field( $config_id, [
+Kirki::add_field( $ideal_config_id, [
 	'type'        => 'image',
 	'settings'    => 'header-s-logo',
 	'label'       => esc_html__('Upload a site logo', 'ideal'), 
@@ -112,7 +131,7 @@ Kirki::add_field( $config_id, [
   },
 ] );
 
-Kirki::add_field( $config_id, [
+Kirki::add_field( $ideal_config_id, [
 	'type'        => 'dimension',
 	'settings'    => 'logo-ss-height',
 	'label' => esc_html__( 'Logo Height ,' , 'ideal' ),
@@ -129,7 +148,7 @@ Kirki::add_field( $config_id, [
   },
 ] );
 
-Kirki::add_field( $config_id, [
+Kirki::add_field( $ideal_config_id, [
 	'type'        => 'image',
 	'settings'    => 'mobile-s-logo',
 	'label'       => esc_html__('Mobile Logo Upload', 'ideal'),  
@@ -154,7 +173,7 @@ Kirki::add_section( 'styling_menu_settings_options', array(
   'panel'          => 'menu_settings_panel',
   'priority'       => 3,
 ) );
-Kirki::add_field( $config_id, [
+Kirki::add_field( $ideal_config_id, [
 	'type'        => 'dimension',
 	'settings'    => 'nav-ideal-height',
 	'label'       => esc_html__( 'Header Height' , 'ideal' ),
@@ -163,7 +182,7 @@ Kirki::add_field( $config_id, [
   'priority'       => 1,
   
 ] );
-Kirki::add_field( $config_id , [
+Kirki::add_field( $ideal_config_id , [
 	'type'        => 'color',
 	'settings'    => 'header-m-b-color',
 	'label'       => esc_html__('Choose a background color for menu', 'ideal'),
@@ -173,7 +192,7 @@ Kirki::add_field( $config_id , [
   'priority'       => 2,
 ] );
 
-Kirki::add_field( $config_id, [
+Kirki::add_field( $ideal_config_id, [
 	'type'        => 'select',
 	'settings'    => 'header-shadow-b',
   'label'       => esc_html__('Select Header Box Shadow', 'ideal'),
@@ -190,7 +209,7 @@ Kirki::add_field( $config_id, [
 	],
 ] );
 
-Kirki::add_field( $config_id, [
+Kirki::add_field( $ideal_config_id, [
 	'type'        => 'typography',
 	'settings'    => 'header-font-f',
   'label'       =>  esc_html__( 'Navigation & Header Font' , 'ideal' ),
@@ -211,7 +230,7 @@ Kirki::add_field( $config_id, [
 
 ] );
 
-Kirki::add_field( $config_id, [
+Kirki::add_field( $ideal_config_id, [
   'type'        => 'multicolor',
   'settings'    => 'menu-header-link-hover',
   'label'       => esc_html__( 'Header Link Hover color' , 'ideal' ),
@@ -234,7 +253,7 @@ Kirki::add_section( 'mobile_menu_settings_options', array(
   'priority'       => 4,
 ) );
 
-Kirki::add_field( $config_id, [
+Kirki::add_field( $ideal_config_id, [
 	'type'        => 'select',
 	'settings'    => 'mobile-select-menu',
 	'label'       => esc_html__('Mobile Menu Style', 'ideal'),
@@ -250,7 +269,7 @@ Kirki::add_field( $config_id, [
 ] );
 
 
-Kirki::add_field( $config_id, [
+Kirki::add_field( $ideal_config_id, [
 	'type'        => 'select',
 	'settings'    => 'mobile-o-c-flip',
   'label'       => esc_html__('Open side', 'ideal'),
@@ -276,7 +295,7 @@ Kirki::add_field( $config_id, [
 ] );
 
 
-Kirki::add_field( $config_id, [
+Kirki::add_field( $ideal_config_id, [
 	'type'        => 'select',
 	'settings'    => 'mobile-o-c-modes',
   'label'       => esc_html__('Off-canvas Animation modes', 'ideal'),
@@ -303,7 +322,7 @@ Kirki::add_field( $config_id, [
   },
 ] );
 
-Kirki::add_field( $config_id , [
+Kirki::add_field( $ideal_config_id , [
   'type'        => 'color',
   'priority'    => 8,
 	'settings'    => 'off-canvas-b-color',
@@ -321,7 +340,7 @@ Kirki::add_field( $config_id , [
   },
 ] );
 
-Kirki::add_field( $config_id , [
+Kirki::add_field( $ideal_config_id , [
   'type'        => 'color',
   'priority'    => 9,
 	'settings'    => 'off-canvas-overlay-color',
@@ -342,7 +361,7 @@ Kirki::add_field( $config_id , [
   },
 ] );
 
-Kirki::add_field( $config_id, [
+Kirki::add_field( $ideal_config_id, [
 	'type'        => 'typography',
 	'settings'    => 'font-offcanvas',
   'label'       => esc_html__( 'Off-canvas font' , 'ideal' ),
@@ -373,7 +392,7 @@ Kirki::add_section( 'effects_menu_settings_options', array(
 ) );
 
 
-Kirki::add_field( $config_id, [
+Kirki::add_field( $ideal_config_id, [
 	'type'        => 'switch',
 	'settings'    => 'reveal-header',
   'label'       => esc_html__('Reveal Header on Scroll', 'ideal'),
@@ -388,7 +407,7 @@ Kirki::add_field( $config_id, [
   
 ] );
 
-Kirki::add_field( $config_id, [
+Kirki::add_field( $ideal_config_id, [
 	'type'        => 'switch',
 	'settings'    => 'sticky-header',
   'label'       => esc_html__('Sticky Navbar', 'ideal'),
@@ -412,7 +431,7 @@ Kirki::add_field( $config_id, [
   
 ] );
 
-Kirki::add_field( $config_id, [
+Kirki::add_field( $ideal_config_id, [
 	'type'        => 'switch',
 	'settings'    => 'transparent-header',
   'label'       => esc_html__(' Transparent Header', 'ideal'),
@@ -428,7 +447,7 @@ Kirki::add_field( $config_id, [
 ] );
 
 
-Kirki::add_field( $config_id, [
+Kirki::add_field( $ideal_config_id, [
 	'type'        => 'select',
 	'settings'    => 'select-header-mod',
   'label'       => esc_html__('Color mode options for Transparent Header ', 'ideal'), 
@@ -444,7 +463,7 @@ Kirki::add_field( $config_id, [
 	],
 ] );
 
-Kirki::add_field( $config_id , [
+Kirki::add_field( $ideal_config_id , [
 	'type'        => 'color',
 	'settings'    => 'navbar-light-color-moode',
 	'label'       => esc_html__('Choose a Font color for light mood', 'ideal'),
@@ -452,7 +471,7 @@ Kirki::add_field( $config_id , [
 	'default'     => '',
 ] );
 
-Kirki::add_field( $config_id , [
+Kirki::add_field( $ideal_config_id , [
 	'type'        => 'color',
 	'settings'    => 'navbar-dark-color-moode',
 	'label'       => esc_html__('Choose a Font color for dark mood', 'ideal'),
@@ -460,7 +479,7 @@ Kirki::add_field( $config_id , [
 	'default'     => '',
 ] );
 
-Kirki::add_field( $config_id, [
+Kirki::add_field( $ideal_config_id, [
 	'type'        => 'image',
 	'settings'    => 'header-t-logo-light-kmod',
 	'label'       => esc_html__('Upload a site logo for Transparent Header in light mode', 'ideal'),
@@ -470,24 +489,24 @@ Kirki::add_field( $config_id, [
     $current_options        = get_option('ideal_options_control');
     $checkbox_value = $current_options['logo-img-menu']  ;
 
-    if ( $checkbox_value == '1') {
+    if ( $checkbox_value == true) {
       return true;
     }
     return false;
   },
 ] );
 
-Kirki::add_field( $config_id, [
+Kirki::add_field( $ideal_config_id, [
 	'type'        => 'image',
 	'settings'    => 'header-t-logo-dark-kmod',
 	'label'       => esc_html__('Upload a site logo for Transparent Header in dark mode', 'ideal'),
-	'section'     => 'styling_menu_settings_options',
+	'section'     => 'effects_menu_settings_options',
   'default'     => '',
   'active_callback' => function() {
     $current_options        = get_option('ideal_options_control');
     $checkbox_value = $current_options['logo-img-menu']  ;
 
-    if ( $checkbox_value == '1') {
+    if ( $checkbox_value == true) {
       return true;
     }
     return false;
@@ -502,7 +521,7 @@ Kirki::add_section( 'user_nav_bar_settings_options', array(
   'priority'       => 6,
 ) );
 
-Kirki::add_field( $config_id, [
+Kirki::add_field( $ideal_config_id, [
 	'type'        => 'switch',
 	'settings'    => 'user-nav',
   'label'       => esc_html__('Enable user top Navbar', 'ideal'),
@@ -517,7 +536,7 @@ Kirki::add_field( $config_id, [
   
 ] );
 
-Kirki::add_field( $config_id , [
+Kirki::add_field( $ideal_config_id , [
 	'type'        => 'color',
 	'settings'    => 'navbar-b-color',
 	'label'       => esc_html__('Choose a background color for top nav', 'ideal'), 
@@ -525,19 +544,31 @@ Kirki::add_field( $config_id , [
   'priority'    => 2,
 	'section'     => 'user_nav_bar_settings_options',
 	'default'     => '',
+	'output'      => [
+		[
+			'element' => '.user-nav',
+			'property' => 'background',
+		],
+	],
 ] );
 
-Kirki::add_field( $config_id , [
+Kirki::add_field( $ideal_config_id , [
   'type'        => 'color',
   'priority'    => 3,
 	'settings'    => 'navbar-f-color',
 	'label'       => esc_html__('Choose a Font color for top nav', 'ideal'),
 	'description' => esc_html__('Pick a Font color for the user navbar (default: #fff).','ideal'),
 	'section'     => 'user_nav_bar_settings_options',
-	'default'     => '',
+	'default'     => '', 
+	'output'      => [
+		[
+			'element' => '.user-nav .uk-navbar-item,.user-nav p',
+			'property' => 'color',
+		],
+	],
 ] );
 
-Kirki::add_field( 'theme_config_id', [
+Kirki::add_field( $ideal_config_id, [
   'type'        => 'multicolor',
   'settings'    => 'link-b-color',
   'label'       => esc_html__( 'Link Color' , 'ideal' ),
@@ -553,8 +584,35 @@ Kirki::add_field( 'theme_config_id', [
       'link'    => '',
       'hover'   => '',
       'active'  => '',
-  ],
+	],
+	'output'      => [
+		[
+			'element' => '.user-nav a',
+			
+		],
+	],
 ] );
+
+
+Kirki::add_field( $ideal_config_id, [
+	'type'     => 'text',
+	'settings' => 'user_nav_left_area',
+	'label'    => esc_html__( 'Add The Text In The Left Area', 'ideal' ),
+	'section'  => 'user_nav_bar_settings_options',
+	'default'  => esc_html__( 'yourname@yoursite.com', 'ideal' ),
+	'priority' => 5,
+] );
+
+Kirki::add_field( $ideal_config_id, [
+	'type'     => 'text',
+	'settings' => 'user_nav_right_area',
+	'label'    => esc_html__( 'Add The Text In The Right Area', 'ideal' ),
+	'section'  => 'user_nav_bar_settings_options',
+	'default'  => esc_html__( 'Your Phone Here', 'ideal' ),
+	'priority' => 6,
+] );
+
+
 
 //===============[ section Header Search and Icon]===============
 
@@ -565,7 +623,7 @@ Kirki::add_section( 'serch_menu_settings_options', array(
   'priority'       => 7,
 ) );
 
-Kirki::add_field( $config_id, [
+Kirki::add_field( $ideal_config_id, [
 	'type'        => 'switch',
 	'settings'    => 'search-icon-nav',
   'label'       => esc_html__('Enable Search icon in Navbar', 'ideal'),
@@ -579,7 +637,7 @@ Kirki::add_field( $config_id, [
   
 ] );
 
-Kirki::add_field( $config_id, [
+Kirki::add_field( $ideal_config_id, [
 	'type'        => 'select',
 	'settings'    => 'shearch-nav-mod',
   'label'       => esc_html__('Select Search Header Stayle', 'ideal'),

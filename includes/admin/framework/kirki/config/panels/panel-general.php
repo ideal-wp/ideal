@@ -8,7 +8,7 @@
 if (!defined('ABSPATH')) {
     exit;
 }
-$config_id = 'ideal_theme';
+$ideal_config_id = 'ideal_theme';
 
 
 Kirki::add_panel( 'general_settings_panel', array(
@@ -23,24 +23,26 @@ Kirki::add_section( 'general_settings_new', array(
   'priority'       => 1,
   'transport'   => 'auto',
 ) );
-Kirki::add_field( $config_id , [
+Kirki::add_field( $ideal_config_id , [
 	'type'        => 'color',
 	'settings'    => 'body_b_color',
 	'label'       => esc_html__( 'General background color', 'ideal' ),
 	'description' => esc_html__( 'Pick a background color for the theme', 'ideal' ),
 	'section'     => 'general_settings_new',
-  'default'     => '',
-  'transport'   => 'auto',
+  'default'     => '#fff',
+  
+  
 ] );
 
-Kirki::add_field( $config_id , [
+Kirki::add_field( $ideal_config_id , [
 	'type'        => 'color',
 	'settings'    => 'body_f_color',
 	'label'       => esc_html__( 'General Font Color', 'ideal' ),
 	'description' => esc_html__( 'Choose the general font color for the site', 'ideal' ),
   'section'     => 'general_settings_new',
   'transport'   => 'auto',
-	'default'     => '',
+  'default'     => '#333',
+ 
 ] );
 //=================[ section General Color]=============
 Kirki::add_section( 'general_settings_color', array(
@@ -49,47 +51,47 @@ Kirki::add_section( 'general_settings_color', array(
   'transport'   => 'auto',
   'priority'       => 2,
 ) );
-Kirki::add_field( $config_id , [
+Kirki::add_field( $ideal_config_id , [
 	'type'        => 'color',
 	'settings'    => 'id_primary_color',
 	'label'       => esc_html__( 'Primary Color', 'ideal' ),
 	'description' => esc_html__( 'Choose the Primary Color for the site', 'ideal' ),
 	'section'     => 'general_settings_color',
-  'default'     => '',
+  'default'     => '#3c40c6',
   'transport'   => 'auto',
 ] );
 
-Kirki::add_field( $config_id , [
+Kirki::add_field( $ideal_config_id , [
 	'type'        => 'color',
 	'settings'    => 'id_secondary_color',
 	'label'       => esc_html__( 'Secondary Color', 'ideal' ),
 	'description' => esc_html__( 'Choose the Secondary Color for the site', 'ideal' ),
 	'section'     => 'general_settings_color',
-  'default'     => '',
+  'default'     => '#f53b57',
   'transport'   => 'auto',
 ] );
 
-Kirki::add_field( $config_id , [
+Kirki::add_field( $ideal_config_id , [
 	'type'        => 'color',
 	'settings'    => 'id_sub_additional_color',
 	'label'       => esc_html__( 'Sub Additional Color', 'ideal' ),
 	'description' => esc_html__( 'Applicable theme items will have an option to choose this as color.', 'ideal' ),
 	'section'     => 'general_settings_color',
-  'default'     => '',
+  'default'     => '#0fbcf9',
   'transport'   => 'auto',
 ] );
 
-Kirki::add_field( $config_id , [
+Kirki::add_field( $ideal_config_id , [
 	'type'        => 'color',
 	'settings'    => 'id_sub_plus_color',
 	'label'       => esc_html__( 'Sub Additional Color #2', 'ideal' ),
 	'description' => esc_html__( 'Applicable theme items will have an option to choose this as color.', 'ideal' ),
 	'section'     => 'general_settings_color',
-  'default'     => '',
+  'default'     => '#05c46b',
   'transport'   => 'auto',
 ] );
 
-Kirki::add_field( $config_id, [
+Kirki::add_field( $ideal_config_id, [
   'type'        => 'multicolor',
   'settings'    => 'id-color-gradient',
   'label'       => esc_html__('Color Gradient', 'ideal'),
@@ -110,7 +112,7 @@ Kirki::add_field( $config_id, [
   'transport'   => 'auto',
 ] );
 
-Kirki::add_field( $config_id, [
+Kirki::add_field( $ideal_config_id, [
   'type'        => 'multicolor',
   'settings'    => 'id-sub-color-gradient',
   'label'       => esc_html__('Sub Color Gradient', 'ideal'),
@@ -138,10 +140,11 @@ Kirki::add_section( 'extra_settings_control', array(
   'priority'       => 3,
 ) );
 
-Kirki::add_field( $config_id, [
+Kirki::add_field( $ideal_config_id, [
 	'type'        => 'switch',
-	'settings'    => 'switch_setting',
-	'label'       => esc_html__( 'This is the label', 'ideal' ),
+	'settings'    => 'to_top_remove_setting',
+  'label'       => esc_html__( 'Remove Totop', 'ideal' ),
+  'description' => esc_html__('If It Enable will Remove Back Totop .', 'ideal'),
 	'section'     => 'extra_settings_control',
 	'default'     => '',
 	'priority'    => 10,
@@ -160,7 +163,7 @@ Kirki::add_section( 'code_insert_control', array(
   'transport'   => 'auto',
 ) );
 
-Kirki::add_field( $config_id, [
+Kirki::add_field( $ideal_config_id, [
 	'type'        => 'code',
 	'settings'    => 'code_html_editor',
 	'label'       => esc_html__('HTML Code', 'ideal'),
@@ -173,7 +176,7 @@ Kirki::add_field( $config_id, [
   'transport'   => 'auto',
 ] );
 
-Kirki::add_field( $config_id, [
+Kirki::add_field( $ideal_config_id, [
 	'type'        => 'code',
 	'settings'    => 'code_css_editor',
 	'label'       => esc_html__('CSS Code', 'ideal'),
@@ -186,7 +189,7 @@ Kirki::add_field( $config_id, [
   'transport'   => 'auto',
 ] );
 
-Kirki::add_field( $config_id, [
+Kirki::add_field( $ideal_config_id, [
 	'type'        => 'code',
 	'settings'    => 'code_js_editor',
 	'label'       => esc_html__('Js Code', 'ideal'),
@@ -208,7 +211,7 @@ Kirki::add_section( 'advanced_settings_control', array(
   'transport'   => 'auto',
 ) );
 
-Kirki::add_field( $config_id, [
+Kirki::add_field( $ideal_config_id, [
 	'type'        => 'radio-buttonset',
 	'settings'    => 'style-dynamic-load',
   'label'       => esc_html__('Dynamic Style', 'ideal'),
@@ -216,7 +219,7 @@ Kirki::add_field( $config_id, [
             Inline: output directly inline within the HTML head. This option is useful for preventing caching of the styles.
             WP ajax: theme will load the dynamic style by wp ajax. Write file: Writes the dynamic CSS into a file using WP-filesystem.', 'ideal'),
 	'section'     => 'advanced_settings_control',
-	'default'     => '',
+	'default'     => '1',
 	'priority'    => 1,
 	'choices'     => [
     
@@ -227,7 +230,7 @@ Kirki::add_field( $config_id, [
   'transport'   => 'auto',
 ] );
 
-Kirki::add_field( $config_id, [
+Kirki::add_field( $ideal_config_id, [
 	'type'        => 'switch',
 	'settings'    => 'shutdown-dynamic-file',
   'label'       => esc_html__( 'Stop Write the file', 'ideal' ),
@@ -254,7 +257,7 @@ Kirki::add_field( $config_id, [
 
 ] );
 
-Kirki::add_field( $config_id, [
+Kirki::add_field( $ideal_config_id, [
 	'type'        => 'custom',
 	'settings'    => 'info_warning-shutdown-write',
 	 'label'       => esc_html__( 'Stop writing the file! if you finished design', 'ideal' ), 
@@ -275,7 +278,7 @@ Kirki::add_field( $config_id, [
   'transport'   => 'auto',
 ] );
 
-Kirki::add_field( $config_id, [
+Kirki::add_field( $ideal_config_id, [
 	'type'        => 'custom',
 	'settings'    => 'info_success-shutdown-write',
 	 'label'       => esc_html__( 'file is stop writing', 'ideal' ), 
@@ -296,22 +299,22 @@ Kirki::add_field( $config_id, [
 ] );
 
 
-Kirki::add_field( $config_id, [
+Kirki::add_field( $ideal_config_id, [
 	'type'        => 'switch',
 	'settings'    => 'minify-dynamic-allow',
-  'label'       => esc_html__('Allow To Minify Dynamic Style ', 'ideal'),
-  'description' => esc_html__('switch quick dynamic css minify', 'ideal'),
+  'label'       => esc_html__('Switch Off Minify Dynamic Style ', 'ideal'),
+  'description' => esc_html__('switch to Unminify to remove Dynamic css Minifier/Compressor ', 'ideal'),
 	'section'     => 'advanced_settings_control',
-	'default'     => '',
+	'default'     => false,
 	'priority'    => 5,
 	'choices'     => [
-		'on'  => esc_html__( 'Enable', 'ideal' ),
-		'off' => esc_html__( 'Disable', 'ideal' ),
+		'on'  => esc_html__( 'Unminify', 'ideal' ),
+		'off' => esc_html__( 'Minify', 'ideal' ),
   ],
   'transport'   => 'auto',
 ] );
 
-Kirki::add_field( $config_id, [
+Kirki::add_field( $ideal_config_id, [
 	'type'        => 'switch',
 	'settings'    => 'force-dynamic-cache',
   'label'       => esc_html__('Force cache', 'ideal'),
@@ -328,19 +331,25 @@ Kirki::add_field( $config_id, [
   ],
   'transport'   => 'auto',
 ] );
-
-
-Kirki::add_field( $config_id, [
-	'type'        => 'switch',
-	'settings'    => 'svag-allow-s',
-  'label'       => esc_html__('Allow SVG files', 'ideal'),
-  'description' => esc_html__('Security is the main reason behind the limitation on file types that users can upload, Enable this to allow SVG files to be uploaded', 'ideal'),
-	'section'     => 'advanced_settings_control',
-	'default'     => '',
-	'priority'    => 7,
-	'choices'     => [
-		'on'  => esc_html__( 'Enable', 'ideal' ),
-		'off' => esc_html__( 'Disable', 'ideal' ),
-  ],
-  'transport'   => 'auto',
-] );
+/**
+ * add control to section advanced settings
+ * if Ideal Core plugin is active  
+ * Allow SVG files upload
+ * @since v1.0.0
+ */
+if(class_exists('Ideal_Core')){
+  Kirki::add_field( $ideal_config_id, [
+    'type'        => 'switch',
+    'settings'    => 'svag-allow-s',
+    'label'       => esc_html__('Allow SVG files', 'ideal'),
+    'description' => esc_html__('Security is the main reason behind the limitation on file types that users can upload, Enable this to allow SVG files to be uploaded', 'ideal'),
+    'section'     => 'advanced_settings_control',
+    'default'     => '',
+    'priority'    => 7,
+    'choices'     => [
+      'on'  => esc_html__( 'Enable', 'ideal' ),
+      'off' => esc_html__( 'Disable', 'ideal' ),
+    ],
+    'transport'   => 'auto',
+  ] );
+  }

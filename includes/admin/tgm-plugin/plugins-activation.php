@@ -60,9 +60,9 @@ function ideal_register_required_plugins() {
 	$plugins = array(
 
 		array(
-			'name'      => 'Redux Framework',
-      'slug'      => 'redux-framework',
-      'required'  => true,
+			'name'      => 'Kirki Customizer Framework',
+      'slug'      => 'kirki',
+      'required'  => false,
 		),
 		
 //===================================

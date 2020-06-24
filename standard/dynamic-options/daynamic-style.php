@@ -9,7 +9,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-$ideal_options = get_ideal_theme_options();
+$ideal_options = ideal_get_theme_options();
 /**
  * 
  * loading Dynamic Style via WP ajax
@@ -57,7 +57,7 @@ function ideal_dynamic_css_output(){
 }
 // switching quick dynamic css minify
 
-if ( ! empty($ideal_options['minify-dynamic-allow']) && $ideal_options['minify-dynamic-allow'] !== false){
+if (  empty($ideal_options['minify-dynamic-allow']) || $ideal_options['minify-dynamic-allow'] == false){
 
   function dynamic_ideal_minify( $css ) {
 
@@ -96,7 +96,7 @@ if (! empty($ideal_options['style-dynamic-load']) && $ideal_options['style-dynam
       $ideal_dynamic_css = ob_get_contents();
       ob_end_clean();
 
-      if ( !empty($ideal_options['minify-dynamic-allow']) && $ideal_options['minify-dynamic-allow'] == true ){
+      if ( empty($ideal_options['minify-dynamic-allow']) || $ideal_options['minify-dynamic-allow'] == false ){
       
         $ideal_dynamic_css = dynamic_ideal_minify($ideal_dynamic_css);     
       }

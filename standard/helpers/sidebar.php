@@ -50,7 +50,20 @@ function ideal_dynamic_sidebar() {
 				'after_title'   => '</h4>',
 			)
 		);
-  }
+	}
+	
+	register_sidebar(
+		array(
+			'name'          => 'Off Canvas',
+			'id'            => 'off-canvas',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h4 class="widgettitle">',
+      'after_title'   => '</h4>',
+      'description'   => __( 'Widget Area Off Canvas', 'ideal' ),
+
+    )
+  );
 
 }
 add_action( 'widgets_init', 'ideal_dynamic_sidebar' );

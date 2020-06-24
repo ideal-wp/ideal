@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$config_id = 'ideal_theme';
+$ideal_config_id = 'ideal_theme';
 
 
 Kirki::add_panel( 'typography_settings', array(
@@ -26,7 +26,7 @@ Kirki::add_section( 'genral_typography_settings', array(
   'priority'       => 1,
 ) );
 
-Kirki::add_field( $config_id, [
+Kirki::add_field( $ideal_config_id, [
 	'type'        => 'typography',
 	'settings'    => 'ideal_body_font_family',
   'label'       => esc_html__( 'Body Font Family', 'ideal' ),
@@ -43,7 +43,11 @@ Kirki::add_field( $config_id, [
 		'text-align'     => '',
 	],
 	'priority'    => 1,
-	'transport'   => 'auto',
+	'output'      => [
+		[
+			'element' => 'body,.article-inner-wrap .id-excerpt p,.article-inner-wrap .uk-card-default,.uk-card-default,p',
+		],
+	],
 ] );
 
 //=============[ section Typography Heading Option]===============
@@ -54,7 +58,7 @@ Kirki::add_section( 'headers_typography_settings', array(
   'priority'       => 2,
 ) );
 
-Kirki::add_field( $config_id, [
+Kirki::add_field( $ideal_config_id, [
 	'type'        => 'typography',
 	'settings'    => 'ideal_h1_family',
 	'label'       => esc_html__( 'Heading 1', 'ideal' ),
@@ -70,10 +74,14 @@ Kirki::add_field( $config_id, [
 		'text-align'     => '',
 	],
 	'priority'    => 1,
-	'transport'   => 'auto',
+	'output'      => [
+		[
+			'element' => 'h1',
+		],
+	],	
 ] );
 
-Kirki::add_field( $config_id, [
+Kirki::add_field( $ideal_config_id, [
 	'type'        => 'typography',
 	'settings'    => 'ideal_h2_family',
 	'label'       => esc_html__( 'Heading 2', 'ideal' ),
@@ -89,10 +97,13 @@ Kirki::add_field( $config_id, [
 		'text-align'     => '',
 	],
 	'priority'    => 2,
-	'transport'   => 'auto',
-] );
+	'output'      => [
+		[
+			'element' => 'h2',
+		],
+	],	] );
 
-Kirki::add_field( $config_id, [
+Kirki::add_field( $ideal_config_id, [
 	'type'        => 'typography',
 	'settings'    => 'ideal_h3_family',
 	'label'       => esc_html__( 'Heading 3', 'ideal' ),
@@ -108,12 +119,15 @@ Kirki::add_field( $config_id, [
 		'text-align'     => '',
 	],
 	'priority'    => 3,
-	'transport'   => 'auto',
-] );
+	'output'      => [
+		[
+			'element' => 'h3',
+		],
+	],	] );
 
 
 
-Kirki::add_field( $config_id, [
+Kirki::add_field( $ideal_config_id, [
 	'type'        => 'typography',
   'settings'    => 'ideal_h4_family',
   'transport'   => 'auto',
@@ -130,11 +144,14 @@ Kirki::add_field( $config_id, [
 		'text-align'     => '',
 	],
 	'priority'    => 4,
-	'transport'   => 'auto',
-] );
+	'output'      => [
+		[
+			'element' => 'h4',
+		],
+	],	] );
 
 
-Kirki::add_field( $config_id, [
+Kirki::add_field( $ideal_config_id, [
 	'type'        => 'typography',
 	'settings'    => 'ideal_h5_family',
 	'label'       => esc_html__( 'Heading 5', 'ideal' ),
@@ -150,10 +167,13 @@ Kirki::add_field( $config_id, [
 		'text-align'     => '',
 	],
 	'priority'    => 5,
-	'transport'   => 'auto',
-] );
+	'output'      => [
+		[
+			'element' => 'h5',
+		],
+	],	] );
 
-Kirki::add_field( $config_id, [
+Kirki::add_field( $ideal_config_id, [
 	'type'        => 'typography',
 	'settings'    => 'ideal_h6_family',
 	'label'       => esc_html__( 'Heading 6', 'ideal' ),
@@ -169,8 +189,11 @@ Kirki::add_field( $config_id, [
 		'text-align'     => '',
 	],
 	'priority'    => 6,
-	'transport'   => 'auto',
-] );
+	'output'      => [
+		[
+			'element' => 'h6',
+		],
+	],	] );
 //==========[ section Responsivetypography Settings ]=============
 Kirki::add_section( 'responsive_typography_settings', array(
   'title'          => esc_html__( 'Headers Responsive', 'ideal' ),
@@ -178,7 +201,7 @@ Kirki::add_section( 'responsive_typography_settings', array(
   'priority'       => 3,
 ) );
 
-Kirki::add_field($config_id, [
+Kirki::add_field($ideal_config_id, [
 	'type'        => 'slider',
 	'settings'    => 'h1-small-desktop-font-size',
 	'label'       => esc_html__('H1 Small Desktop', 'ideal'),
@@ -193,7 +216,7 @@ Kirki::add_field($config_id, [
   'transport'   => 'auto',
 ] );
 
-Kirki::add_field( $config_id , [
+Kirki::add_field( $ideal_config_id , [
 	'type'        => 'slider',
 	'settings'    => 'h1-tablet-font-size',
 	'label'       => esc_html__('H1 Small Desktop', 'ideal'),
@@ -208,7 +231,7 @@ Kirki::add_field( $config_id , [
   'transport'   => 'auto',
 ] );
 
-Kirki::add_field( $config_id , [
+Kirki::add_field( $ideal_config_id , [
 	'type'        => 'slider',
 	'settings'    => 'h1-phone-font-size',
 	'label'       => esc_html__('H1 Phone', 'ideal'),
@@ -223,7 +246,7 @@ Kirki::add_field( $config_id , [
   'transport'   => 'auto',
 ] );
 //-----------------------------------------
-Kirki::add_field( $config_id , [
+Kirki::add_field( $ideal_config_id , [
 	'type'        => 'slider',
 	'settings'    => 'h2-small-desktop-font-size',
 	'label'       => esc_html__('H2 Small Desktop', 'ideal'),
@@ -237,7 +260,7 @@ Kirki::add_field( $config_id , [
   'transport'   => 'auto',
 ] );
 
-Kirki::add_field( $config_id , [
+Kirki::add_field( $ideal_config_id , [
 	'type'        => 'slider',
 	'settings'    => 'h2-tablet-font-size',
 	'label'       => esc_html__('H2 Small Desktop', 'ideal'),
@@ -251,7 +274,7 @@ Kirki::add_field( $config_id , [
   'transport'   => 'auto',
 ] );
 
-Kirki::add_field( $config_id , [
+Kirki::add_field( $ideal_config_id , [
 	'type'        => 'slider',
 	'settings'    => 'h2-phone-font-size',
 	'label'       => esc_html__('H2 Phone', 'ideal'),
@@ -266,7 +289,7 @@ Kirki::add_field( $config_id , [
 ] );
 //-----------------------------------------
 
-Kirki::add_field( $config_id , [
+Kirki::add_field( $ideal_config_id , [
 	'type'        => 'slider',
 	'settings'    => 'h3-small-desktop-font-size',
 	'label'       => esc_html__('h3 Small Desktop', 'ideal'),
@@ -280,7 +303,7 @@ Kirki::add_field( $config_id , [
   'transport'   => 'auto',
 ] );
 
-Kirki::add_field( $config_id , [
+Kirki::add_field( $ideal_config_id , [
 	'type'        => 'slider',
 	'settings'    => 'h3-tablet-font-size',
 	'label'       => esc_html__('h3 Small Desktop', 'ideal'),
@@ -294,7 +317,7 @@ Kirki::add_field( $config_id , [
   'transport'   => 'auto',
 ] );
 
-Kirki::add_field( $config_id , [
+Kirki::add_field( $ideal_config_id , [
 	'type'        => 'slider',
 	'settings'    => 'h3-phone-font-size',
 	'label'       => esc_html__('h3 Phone', 'ideal'),
@@ -309,7 +332,7 @@ Kirki::add_field( $config_id , [
 ] );
 //-----------------------------------------
 
-Kirki::add_field( $config_id , [
+Kirki::add_field( $ideal_config_id , [
 	'type'        => 'slider',
 	'settings'    => 'h4-small-desktop-font-size',
 	'label'       => esc_html__('h4 Small Desktop', 'ideal'),
@@ -323,7 +346,7 @@ Kirki::add_field( $config_id , [
   'transport'   => 'auto',
 ] );
 
-Kirki::add_field( $config_id , [
+Kirki::add_field( $ideal_config_id , [
 	'type'        => 'slider',
 	'settings'    => 'h4-tablet-font-size',
 	'label'       => esc_html__('h4 Small Desktop', 'ideal'),
@@ -337,7 +360,7 @@ Kirki::add_field( $config_id , [
   'transport'   => 'auto',
 ] );
 
-Kirki::add_field( $config_id , [
+Kirki::add_field( $ideal_config_id , [
 	'type'        => 'slider',
 	'settings'    => 'h4-phone-font-size',
 	'label'       => esc_html__('h4 Phone', 'ideal'),
@@ -352,7 +375,7 @@ Kirki::add_field( $config_id , [
 ] );
 //-----------------------------------------
 
-Kirki::add_field( $config_id , [
+Kirki::add_field( $ideal_config_id , [
 	'type'        => 'slider',
 	'settings'    => 'h5-small-desktop-font-size',
 	'label'       => esc_html__('h5 Small Desktop', 'ideal'),
@@ -366,7 +389,7 @@ Kirki::add_field( $config_id , [
   'transport'   => 'auto',
 ] );
 
-Kirki::add_field( $config_id , [
+Kirki::add_field( $ideal_config_id , [
 	'type'        => 'slider',
 	'settings'    => 'h5-tablet-font-size',
 	'label'       => esc_html__('h5 Small Desktop', 'ideal'),
@@ -380,7 +403,7 @@ Kirki::add_field( $config_id , [
   'transport'   => 'auto',
 ] );
 
-Kirki::add_field( $config_id , [
+Kirki::add_field( $ideal_config_id , [
 	'type'        => 'slider',
 	'settings'    => 'h5-phone-font-size',
 	'label'       => esc_html__('h5 Phone', 'ideal'),
@@ -395,7 +418,7 @@ Kirki::add_field( $config_id , [
 ] );
 //-----------------------------------------
 
-Kirki::add_field( $config_id , [
+Kirki::add_field( $ideal_config_id , [
 	'type'        => 'slider',
 	'settings'    => 'h6-small-desktop-font-size',
 	'label'       => esc_html__('h6 Small Desktop', 'ideal'),
@@ -409,7 +432,7 @@ Kirki::add_field( $config_id , [
   'transport'   => 'auto',
 ] );
 
-Kirki::add_field( $config_id , [
+Kirki::add_field( $ideal_config_id , [
 	'type'        => 'slider',
 	'settings'    => 'h6-tablet-font-size',
 	'label'       => esc_html__('h6 Small Desktop', 'ideal'),
@@ -423,7 +446,7 @@ Kirki::add_field( $config_id , [
   'transport'   => 'auto',
 ] );
 
-Kirki::add_field( $config_id , [
+Kirki::add_field( $ideal_config_id , [
 	'type'        => 'slider',
 	'settings'    => 'h6-phone-font-size',
 	'label'       => esc_html__('h6 Phone', 'ideal'),

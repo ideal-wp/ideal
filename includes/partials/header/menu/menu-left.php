@@ -1,4 +1,7 @@
 <?php
+if (!defined('ABSPATH')) {
+  exit;
+}
 get_template_part( '/includes/partials/header/menu/menu', 'serch' );
 
 
@@ -6,7 +9,7 @@ get_template_part( '/includes/partials/header/menu/menu', 'serch' );
     <div class="ideal-Logo">
       <?php get_template_part( '/includes/partials/header/menu/menu', 'logo' );?>
     </div>
-    <div class="uk-visible@s uk-visible@m"><?php do_action('uikit_top_menu'); ?></div>
+    <div class="uk-visible@s uk-visible@m"><?php do_action('ideal_uikit_top_menu'); ?></div>
   </div>
   <div class="uk-navbar-center"></div>
   <div class="uk-navbar-right nav-overlay uk-visible@s uk-visible@m">
@@ -14,9 +17,7 @@ get_template_part( '/includes/partials/header/menu/menu', 'serch' );
       <li>
         <?php do_action('ideal_search_innav'); ?>
       </li>
-      <li>
-        <a href=""><span class="" uk-icon="cart"></span></a>
-      </li>
+      <?php get_template_part('woocommerce/woo-cart-in-nav' ) ;?>
     </ul>
   </div>
   <?php get_template_part( '/includes/partials/header/menu/menu', 'mobile' );?>
