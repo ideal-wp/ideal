@@ -28,11 +28,14 @@ if( class_exists('Kirki')){
   get_template_part( 'includes/admin/framework/kirki/config/panels/panel', 'blog' );
   get_template_part( 'includes/admin/framework/kirki/config/panels/panel', 'hero' );
 
+
+if(ideal_is_woocommerce_activated() == true){
+
   if ($woocommerce) {
     get_template_part( 'includes/admin/framework/kirki/config/panels/panel', 'woocommerce' );
   
   }
-  
+}
 
 
 }

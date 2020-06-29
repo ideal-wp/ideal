@@ -32,12 +32,14 @@ jQuery(document).ready(function($){
 	});
 
 	$( ".more-link" ).focus(function() {
-		$(this).children("span").focus() 
- 
+		$( this ).next("span").focus();
 	});
-
+	
 
 });
+
+
+
 
 ( function() {
 	var is_webkit = navigator.userAgent.toLowerCase().indexOf( 'webkit' ) > -1,
@@ -49,7 +51,7 @@ jQuery(document).ready(function($){
 			var id = location.hash.substring( 1 ),
 				element;
 
-			if ( ! ( /^[A-z0-9_-]+$/.test( id ) ) ) {
+			if ( ! ( /^[A-z0-9_-]+$/.test( id) ) ) {
 				return;
 			}
 

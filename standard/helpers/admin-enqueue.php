@@ -19,9 +19,9 @@ if (!defined('ABSPATH')) {
 function ideal_load_admin_style()
 {
 
-    wp_register_style('ideal_uikit', get_template_directory_uri() . '/includes/admin/assets/css/uikit.css', array(), '3.4.3', 'all');
+    wp_register_style('ideal_uikit', get_template_directory_uri() . '/includes/admin/assets/css/uikit.css', array(), ideal_theme_version(), 'all');
 
-    wp_register_style('ideal_admin_style', get_template_directory_uri() . '/includes/admin/assets/css/style.css', array(), time(), 'all');
+    wp_register_style('ideal_admin_style', get_template_directory_uri() . '/includes/admin/assets/css/ad-style.css', array(),ideal_theme_version(), 'all'); 
 
     wp_register_style('ideal_ad_fontawesome', get_template_directory_uri() . '/assets/fonts/fontawesome/css/all.min.css', array(), ideal_theme_version(), 'all');
 
@@ -44,11 +44,11 @@ add_action('admin_enqueue_scripts', 'ideal_load_admin_style');
 function ideal_load_admin_scripts()
 {
 
-    wp_register_script('ideal_uikit_js', get_template_directory_uri() . '/assets/js/uikit/uikit.min.js', array(), '3.4.3', true);
+    wp_register_script('ideal_uikit_js', get_template_directory_uri() . '/assets/js/uikit/uikit.min.js', array(),ideal_theme_version(), true);
 
-    wp_register_script('ideal_uikit_icon_js', get_template_directory_uri() . '/assets/js/uikit/uikit-icons.min.js', array(), '3.4.3', true);
+    wp_register_script('ideal_uikit_icon_js', get_template_directory_uri() . '/assets/js/uikit/uikit-icons.min.js', array(), ideal_theme_version(), true);
 
-    wp_register_script('ideal_script_js', get_template_directory_uri() . '/includes/admin/assets/js/ideal-script.js', array(), time(), true);
+    wp_register_script('ideal_script_js', get_template_directory_uri() . '/includes/admin/assets/js/ideal-script.js', array(), ideal_theme_version(), true);
 
     wp_register_script('ideal_ad_fontawesome_js', get_template_directory_uri() . '/assets/fonts/fontawesome/js/all.min.js', array(), ideal_theme_version(), true);
 
@@ -83,3 +83,13 @@ function ideal_remove_scripts()
 
 }
 add_action('admin_enqueue_scripts', 'ideal_remove_scripts');
+
+
+if(! class_exists('Ideal_Coar')){
+
+    add_action( 'admin_enqueue_scripts', 'ideal_prefix_admin_scripts' );
+    
+    function ideal_prefix_admin_scripts() {
+        wp_enqueue_script( 'wp-color-picker' );
+    }
+}

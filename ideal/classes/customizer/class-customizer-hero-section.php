@@ -19,7 +19,7 @@ if (class_exists('Ideal_Customizer')) {
     class Ideal_Home_Hero_Section extends Ideal_Customizer
     {  
 
-        protected $opt_mode = 'theme_mod' ;
+         
 
         public function ideal_register_customize_sections($wp_customize)
         {
@@ -33,7 +33,9 @@ if (class_exists('Ideal_Customizer')) {
         }
 
         private function ideal_new_control($wp_customize)
-        {
+        {   
+            $opt_mode = 'theme_mod';
+
             /**
              * Register sections
              * add customizer home hero section
@@ -233,7 +235,7 @@ if (class_exists('Ideal_Customizer')) {
                 'type'       => 'color',
             )));//-------------home hero Button b color--------------
             $wp_customize->add_setting('hero_primary_button_hover_color', array(
-                'default'           => '',
+                'default'           => '#fff',
                 'type'              => $opt_mode,
                 'capability'        => 'edit_theme_options',
                 'sanitize_callback' => array(new Ideal_Customizer_Sanitizes(), 'sanitize_hex_color'),
@@ -268,6 +270,7 @@ if (class_exists('Ideal_Customizer')) {
                 'section'    => 'home_hero_callout_section',
                 'settings'   => 'hero_primary_button_text_h_color',
                 'type'       => 'color',
+                'default'           => '#fff',
             )));//-------------home hero text color--------------
 
 

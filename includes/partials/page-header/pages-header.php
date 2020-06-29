@@ -6,8 +6,11 @@ if (!defined('ABSPATH')) {
 
 $ideal_options = ideal_get_theme_options();
 $ideal_pages_header_titel = esc_html(get_the_title());
-$ideal_pages_header_en = $ideal_options['id-pages-switch-header'];
-
+if(!empty($ideal_options['id-pages-switch-header'])){
+  $ideal_pages_header_en = $ideal_options['id-pages-switch-header'];
+}else{
+$ideal_pages_header_en = false;
+}
 if (is_front_page() || is_home()) {
     return;
 

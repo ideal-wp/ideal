@@ -51,7 +51,7 @@ function ideal_dynamic_sidebar() {
 			)
 		);
 	}
-	
+	if(class_exists('Kirki')){
 	register_sidebar(
 		array(
 			'name'          => 'Off Canvas',
@@ -64,6 +64,6 @@ function ideal_dynamic_sidebar() {
 
     )
   );
-
+	}
 }
 add_action( 'widgets_init', 'ideal_dynamic_sidebar' );

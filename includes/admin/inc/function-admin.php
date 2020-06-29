@@ -31,27 +31,52 @@ $ideal_loder->register();
  */
 require_once IDEAL_THEME_DIRECTORY . '/includes/admin/inc/notices/notices.php';
 
-//=========================================================
+/**
+ * 
+ *  Admin Dynamic JS.
+ * @since v1.0.0
+ */
+require_once IDEAL_THEME_DIRECTORY . '/includes/admin/inc/helpers/js-dynamic.php';
 
+//=========================================================
+add_action('after_switch_theme','ideal_theme_welcome_redirect');
+
+/**
+* Redirect to welcome page when Ideal is activated.
+*
+* @since 1.0.0
+*/
+function ideal_theme_welcome_redirect() {
+  
+  global $pagenow;
+  
+  // Verify that the theme was activated.
+  if ( is_admin() && 'themes.php' === $pagenow && isset( $_GET['activated'] ) ) {
+    
+    // Do not redirect if network activated.
+    if ( is_network_admin() || isset( $_GET['activate-multi'] ) ) {
+      return;
+    }
+    
+    // Redirect.
+    wp_safe_redirect( add_query_arg( array( 'page' => 'ideal-theme-options' ), admin_url( 'themes.php' ) ) );
+    
+  }
+  
+}
 //Create Admin theme Page
 function ideal_theme_page()
 {
-    add_theme_page('Ideal WP Theme Settings', 'Ideal Settings', 'edit_theme_options', 'ideal-theme-options', 'ideal_option_page', 10);
+    add_theme_page('Ideal WP Theme Options', 'Ideal Options', 'edit_theme_options', 'ideal-theme-options', 'ideal_option_page', 10);
 }
 add_action('admin_menu', 'ideal_theme_page');
 
 function ideal_option_page()
 {
 
-    get_template_part('includes/admin/inc/welcome/welcome');
+    get_template_part('includes/admin/inc/theme-page/ideal-options');
 
-    echo 'This is a test theme options page! <br />';
 
-    $ideal_options = ideal_get_theme_options();
-
-    var_dump($ideal_options['minify-dynamic-allow']);
-
-    echo '<br />';
 }
 
 /**
@@ -68,6 +93,7 @@ if (class_exists('Kirki')) {
           <style>
             .kirki-customizer-loading-wrapper {
               background-image: url("<?php echo esc_url(IDEAL_THEME_DIR_URI . '/includes/admin/assets/img/icon/ideal-white.svg'); ?>") !important;
+              background-size: 100px;
             }
           </style>
           <?php
@@ -75,3 +101,5 @@ if (class_exists('Kirki')) {
     }
     add_action('wp_head', 'ideal_add_loader_styles_to_header', 100);
 }
+
+

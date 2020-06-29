@@ -60,6 +60,69 @@ Kirki::add_field( $ideal_config_id, [
 	'priority' => 3,
 ] );
 
+Kirki::add_field( $ideal_config_id, [
+	'type'        => 'color',
+	'settings'    => 'nav_burron_backgroundcolor_setting',
+	'label'       => esc_html__( 'Button Background', 'ideal' ),
+	'section'     => 'menu_settings_options',
+	'default'     => '#000',
+	'priority' => 4,
+	'output'      => [
+		[
+			'element' => '#ideal-nav button',
+			'property'    => 'background-color',
+		],
+	],
+
+] );
+
+Kirki::add_field( $ideal_config_id, [
+	'type'        => 'color',
+	'settings'    => 'nav_button_backgroundcolor_hover_setting',
+	'label'       => esc_html__( 'Button Background On Hover', 'ideal' ),
+	'section'     => 'menu_settings_options',
+	'default'     => '#000',
+	'priority' => 4,
+	'output'      => [
+		[
+			'element' => '#ideal-nav button:hover',
+			'property'    => 'background-color',
+		],
+	],
+
+] );
+
+Kirki::add_field( $ideal_config_id, [
+	'type'        => 'color',
+	'settings'    => 'nav_button_backgroundcolor_text_setting',
+	'label'       => esc_html__( 'Button Text Color', 'ideal' ),
+	'section'     => 'menu_settings_options',
+	'default'     => '#fff',
+	'priority' => 4,
+	'output'      => [
+		[
+			'element' => '#ideal-nav button',
+			'property'    => 'color',
+		],
+	],
+
+] );
+
+Kirki::add_field( $ideal_config_id, [
+	'type'        => 'color',
+	'settings'    => 'nav_button_backgroundcolor_text_hover_setting',
+	'label'       => esc_html__( 'Button Text Color On Hover', 'ideal' ),
+	'section'     => 'menu_settings_options',
+	'default'     => '#fff',
+	'priority' => 4,
+	'output'      => [
+		[
+			'element' => '#ideal-nav button:hover',
+			'property'    => 'color',
+		],
+	],
+
+] );
 
 //==============================[ section Logo ]====================
 

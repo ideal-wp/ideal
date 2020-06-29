@@ -82,7 +82,14 @@ if (  empty($ideal_options['minify-dynamic-allow']) || $ideal_options['minify-dy
  *
  * 
  */
-if (! empty($ideal_options['style-dynamic-load']) && $ideal_options['style-dynamic-load'] == '1' ){
+if(empty($ideal_options['style-dynamic-load'])){
+
+  $ideal_lod_min_css_dynnamic = '1';
+}else{
+  $ideal_lod_min_css_dynnamic = $ideal_options['style-dynamic-load'];
+}
+
+if ($ideal_lod_min_css_dynnamic == '1' ){
 
   function dynamic_css_styles_method() {
 

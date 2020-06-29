@@ -167,7 +167,7 @@ Kirki::add_field( $ideal_config_id, [
 	'type'        => 'code',
 	'settings'    => 'code_html_editor',
 	'label'       => esc_html__('HTML Code', 'ideal'),
-	'description' => esc_html__('Insert custom HTML Code inside head tag if you would like added to the site Head', 'ideal'),
+	'description' => esc_html__('Insert custom HTML Code inside head tag if you would like added to the site Head or wp_head', 'ideal'),
 	'section'     => 'code_insert_control',
 	'default'     => '',
 	'choices'     => [
@@ -180,7 +180,7 @@ Kirki::add_field( $ideal_config_id, [
 	'type'        => 'code',
 	'settings'    => 'code_css_editor',
 	'label'       => esc_html__('CSS Code', 'ideal'),
-	'description' => esc_html__('Insert custom CSS you would like added to the site', 'ideal'),
+	'description' => esc_html__('Insert custom CSS you would like added to the site head', 'ideal'),
 	'section'     => 'code_insert_control',
 	'default'     => '',
 	'choices'     => [
@@ -193,7 +193,7 @@ Kirki::add_field( $ideal_config_id, [
 	'type'        => 'code',
 	'settings'    => 'code_js_editor',
 	'label'       => esc_html__('Js Code', 'ideal'),
-	'description' => esc_html__('Insert custom Js you would like added to the site', 'ideal'),
+	'description' => esc_html__('Insert custom Js you would like added to the site Footer (Insert the code without <script> </script>)', 'ideal'),
 	'section'     => 'code_insert_control',
 	'default'     => '',
 	'choices'     => [

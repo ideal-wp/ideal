@@ -29,14 +29,14 @@ add_action('wp_enqueue_scripts', 'ideal_enqueue_woocommerce_style');
 function ideal_wp_register_enqueue_style()
 {
 
-    wp_register_style('ideal_uikit', get_template_directory_uri() . '/assets/css/uikit/uikit.min.css', ideal_theme_version(), '1.0.0', 'all');
+    wp_register_style('ideal_uikit', get_template_directory_uri() . '/assets/css/uikit/uikit.min.css', ideal_theme_version(), ideal_theme_version(), 'all');
 
-    wp_register_style('ideal_select2', get_template_directory_uri() . '/assets/css/select2/select2.min.css', array(), time(), 'all');
+    wp_register_style('ideal_select2', get_template_directory_uri() . '/assets/css/select2/select2.min.css', array(),ideal_theme_version(), 'all');
     
-    wp_register_style('ideal_select2_bootstrap', get_template_directory_uri() . '/assets/css/select2/select2-bootstrap.min.css', array(), time(), 'all');
+    wp_register_style('ideal_select2_bootstrap', get_template_directory_uri() . '/assets/css/select2/select2-bootstrap.min.css', array(), ideal_theme_version(), 'all');
 
 
-    wp_register_style('ideal_style', get_template_directory_uri() . '/assets/css/style.css', array(), time(), 'all');
+    wp_register_style('ideal_style', get_template_directory_uri() . '/assets/css/ideal-style.css', array(), ideal_theme_version(), 'all');
 
     wp_enqueue_style('ideal_uikit');
     wp_style_add_data('ideal_uikit', 'rtl', 'replace');
@@ -65,7 +65,7 @@ function ideal_fonts_register_enqueue_style()
 {
     wp_register_style('ideal_fontawesome', get_template_directory_uri() . '/assets/fonts/fontawesome/css/all.min.css', array(), ideal_theme_version(), 'all');
 
-    wp_register_style('ideal-google-raleway', get_template_directory_uri() . '/assets/fonts/Raleway/Raleway-style/style.css', array(),ideal_theme_version(), 'all');
+    wp_register_style('ideal-google-raleway', get_template_directory_uri() . '/assets/fonts/Raleway/Raleway-style/raleway-style.css', array(),ideal_theme_version(), 'all');
 
     wp_enqueue_style('ideal_fontawesome');
     wp_enqueue_style('ideal-google-raleway');
@@ -75,7 +75,7 @@ function ideal_fonts_register_enqueue_style()
 
 function ideal_enqueue_woocommerce_style()
 {
-    wp_register_style('ideal_woocommerce', get_template_directory_uri() . '/assets/css/WooCommerce.css', array(), time(), 'all');
+    wp_register_style('ideal_woocommerce', get_template_directory_uri() . '/assets/css/WooCommerce.css', array(), ideal_theme_version(), 'all');
 
    
     wp_enqueue_style('ideal_woocommerce');

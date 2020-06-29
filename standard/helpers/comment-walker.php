@@ -13,23 +13,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-// Enqueue js comment-reply
-if (!function_exists('ideal_theme_comment_replay_scripts')) {
 
-    function ideal_theme_comment_replay_scripts()
-    {
-
-        if (!is_admin()) {
-
-            if (is_singular() && get_option('thread_comments')) {
-
-                wp_enqueue_script('comment-reply');
-
-            }
-        }
-    }
-}
-add_action('wp_enqueue_scripts', 'ideal_theme_comment_replay_scripts');
 
 // Custom Callback
 
@@ -96,3 +80,4 @@ if (!function_exists('ideal_comment_open')) {
         endif;
     }
 }
+

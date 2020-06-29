@@ -61,7 +61,7 @@ echo '
 #ideal-nav.uk-navbar-container:not(.uk-navbar-transparent){
     background: '.  $ideal_options['header-m-b-color'] .';
 }':"") .'
-'.(!empty( $ideal_options['transparent-header'] && $ideal_options['transparent-header'] == true)? '
+'.(! empty( $ideal_options['transparent-header'] ) && $ideal_options['transparent-header'] == true ? '
 .header-hero{
 	margin-top:-'.  $ideal_header_height .';
 }':"") .'
@@ -136,11 +136,11 @@ echo'
 /*-=========================[ ---hero---- ]=====================-*/
 
 if(!empty($ideal_options['hero_overlay_color'])){
-    $hero_overlay_background = $ideal_options['hero_overlay_color']; 
-   echo' #hero-section{box-shadow: inset 0 0 0 100vw '.esc_html($hero_overlay_background ).';}';
+    
+   echo' #hero-section{box-shadow: inset 0 0 0 100vw '.esc_html($ideal_options['hero_overlay_color']).';}';
 }
 echo'
-#hero-section{
+#hero-section{ 
     ' . (!empty($ideal_options['hero_section_background_setting']['background-color']) ? '
     background:' . $ideal_options['hero_section_background_setting']['background-color'] . ';' : "") . '
     ' . (!empty($ideal_options['hero_section_background_setting']['background-image']) ? '

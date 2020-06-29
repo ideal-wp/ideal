@@ -5,21 +5,25 @@ if (!defined('ABSPATH')) {
 }
 
 $ideal_options = ideal_get_theme_options();
-$ideal_get_hero_en = $ideal_options['hero_select_en'];
 $ideal_en_hero_theme = get_theme_mod('ideal_hero_select_en');
-
-
-$ideal_blog_hero_select_en = $ideal_options['blog_hero_en'];
-$ideal_fornt_hero_select_en = $ideal_options['fornt_hero_select_en'];
-
 $ideal_en_hero = null;
 
-
-if(empty($ideal_blog_hero_select_en)){
-    $ideal_blog_hero_select_en = false;
+if(! empty($ideal_options['blog_hero_en'])){
+    $ideal_blog_hero_select_en = $ideal_options['blog_hero_en'];
+}else{
+    $ideal_blog_hero_select_en = false;   
 }
-if(empty($ideal_fornt_hero_select_en)){
-    $ideal_fornt_hero_select_en= false;
+
+
+if(! empty($ideal_options['hero_select_en'])){
+     $ideal_get_hero_en = $ideal_options['hero_select_en'];
+}else{
+    $ideal_blog_hero_select_en = false;  
+}
+if(! empty($ideal_options['fornt_hero_select_en'])){
+     $ideal_fornt_hero_select_en = $ideal_options['fornt_hero_select_en'];
+}else{
+    $ideal_fornt_hero_select_en= false; 
 }
 if (!empty($ideal_en_hero_theme) && $ideal_en_hero_theme == 'Yes') {
     $ideal_en_hero = true;
@@ -55,9 +59,7 @@ if (!function_exists('ideal_home_hero_section')) {
 
                 get_template_part('includes/partials/home-hero-section/herro-section');
             }
-        } 
-        //check if is the front Blog home so add hero section
-        if (is_home() &&  $ideal_en_hero == false && $ideal_blog_hero_select_en == false) {
+        }elseif (is_home() &&  $ideal_en_hero == false && $ideal_blog_hero_select_en == false) {
 
                 get_template_part('includes/partials/home-hero-section/herro-section');
             

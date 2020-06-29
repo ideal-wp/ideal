@@ -210,11 +210,11 @@ background-attachment:' . $ideal_options['s-post-header-bg']['background-attachm
   ' : "}") . '
   ';
 }
-if (!empty($ideal_options['id-archives-switch-header']) && $ideal_options['id-archives-switch-header'] == true) {
-    echo '
+
+   
 
 
-#archives-page-header{
+echo '#archives-page-header{
  ' . (!empty($ideal_options['archives-header-bg']['background-color']) ? '
 background:' . $ideal_options['archives-header-bg']['background-color'] . ';' : "") . '
 ' . (!empty($ideal_options['archives-header-bg']['background-image']) ? '
@@ -223,9 +223,9 @@ background-repeat:' . $ideal_options['archives-header-bg']['background-repeat'] 
 background-position:' . $ideal_options['archives-header-bg']['background-position'] . ';
 background-size:' . $ideal_options['archives-header-bg']['background-size'] . ';
 background-attachment:' . $ideal_options['archives-header-bg']['background-attachment'] . ';
-}' : "}") . '
+}' : "}") . ' 
 ';
-}
+
 
 /*-------------------------------------------------------------------------
 #                                    forms                                #

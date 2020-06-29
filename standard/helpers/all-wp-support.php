@@ -93,10 +93,11 @@ if (!function_exists('ideal_theme_excerpt_more') && !is_admin()):
     function ideal_theme_excerpt_more($more)
 {
 
-        $link = sprintf('<a href="%1$s" class="more-link">%2$s</a>',
+        $link = sprintf('<a href="%1$s" id="more-link" class="more-link">%2$s</a>%3$s',
             esc_url(get_permalink(get_the_ID())),
             /* translators: %s: Name of current post */
-            sprintf(__('Continue reading %s', 'ideal'), '<span class="screen-reader-text">' . get_the_title(get_the_ID()) . '</span>')
+            sprintf(__('Continue reading ', 'ideal'), '<span class="screen-reader-text">' . get_the_title(get_the_ID()) . '</span>'),
+            sprintf('<span class="screen-reader-text">' . get_the_title(get_the_ID()) . '</span>')
         );
         return ' &hellip; ' . $link;
 
@@ -213,3 +214,41 @@ function ideal_box_athour_single_post()
 ';
 
 }
+/**
+ * 
+ * 
+ * @hooked in WP_hed CSS out pout
+ * @hooked in wp_footer Js out pout
+ *@since 1.0.0
+ * 
+ */
+
+add_action('wp_head', 'ideal_output_options_hook_code');
+add_action('wp_head', 'ideal_output_options_hook_code_in_footer');
+
+function ideal_output_options_hook_code() {
+
+    $ideal_options = ideal_get_theme_options();
+
+    if(! empty($ideal_options['code_html_editor']) ){ 
+
+        echo $ideal_options['code_html_editor']; 
+    }
+
+    if(! empty($ideal_options['code_css_editor']) ){ 
+
+        echo '<style type="text/css">'.$ideal_options['code_css_editor'].'</style>'; 
+    }
+
+}
+
+
+function ideal_output_options_hook_code_in_footer() {
+    $ideal_options = ideal_get_theme_options();
+
+    if(! empty($ideal_options['code_js_editor']) ){
+
+        echo'<script type= "text/javascript">'. $ideal_options['code_js_editor'].'</script>';
+     }
+}
+

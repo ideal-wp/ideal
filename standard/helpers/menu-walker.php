@@ -553,12 +553,12 @@
 	/**
 		* Offcanvas menu
 	*/
-	function uikit_offcanvas_menu() { ?>
+	function ideal_uikit_offcanvas_menu() { ?>
 			<?php 
 				wp_nav_menu( array(
 				'menu'              => 'mobile-menu',
 				'theme_location'    => 'mobile-menu',
-				'depth'             => 3,
+				'depth'             => 4,
 				'container'         => 'ul',
 				'items_wrap'        => '<ul id="%1$s" class="%2$s" uk-nav>%3$s</ul>',
 				'menu_class'        => 'uk-nav uk-nav-default uk-nav-parent-icon',
@@ -570,46 +570,33 @@
 	
 	
 	<?php }
-	add_action( 'uikit_offcanvas_menu', 'uikit_offcanvas_menu' );
+	add_action( 'ideal_uikit_offcanvas_menu', 'ideal_uikit_offcanvas_menu' );
 	
 	
 	/**
 		* Offcanvas menu
 	*/
-	function uikit_modal_menu() { ?>
-	<div id="modal-full" class="uk-modal-full" uk-modal>
-		<div class="uk-modal-dialog">
-			<button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
-			<div class="uk-grid-collapse" uk-grid>
-				<div uk-height-viewport></div>
-				<div class="uk-container uk-width-7-10 uk-text-center">
-					<div class="uk-section-large">
+	function ideal_uikit_modal_menu() { ?>
+	
 						<?php if ( has_nav_menu( 'modal-menu' ) ) : ?>
-						<h3><?php _e('Menu', 'ideal'); ?></h3>
+						<h3><?php echo esc_html__('Menu', 'ideal'); ?></h3>
 						<?php 
 							wp_nav_menu( array(
 							'menu'              => 'modal-menu',
 							'theme_location'    => 'modal-menu',
-							'depth'             => 3,
+							'depth'             => 4,
 							'container'         => 'ul',
 							'items_wrap'        => '<ul id="%1$s" class="%2$s" uk-nav>%3$s</ul>',
-							'menu_class'        => 'uk-text-large uk-text-bold uk-nav uk-navbar-dropdown-nav',
+							'menu_class'        => 'uk-text-large uk-text-bold uk-nav uk-navbar-dropdown-nav uk-nav uk-nav-default',
 							'fallback_cb'       => 'Ideal_Uikit_Offcanvas_W_Menu::fallback',
 							'walker'            => new Ideal_Uikit_Offcanvas_W_Menu()
 						)); ?>
-						<?php endif; ?>  
+						<?php endif; 
 						
-					</div>	
-				</div>
-			</div>
-		</div>
-	</div>
+	}
+	add_action( 'ideal_uikit_modal_menu', 'ideal_uikit_modal_menu' );
 	
-
-	<?php }
-	add_action( 'uikit_modal_menu', 'uikit_modal_menu' );
-	
-	/**
+	/** 
 		* Top menu
 	*/
 	function ideal_uikit_top_menu() { ?>	 

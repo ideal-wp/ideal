@@ -13,6 +13,12 @@ if (!defined('ABSPATH')) {
     exit;
 }
 /**
+ * Check if WooCommerce is activated
+ */
+if(ideal_is_woocommerce_activated() == false){
+return;
+}
+/**
  *
  * Add theme Support Woocommerce
  *
@@ -77,8 +83,8 @@ remove_action('woocommerce_after_main_content', 'woocommerce_output_content_wrap
 
 
 if ($woocommerce) {
-    add_action('wp', 'ideal_woo_shop_customize_mark');
 
+    add_action('wp', 'ideal_woo_shop_customize_mark');
 }
 
 function ideal_woo_shop_customize_mark()

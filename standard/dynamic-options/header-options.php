@@ -1,10 +1,10 @@
 <?php
 /**
  *
- *  Ideal hooks Actions.
+ *  Ideal Header Dynamic Options.
  *
  * @package Ideal Theme
- * @subpackage header Options and functions
+ * @subpackage Standrad/Dynamic
  * @since V1.0.0
  * @version 1.0.0
  */
@@ -18,6 +18,12 @@ $ideal_options = ideal_get_theme_options();
 global $ideal_transparent_header,$ideal_select_header_mod;
 $ideal_transparent_header = null;
 $ideal_is_transparent_header = get_post_meta(get_the_ID(), 'is_header_trans', true);
+ 
+if(ideal_is_woocommerce_activated() == true){
+if( is_woocommerce() && is_product() || is_cart() || is_checkout() || is_account_page()){
+    $ideal_is_transparent_header = 'off';
+}
+}
 
 if (!empty($ideal_options['transparent-header'])) {
     $ideal_transparent_header = $ideal_options['transparent-header'];

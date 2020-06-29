@@ -4,6 +4,12 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+if ( ! function_exists( 'ideal_is_woocommerce_activated' ) ) {
+	function ideal_is_woocommerce_activated() {
+		if ( class_exists( 'woocommerce' ) ) { return true; } else { return false; }
+	}
+}
+
 /**
  * add the hero section control.
  *@since v 1.0.0
@@ -54,3 +60,4 @@ function ideal_get_theme_options()
 
 $ideal_options      = ideal_get_theme_options();
 $ideal_get_template_directory_uri = get_template_directory_uri();
+

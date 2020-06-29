@@ -143,7 +143,16 @@ Kirki::add_field( $ideal_config_id, [
 		'text-align'     => '',
 	],
 	'priority'    => 8,
-	'transport'   => 'auto',
+	'output'      => [
+		[
+			'element' => '.entry-title',
+		
+		],
+	],
+
+
+
+
 ] );
 //===========[ section Archives Page Header Settings ]=============
 Kirki::add_section( 'archives_header_settings', array(

@@ -68,6 +68,28 @@ Kirki::add_field( $ideal_config_id, [
 		'background-size'       => 'cover',
 		'background-attachment' => 'scroll',
   ],
+	'output'      => [
+		[
+			'element' => '#hero-section',
+			'property'    => 'background-color',
+		],
+	],
+] ); 
 
-	
+Kirki::add_field( $ideal_config_id, [
+	'type'        => 'dimensions',
+	'settings'    => 'dimensions_hero_padding_top_bottom',
+	'label'       => esc_html__( 'Adjust Height with Padding Top & Bottom For Hero Section', 'ideal' ),
+	'section'     => 'home_hero_callout_section',
+	'default'     => [
+		'padding-top'    => '70px',
+		'padding-bottom' => '70px',
+	],
+	'priority'    => 6,
+	'output'      => [
+		[
+			'element' => '#hero-section',
+		],
+	],
+
 ] );

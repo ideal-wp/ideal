@@ -2,9 +2,14 @@
 if (!defined('ABSPATH')) {
   exit;
 }
+if(ideal_is_woocommerce_activated() == false){
+  return;
+}
+
   global $woocommerce;
   $count = $woocommerce->cart->cart_contents_count; 
-  ?>
+  if( $woocommerce ) {
+?>
 <li>
   <a class="cart-countss-nav" href="<?php echo wc_get_cart_url(); ?>"> <span class="" uk-icon="cart"></span>
     <span class="cart-count-nav"> <?php echo esc_html( $woocommerce->cart->cart_contents_count ); ?></span>
@@ -20,3 +25,5 @@ if (!defined('ABSPATH')) {
 ?>
   </div>
 </li>
+<?php
+}

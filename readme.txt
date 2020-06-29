@@ -1,10 +1,11 @@
 === ideal ===
+Contributors : mohamedtaman
+Tested up to: 5.4.2
+Requires at least : 4.0
+Requires PHP: 7.0
+Stable tag: 5.4.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
-Tags: rtl-language-support, blog, e-commerce
-Tested up to: 5.4.2
-Requires PHP: 7
-Stable tag: 5.4.2
 
 Ideal is a fast, fully customization & beautiful WordPress theme suitable for blog, business website.
 
@@ -33,11 +34,11 @@ It offers special features and templates so it works perfectly with all page bui
 
 = Is there theme documentation? =
 
-Yes, go here:  
+Yes, go here: https://ideal.mtaman.me/docs/  
 
 = Is there demo content available? =
 
-Yes, go here:  
+Yes, go here: https://ideal.mtaman.me 
 
 = Is there a free support form for this theme? =
 
@@ -115,4 +116,11 @@ Licensed under GPL-2.0 (https://www.gnu.org/licenses/gpl-2.0.html)
 Basic PSR-4 autoloader for themes.
 https://github.com/WPTT/autoload
 Licensed under GPL-2.0 (https://www.gnu.org/licenses/gpl-2.0.html)
+###
+
+###
+= 404 - img =
+Free photo of Horizon Sun
+stocksnap https://stocksnap.io/photo/horizon-sun-KOR3PHALPR
+Licensed under CC0 License (https://stocksnap.io/license)
 ###

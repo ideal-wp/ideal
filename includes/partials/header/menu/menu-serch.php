@@ -9,8 +9,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 $ideal_options = ideal_get_theme_options();
+
+if(!empty($ideal_options['search-icon-nav'])){
+  $ideal_search_icon_nav = $ideal_options['search-icon-nav'];
+}elseif(!class_exists('Kirki')){
+  $ideal_search_icon_nav = true;
+}elseif(empty($ideal_options['search-icon-nav'])){
+  $ideal_search_icon_nav = true;
+}
+
 // if Enable Search icon in Navbar
-if( !empty( $ideal_options['search-icon-nav'] ) && $ideal_options['search-icon-nav'] == '1'){
+if( $ideal_search_icon_nav == true){
   add_action('ideal_search_innav' ,'ideal_nav_serch',1 );
 }
 /**
@@ -23,12 +32,21 @@ if( !empty( $ideal_options['search-icon-nav'] ) && $ideal_options['search-icon-n
  * 3- dropdown
  * 
  */
+global $ideal_search_mode_nav;
+if(!empty($ideal_options['shearch-nav-mod'])){
+  $ideal_search_mode_nav = $ideal_options['shearch-nav-mod'];
+}elseif(!class_exists('Kirki')){
+  $ideal_search_mode_nav = 'overlay';
+}
+
 function ideal_nav_serch(){
   
-  global $search_f;
+  global $search_f,$ideal_search_mode_nav;
   global $ideal_options;
+
   
-  if( !empty($ideal_options['shearch-nav-mod']) && $ideal_options['shearch-nav-mod'] == 'overlay'){ //1- overlay icon
+  
+  if( $ideal_search_mode_nav == 'overlay'){ //1- overlay icon
     echo '
       <a class="uk-navbar-toggle"  uk-toggle="target: .nav-overlay; animation: uk-animation-fade" href="#" uk-icon="icon:search; ratio: 1.1"></a>
     ';
@@ -42,11 +60,11 @@ function ideal_nav_serch(){
     // if 3- dropdown add icon + form
     echo'
     <a class="uk-navbar-toggle" href="#" uk-search-icon></a>
-    <div class="uk-navbar-dropdown" uk-drop="mode: click; cls-drop: uk-navbar-dropdown; boundary: !nav">
+    <div class="ideal-nav-serch-drop uk-navbar-dropdown" uk-drop="mode: click; cls-drop: uk-navbar-dropdown; boundary: !nav">
       <div class="uk-grid-small uk-flex-middle" uk-grid>
         <div class="uk-width-expand">
           <form  role="search" method="get"  class="search-form uk-search uk-search-navbar uk-width-1-1" id="ideal-serch-f" action="'. esc_url(home_url( '/' )) .'">
-            <input class="uk-search-input" type="search" placeholder="'. esc_attr_e('Search','ideal').'" value="" name="s"
+            <input class="uk-search-input" type="search" placeholder="'.  esc_attr__('Search','ideal').'" value="" name="s"
               autofocus>
           </form>
         </div>
@@ -61,7 +79,8 @@ function ideal_nav_serch(){
 
 } 
 
-if( !empty($ideal_options['shearch-nav-mod']) && $ideal_options['shearch-nav-mod'] == 'overlay'){//if 1- overlay add form
+
+if( $ideal_search_mode_nav == 'overlay'){//if 1- overlay add form
 ?>
 <div class="nav-overlay uk-navbar-left uk-flex-1" hidden>
   <div class="uk-navbar-item uk-width-expand">

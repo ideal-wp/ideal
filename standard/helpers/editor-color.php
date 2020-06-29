@@ -3,7 +3,9 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-
+if(!class_exists('Kirki')){
+  return;
+}
 
 $ideal_options              = ideal_get_theme_options();
 $ideal_gradient_prim_from   = null;

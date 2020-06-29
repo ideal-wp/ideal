@@ -475,21 +475,7 @@ echo '
 ';
 /*-=========================[ Page Header ]=====================-*/
 echo '
-.entry-title{' . (!empty($ideal_options['blog-header-font']['color']) ? '
-  color:' . $ideal_options['blog-header-font']['color'] . ';' : null) . '
-  font-family:' . $ideal_options['blog-header-font']['font-family'] . ';
-  font-size: ' . $ideal_options['blog-header-font']['font-size'] . ';
-  line-height:' . $ideal_options['blog-header-font']['line-height'] . ';
-  ' . (!empty($ideal_options['blog-header-font']['letter-spacing']) ? '
-  letter-spacing:' . $ideal_options['blog-header-font']['letter-spacing'] . ';' : null) . '
-  ' . (!empty($ideal_options['blog-header-font']['text-align']) ? '
-  text-align:' . $ideal_options['blog-header-font']['text-align'] . ';' : null) . '
-  ' . (!empty($ideal_options['blog-header-font']['text-transform']) ? '
-  text-transform:' . $ideal_options['blog-header-font']['text-transform'] . ';' : null) . '
-  font-weight:' . $ideal_options['blog-header-font']['font-weight'] . ';
-  ' . (!empty($ideal_options['blog-header-font']['word-spacing']) ? '
-  word-spacing:' . $ideal_options['blog-header-font']['word-spacing'] . ';' : null) . '
-}
+
 ' . (!empty($ideal_options['header-text-color']) ? '
 .id-bh-inner-wrap{
   
